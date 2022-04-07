@@ -1,6 +1,7 @@
 :root{
     --background: #FBFCFF;
     --black: #0D114F;
+    --white: #fff;
 
     --light-purple: #8462CA;
     --dark-purple: #653EB5;
@@ -38,6 +39,9 @@ html{
 body, button, textarea, input{
     font-size: clamp(14px, 1.6rem, 2vw);
     font-family: 'Roboto', sans-serif;
+}
+button{
+    border: 0;
 }
 
 /* --- default */

@@ -1,0 +1,168 @@
+.container-product{
+    margin-top: 5.1rem;
+    display: flex;
+    gap: 5rem;
+}
+.container-product > img{
+    width: 67rem;
+    border: 0.1rem solid var(--dark-purple);
+}
+.container-product .sell-info{
+    border: 0.1rem solid var(--dark-purple);
+    padding: 3.5rem;
+}
+.sell-info h1{
+    font-weight: 400;
+    font-size: 4rem;
+    margin: 0 auto;
+
+    margin-bottom: 2rem;
+}
+.sell-info > p{
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: var(--light-blue);
+}
+.sell-info .method-card{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-bottom: 1.6rem;
+}
+.method-card span {
+    font-size: 1.4rem;
+    font-family: 300;
+}
+
+.select-color{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.container-product .select-color p,
+.container-product .select-size p{
+    font-weight: 100;
+    font-size: 1.4rem;
+}
+.container-product .select-buttons{
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+.container-product .select-buttons button{
+    width: 9rem;
+    height: 3.7rem; 
+
+    color: var(--dark-purple);
+    background: var(--white);
+    border: 1px solid var(--dark-purple);
+    
+    font-weight: 100;
+
+    cursor: pointer;
+
+    border-radius: 0.5rem;
+}
+.container-product .select-buttons button.selected{
+    background: var(--dark-purple);
+    color: var(--white);
+}
+
+.container-product .select-quantity{
+    margin-top: 2rem;
+}
+.select-quantity p.quantity{
+    font-weight: 300;
+    font-size: 1.8rem;
+    
+    margin-bottom: 2.7rem;
+}
+
+.select-quantity p{
+    font-weight: 100;
+    font-size: 1.4rem;
+    
+}
+
+.quantity-button{
+    width: 16rem;
+    height: 5rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0;
+
+    border: 1px solid var(--dark-purple);
+}
+
+.select-quantity .quantity-button button{
+    width: 5rem;
+    height: 4rem;
+
+    background-color: var(--white);
+    color: var(--dark-purple);
+
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+.select-quantity .quantity-button input[type="number"]{
+    width: 6rem;
+    height: 5rem;
+    
+    text-align: center;
+    outline: var(--dark-purple);
+
+    border: 1px solid var(--dark-purple);
+    
+}
+
+.quantity-button input[type="number"]::-webkit-outer-spin-button,
+.quantity-button input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.shop-infos{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+}
+.shop-infos .delivery img{
+    width: 2.6rem;
+}
+
+.shop-infos p{
+    color: var(--light-blue);
+}
+
+.shop-infos span{
+    color: var(--black);
+    padding: 0 .7rem;
+}
+
+.sell-info .send-button input[type="submit"]{
+    width: 33rem;
+    height: 5rem;
+    border-radius: .5rem;
+
+    background-color: var(--dark-purple);
+    color: var(--white);
+}
+.send-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+
+    margin-top: 4.5rem;
+}
