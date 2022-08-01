@@ -1,3 +1,5 @@
+
+/* COLORS */
 :root{
     --background: #FBFCFF;
     --black: #0D114F;
@@ -16,6 +18,15 @@
     --green: #50A74D;
 }
 
+/* FONTS && TYPOGRAPHIC */
+:root{
+--body-font: "Poppins", sans-serif;
+--h2-font-size: 2rem;
+--big-font-size: 1.8rem;
+--normal-font-size: 1.6rem;
+--medium-font-size: 1.4rem;
+--small-font-size: 1.2rem;
+}
 
 
 *{
@@ -38,10 +49,38 @@ html{
 
 body, button, textarea, input{
     font-size: clamp(14px, 1.6rem, 2vw);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 button{
     border: 0;
+    cursor: pointer;
+}
+main{
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+a:active, a:visited{
+    color: var(--white);
+}
+
+
+/* Buttons && titles*/
+.btn-outlined{
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    border-radius: 5px;
+    color: var(--light-blue);
+    transition: 0.2s
+ }
+ .btn-outlined:hover{
+     filter: contrast(200%)
+  }
+.section-title{
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    line-height: 0;
 }
 
 /* --- default */
@@ -61,6 +100,11 @@ button{
     border-width: 0;
 }
 
+/* SVG COLORS */
+
+.material-icons.dark-gray{color: var(--dark-gray)}
+.material-icons.dark-purple{color: var(--dark-purple)}
+
 /* ----- header */
 
 header {
@@ -74,8 +118,13 @@ header {
 
     border-bottom: 6px solid var(--dark-purple);
 
-    padding: 2.8rem 12rem 1.1rem 12rem;
+    padding: 2.8rem 20rem 1.1rem 20rem;
 }
+.align-header{
+    width: 1600px;
+    height: 100%;   
+}
+
  /* ---------- top-header */
 
  
@@ -88,7 +137,7 @@ header {
     }
     
 .top-header > a > img {
-    width: 26.0rem;
+    width: 20rem;
 }
 
 .top-header .search{
@@ -116,7 +165,7 @@ header {
     height: 100%;
     width: 100%;
     font-weight: 100;
-    font-size: 1.8rem;
+    font-size: var(--normal-font-size);
 
     outline: transparent;
     margin-bottom: 0.3rem;
@@ -135,7 +184,7 @@ header {
 }
 
 .top-header .features img{
-    height: 4rem;
+    height: 3rem;
     margin-bottom: 0.8rem;
 }
 
@@ -149,7 +198,7 @@ header {
 
     color: var(--black);
     font-weight: 100;
-    text-transform: uppercase;
+    font-size: var(--normal-font-size);
 
     border-bottom: 1px solid var(--light-purple);
 }
@@ -176,15 +225,19 @@ header .bottom-header ul > li{
 
 header .bottom-header li a{
     color: var(--black);
-    font-size: 2.1rem;
+    font-size: var(--normal-font-size);
+    text-transform: uppercase;
 
-    font-weight: 300;
+    font-weight: 400;
+    font-size: var(--normal-font-size);
 
     margin-bottom: 0.8rem;
 }
 
 /* ------- header space  */
 
+
+/* footer space */
 main{
     padding-top: 16.4rem;
 }
@@ -193,10 +246,13 @@ footer{
     margin-top: 3.1rem;
     background: var(--dark-purple);
     padding: 4.2rem;
-
+    position:sticky;
+    top: 100%;
+    width: 100%;
 }
 footer p{
     text-align: center;
     color: white;
     text-transform: uppercase;
+    font-size: var(--small-font-size);
 }
