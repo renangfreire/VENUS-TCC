@@ -1,0 +1,258 @@
+
+/* COLORS */
+:root{
+    --background: #FBFCFF;
+    --black: #0D114F;
+    --white: #fff;
+
+    --light-purple: #8462CA;
+    --dark-purple: #653EB5;
+
+    --light-blue: #5F68FF;
+    --dark-blue: #1D29F8;
+
+    --light-gray: #9E9D9D;
+    --dark-gray: #717171;
+    --outlined-color: #EDEDFF;
+
+    --green: #50A74D;
+}
+
+/* FONTS && TYPOGRAPHIC */
+:root{
+--body-font: "Poppins", sans-serif;
+--h2-font-size: 2rem;
+--big-font-size: 1.8rem;
+--normal-font-size: 1.6rem;
+--medium-font-size: 1.4rem;
+--small-font-size: 1.2rem;
+}
+
+
+*{
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--background);
+    color: var(--black);
+}
+
+html{
+    /* 1rem = 16px (User Agent) -- 16px = 100% | 62.5 = 10px */
+    font-size: 62.5%;
+}
+
+body, button, textarea, input{
+    font-size: clamp(14px, 1.6rem, 2vw);
+    font-family: 'Poppins', sans-serif;
+}
+button{
+    border: 0;
+    cursor: pointer;
+}
+main{
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+a:active, a:visited{
+    color: var(--white);
+}
+
+
+/* Buttons && titles*/
+.btn-outlined{
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    border-radius: 5px;
+    color: var(--light-blue);
+    transition: 0.2s
+ }
+ .btn-outlined:hover{
+     filter: contrast(200%)
+  }
+.section-title{
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+/* --- default */
+.content{
+    width: 120rem;
+    margin: 0 auto;
+}
+.sr-only{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* SVG COLORS */
+
+.material-icons.dark-gray{color: var(--dark-gray)}
+.material-icons.dark-purple{color: var(--dark-purple)}
+
+/* ----- header */
+
+header {
+    width: 100%;
+    background: var(--background);
+    position: fixed; 
+
+    display: grid;
+    grid-template-rows: 8.2rem 1fr;
+    grid-template-areas:  'top-header top-header' 'bottom-header bottom-header'    ;
+
+    border-bottom: 6px solid var(--dark-purple);
+
+    padding: 2.8rem 20rem 1.1rem 20rem;
+}
+.align-header{
+    width: 1600px;
+    height: 100%;   
+}
+
+ /* ---------- top-header */
+
+ 
+ header .top-header{
+     grid-area: top-header;
+     
+     display: flex;
+     justify-content: space-between;
+
+    }
+    
+.top-header > a > img {
+    width: 20rem;
+}
+
+.top-header .search{
+    width: 45.3rem;
+    display: flex;
+    align-items: center;
+
+}
+.top-header .search img {
+    height: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+.top-header .search div{ 
+    width:100%;
+}
+.top-header .search div form{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    border-bottom: .1rem solid var(--light-purple)
+}
+
+.top-header .search input {
+    height: 100%;
+    width: 100%;
+    font-weight: 100;
+    font-size: var(--normal-font-size);
+
+    outline: transparent;
+    margin-bottom: 0.3rem;
+}
+.top-header .search input::placeholder{
+    color: var(--dark-gray);
+    font-weight: 100;
+}
+
+.top-header .features{
+    display: flex;
+    align-items: center;
+
+    gap:5.7rem;
+
+}
+
+.top-header .features img{
+    height: 3rem;
+    margin-bottom: 0.8rem;
+}
+
+.top-header .features a{
+    display: inline-block;
+    text-align: center;
+}
+
+.top-header .features p{
+    /* line-height: 0.7;; */
+
+    color: var(--black);
+    font-weight: 100;
+    font-size: var(--normal-font-size);
+
+    border-bottom: 1px solid var(--light-purple);
+}
+
+    
+/* ---------- bottom-header */
+
+header .bottom-header{
+    grid-area: bottom-header;
+
+    margin-top: 3.3rem;
+}
+
+header .bottom-header ul{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5.3rem;
+}
+
+header .bottom-header ul > li{
+    list-style-type: none;
+}
+
+header .bottom-header li a{
+    color: var(--black);
+    font-size: var(--normal-font-size);
+    text-transform: uppercase;
+
+    font-weight: 400;
+    font-size: var(--normal-font-size);
+
+    margin-bottom: 0.8rem;
+}
+
+/* ------- header space  */
+
+
+/* footer space */
+main{
+    padding-top: 16.4rem;
+}
+
+footer{
+    margin-top: 3.1rem;
+    background: var(--dark-purple);
+    padding: 4.2rem;
+    position:sticky;
+    top: 100%;
+    width: 100%;
+}
+footer p{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: var(--small-font-size);
+}

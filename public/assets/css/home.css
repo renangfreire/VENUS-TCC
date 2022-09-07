@@ -1,0 +1,130 @@
+/* --------- ad-box  */
+
+main .ad-container{
+    width: 80.0rem;
+    margin: 3.0rem auto;
+
+}
+main .ad-container img{
+    width: 100%;
+}
+
+/* --- products-container  */
+
+.products-container {
+    width: 90%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 3.3rem;
+}
+.products-container .product-box{
+    width: 32rem;
+    height: 44rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius:2rem;
+    overflow: hidden;
+    transition: .5s;
+    
+    cursor: pointer;
+}
+.products-container .product-box .imgBx{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;    
+}
+.products-container .product-box .imgBx img {
+    max-width: 90%;
+    transition: .5s;
+}
+.product-box:hover .imgBx img {
+    max-width: 75%;
+}
+.products-container .product-box h3{
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.3;
+    padding: 1rem 0.4rem 0 0.4rem;
+    text-align: center;
+
+    font-size: var(--normal-font-size);
+}
+
+.products-container .product-box p{
+    font-weight: 600;
+    font-size: var(--h2-font-size);
+    
+
+    margin-top: 1rem;
+    color: var(--light-blue); 
+    letter-spacing: 1px;
+    
+}
+
+.product-box .buy{
+        position: relative;
+        padding: 1rem 3rem;
+        top: 20rem;
+        opacity: 0;
+        margin-top: 1rem;
+        color: #fff;
+        text-decoration: none;
+        background: var(--light-blue);
+        border-radius: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: .4s;
+}
+.product-box:hover .buy {
+    top: 0;
+    opacity: 1;
+}
+.product-box:hover .buy:hover {
+    filter: contrast(150%)
+}
+
+
+/* ------------- switch page */
+.switch-page{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4.1rem;
+}
+
+.switch-page .arrow{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+
+    font-weight: 300;
+    padding-right: 0;
+}
+.switch-page img{
+    width: 1.5rem
+}
+
+.switch-page a {
+    color: var(--black);
+    font-weight: 400;
+
+    font-size: var(--normal-font-size);
+    padding-right: 0.5rem;
+}
+.switch-page a:visited, .switch-page a:link {
+    color: var(--black);
+}
+
+
+
