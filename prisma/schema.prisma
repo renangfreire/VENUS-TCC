@@ -12,4 +12,13 @@ datasource db {
 
 model User {
   id String @id @default(uuid())
+
+  name     String
+  password String
+  cpf      String
+  email    String @unique
+  sexo     String
+  tel      String
+
+  @@map("users")
 }
