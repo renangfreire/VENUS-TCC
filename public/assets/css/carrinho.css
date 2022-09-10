@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;;
+}
+
+#cart {
+  margin: 5rem;
+}
+
+#cart h2 {
+  color: #8462CA;
+  font-size: 2rem;
+}
+
+#product {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  border: 1px solid #653EB5;
+  height: 17.75rem; 
+}
+
+.product-image{
+  width: 15rem;
+}
+
+#description {
+  margin-top: 2rem;
+}
+
+
+#input {
+  width: 2rem;
+  border: none;
+  outline: transparent; 
+  text-align: center;
+  background: #fff;
+  
+}
+
+#inputs {
+  width: 2rem;
+  border: none;
+  outline: transparent; 
+  text-align: center;
+  background: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.about {
+  color: #8462CA;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.button {
+  width: 2.2rem;
+  height: 1.4rem;
+  color: #ffffff;
+  background: #653EB5;
+  border-radius: 2px;
+  border: none;
+}
+
+.qtd-button {
+  border: solid 1px #653EB5;
+  border-radius: 5px;
+}
+
+.box {
+  display: flex;
+  margin: 5rem; 
+}
+
+#box-shipping {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxes {
+  border: 1px solid #653EB5;
+  margin: 5rem;
+  height: 23.75rem;
+  padding: 1rem;
+  width: 29.75rem;
+  gap: 1rem;
+  box-shadow: 0 3px hsla(0, 0%, 82%, 0.6);
+}
+
+.line {
+  border: 1px solid #8462CA;
+}
+
+form p {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+form span {
+  float: right;
+  margin-top: 1rem;
+}
+
+.input-search {
+  height: 1.4rem;
+  width: 9rem;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: solid 1px;
+  background-color: #FDF7F7;
+  outline: transparent;
+}
+
+#shipping {
+  display: flex;
+  align-items: center;
+}
+
+#shipping p{
+  margin-bottom: 1rem;
+  padding-right: 3rem;
+}
+
+.button-search {
+  width: 2.2rem;
+  height: 1.4rem;
+  color: #ffffff;
+  background: #653EB5;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: none;
+}
+
+#box-request p {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#box-request span {
+  float: right;
+  margin-top: 1rem;
+}
+
+.button-links {
+  float: right;
+  margin-top: 3rem;
+}
+
+.button-links button {
+  height: 2.5rem;
+  width: 11.8rem;
+  font-size: 1rem;
+}
+
+.button-links a button {
+  background: #653EB5;
+  border: 1px solid #653EB5;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.button-links div button {
+  background:#fff;
+  color: #8462CA;
+  border: 1px solid #653EB5;
+  border-radius: 4px;
+}
+
+#input-value {
+  width: 3.7rem;
+  border: none;
+  outline: transparent; 
+  font-size: 1rem;
+  background: #fff;
+}

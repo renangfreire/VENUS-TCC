@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;;
+}
+
+main {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 22.5%;
+}
+
+#button {
+  margin: 3.5rem;
+  padding: 0.625rem 1.25rem;
+  background: #5F68FF;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+}
+
+#h1 {
+  font-size: 3.7rem;
+}
+
+#h2 {
+  margin-bottom: 2rem;
+}
+
+.title{
+  color: #8462CA;
+}
+
+#link {
+  color: #000;
+}
