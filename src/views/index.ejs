@@ -10,16 +10,17 @@
     <!-- CSS  -->
     <link rel="stylesheet" href="assets/css/global.css">
 
-    <!-- IMPORTS  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> -->
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+       <!-- IMPORTS  -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    
     <!-- ICON -->
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- JAVASCRIPT -->
+    <script src="scripts/main.js" defer type="module"></script>
 </head>
 </header>
 <body>
@@ -37,7 +38,7 @@
         </div>
         </div>
         <div  class="features">
-            <a href="login.html" class="login-feature">
+            <a href="/login" class="login-feature">
                 <img src="./assets/images/human.svg" alt="Flor">
                 <p>Faça Login</p>
             </a>
@@ -61,14 +62,11 @@
 
     
     <main>
-        <%- include('./carrinho')%>
+        <%- include(`./pages/${page}`)%>
     </main>
-
 
     <footer>
         <p>Todos os direitos reservados ao grupo 4 INF3DM</p>
     </footer>
 </body>
-
-
 </html>
