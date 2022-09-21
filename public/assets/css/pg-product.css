@@ -65,10 +65,13 @@
     cursor: pointer;
 
     border-radius: 0.5rem;
+
+    transition: .3s;
 }
 .container-product .select-buttons button.selected{
     background: var(--dark-purple);
     color: var(--white);
+    
 }
 
 .container-product .select-quantity{
@@ -94,8 +97,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    left: 0;
+    /* position: relative; */
+    /* left: 0; */
 
     border: 1px solid var(--dark-purple);
 }

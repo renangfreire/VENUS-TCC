@@ -1,5 +1,4 @@
 
-
 /* COLORS */
 :root{
     --background: #FBFCFF;
@@ -247,7 +246,7 @@ footer{
     margin-top: 3.1rem;
     background: var(--dark-purple);
     padding: 4.2rem;
-    position:sticky;
+    /* position:sticky;  NAO LEMBRO PQ COLOQUEI*/
     top: 100%;
     width: 100%;
 }
