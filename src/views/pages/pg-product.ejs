@@ -1,37 +1,37 @@
 <head>
 <!-- CSS  -->
-    <link rel="stylesheet" href="assets/css/pg-product.css">
+    <link rel="stylesheet" href="/assets/css/pg-product.css">
 </head>
             <div class="content">
             <section class="container-product">
                 <img src="/assets/images/product-moleton.png" alt="Blusa">
                 <div class="sell-info">
-                    <h1>Moletom Nezuko Demon Slayer Kimetsu No Yaiba</h1>
-                    <p>R$  150,00</p>
+                    <h1><%= productJson.name %></h1>
+                    <p><%= `R$ ${productJson.value},00`%></p>
                     <div class="method-card">
-                        <span>Em até 6x de R$ 25,00 sem juros no cartão</span> <img src="/assets/images/card.svg">
+                        <span><%= `Em até 6x de R$ ${(productJson.value / 6).toFixed(2).replace('.', ',')} sem juros no cartão` %></span> <img src="/assets/images/card.svg">
                     </div>
 
                     
                     <div class="select-color">
                         <p>Cor:</p>
                         <div class="select-buttons">
-                            <button class="selected">Preto</button>
-                            <button>Rosa</button>
-                            <button>Branco</button>
-                            <button>Verde</button>
-                            <button>Azul</button>
+                            <button class="btnSelect btnColor selected">Preto</button>
+                            <button class="btnSelect btnColor">Rosa</button>
+                            <button class="btnSelect btnColor">Branco</button>
+                            <button class="btnSelect btnColor">Verde</button>
+                            <button class="btnSelect btnColor">Azul</button>
                         </div>
                         
                     </div>
                     <div class="select-size">
                         <p>Tamanho:</p>
                         <div class="select-buttons">
-                            <button>P</button>
-                            <button>M</button>
-                            <button class="selected">G</button>
-                            <button>GG</button>
-                            <button>XG</button>
+                            <button class="btnSelect btnSize">P</button>
+                            <button class="btnSelect btnSize">M</button>
+                            <button class="btnSelect btnSize selected">G</button>
+                            <button class="btnSelect btnSize">GG</button>
+                            <button class="btnSelect btnSize">XG</button>
                         </div>
                     </div>
                     <div class="select-quantity">
@@ -39,9 +39,9 @@
                         
                         <p>Em estoque!</p>
                         <div class="quantity-button">
-                            <button>-</button>
-                            <input type="number" name="amount" min="1" id="amount-product" value="1">
-                            <button>+</button>
+                            <button id="decreaseValue" class="btnQuantity">-</button>
+                            <input type="number" name="amount" min="1" id="amount-product"  required value="1">
+                            <button id="increaseValue" class="btnQuantity">+</button>
                         </div>
                     </div>
                     <div class="shop-infos">
@@ -86,7 +86,7 @@
 
             <section class="rating-container">
                 <div class="rating-title">
-                    <img src="assets/images/star.svg" alt="">
+                    <img src="/assets/images/star.svg" alt="">
                     <h3 class="section-title">Avaliações</h3>
                 </div>
                 <div class="rating-box">
@@ -100,11 +100,11 @@
                              </span>
                             </h4>
                             <div class="star-rate">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt=""> 
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
                         </div>             
                     </div>
                     <p>Roger</p> 
@@ -127,11 +127,11 @@
                              </span>
                             </h4>
                             <div class="star-rate">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt=""> 
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
                         </div>             
                     </div>
                     <p>Roger</p> 
@@ -155,11 +155,11 @@
                              </span>
                             </h4>
                             <div class="star-rate">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="assets/images/star.svg" width="20px" height='20px'alt=""> 
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
+                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
                         </div>             
                     </div>
                     <p>Roger</p> 
@@ -182,14 +182,14 @@
                 <h3 class='section-title'>Mais vendidos</h3>
                 <div class="products-container">
                 <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
 
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
                     
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
@@ -197,14 +197,14 @@
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
 
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
                     <button class="buy">Compre</button>

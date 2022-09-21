@@ -1,6 +1,7 @@
 const express = require('express');
 
 const CreateUserController = require('./controller/CreateUserController')
+const ProductController = require('./controller/ProductController')
 
 const router = express.Router()
 
@@ -20,9 +21,13 @@ router.get('/cadastro', (req, res) => {
     res.render("index", {page: "cadastro"})
 })
 
-router.get('/pg-product', (req, res) => {
-    res.render('index', {page: "pg-product"})
+router.get('/product/', (req, res) => {
+    res.redirect('/')
 })
+
+router.get('/product/:id_product', ProductController.handle)
+
+
 router.get('/dados', (req, res) => {
     res.render('index', {page: "dados"})
 })
