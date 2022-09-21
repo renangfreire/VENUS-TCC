@@ -1,16 +1,24 @@
-const button = document.querySelector('button')
-const popup = document.querySelector('.popup-wrapper')
+export default function Modal() {
+    const modalWrapper = document.querySelector('.popup-wrapper')
+    const buttonClose = document.querySelector('.popup-close')
 
-button.addEventListener('click', () => {
-    popup.style.display = 'block'
-})
+    buttonClose.addEventListener('click', close)
 
-popup.addEventListener('click', event => {
-    const classNameOfClickedElement = event.target.classList[0]
-    const classNames = ['popup-close', 'popup-wrapper', 'popup-link']
-    const shouldClosePopup = classNames.some(className => className === classNameOfClickedElement)
-      
-if (shouldClosePopup){
-    popup.style.display = 'none'
-  }
-})
+    function open(){
+        modalWrapper.classList.add('active')
+    }
+    function close(){
+        modalWrapper.classList.remove('active')
+
+    //     const classNameOfClickedElement = event.target.classList[0]
+    //     const classNames = ['popup-close', 'popup-wrapper', 'popup-link']
+    //     const shouldClosePopup = classNames.some(className => className === classNameOfClickedElement)
+    // if (shouldClosePopup){
+    //     popup.style.display = 'none'
+    //   }
+    }
+
+    return {
+        open
+    }
+}

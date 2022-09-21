@@ -5,7 +5,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
   background: linear-gradient(#ffffff, #ffffff); 
 }
 
@@ -67,10 +66,18 @@ body {
 
 #forgot-password {
   color: #9e9d9d;
+  font-size: 1.4rem;
+  text-decoration: underline;
 }
 
 .change {
   color: #9e9d9d;
+}
+
+.change-box a, .change-box a:visited, .change-box a:active {
+  font-size: 1.4rem;
+  color: var(--light-gray);
+  text-decoration: underline;
 }
 
 .change-box {

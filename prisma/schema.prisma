@@ -22,3 +22,10 @@ model User {
 
   @@map("users")
 }
+
+// model Products {
+//   id String @id @unique
+
+//   name String
+
+// }
