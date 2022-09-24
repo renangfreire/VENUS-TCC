@@ -3,6 +3,7 @@ require("express-async-errors")
 
 const router = require('./routes')
 const path = require('path')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -15,7 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json()) // SOMENTE PARA USO DO INSOMNIA, DESABILITAR PRA USAR NORMAL
 
+app.use(cookieParser())
 app.use(router)
+
 
 app.use((err, req, res, next) => {
     if(err instanceof Error){
