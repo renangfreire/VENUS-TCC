@@ -2,49 +2,58 @@ const express = require('express');
 
 const CreateUserController = require('./controller/CreateUserController')
 const ProductController = require('./controller/ProductController')
+const AuthenticateUserController = require('./controller/AuthenticateUserController')
+
+// MIDDLEWARE
+const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
+const getUserName = require('./middlewares/getUserName')
 
 const router = express.Router()
 
 
 // Routes GET
-router.get('/', (req, res) => {
-    res.render("index", {page: "home"})
+router.get('/', getUserName,  (req, res) => {
+    
+    res.render("index",{page: "home", styles: ["home"], username: req.user_name})
 })
-router.get('/home', (req, res) => {
-    res.render("index", {page: "home"})
+router.get('/home', getUserName, (req, res) => {
+    res.render("index", {page: "home", styles: ["home"], username: req.user_name})
 })
-router.get('/carrinho', (req, res) => {
-    res.render("index", {page: "carrinho"})
+router.get('/carrinho', getUserName, (req, res) => {
+    res.render("index", {page: "carrinho",libs:['carrinho'] ,styles: ["carrinho"], username: req.user_name})
 })
 
-router.get('/cadastro', (req, res) => {
-    res.render("index", {page: "cadastro"})
+router.get('/cadastro', getUserName, (req, res) => {
+    res.render("index", {page: "cadastro", styles: ["logins"], username: req.user_name});
 })
 
 router.get('/product/', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/product/:id_product', ProductController.handle)
+router.get('/product/:id_product', getUserName, ProductController.handle)
 
 
-router.get('/dados', (req, res) => {
-    res.render('index', {page: "dados"})
+router.get('/dados', ensureAuthenticate, getUserName, (req, res) => {
+    res.render('index', {page: "dados", styles: ["dados"], username: req.user_name});
 })
-router.get('/login', (req, res) => {
-    res.render('index', {page: "login"})
+router.get('/login', getUserName,(req, res) => {
+    res.render('index', {page: "login", styles: ["login"], username: req.user_name});
 })
-router.get('/popup', (req, res) => {
-    res.render('index', {page: "popup"})
+router.get('/popup', getUserName, (req, res) => {
+    res.render('index', {page: "popup", username: req.user_name})
 })
-router.get('/pesquisa', (req, res) => {
-    res.render('index',  {page: "pesquisa"})
+router.get('/pesquisa', getUserName, (req, res) => {
+    res.render('index',  {page: "pesquisa", username: req.user_name})
 })
 
 
 
 // ROUTES POST
 router.post('/cadastro', CreateUserController.handle)
+
+router.post('/login', AuthenticateUserController.handle)
+
 
 
 module.exports = router 

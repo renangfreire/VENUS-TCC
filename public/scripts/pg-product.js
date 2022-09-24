@@ -1,4 +1,3 @@
-export default function ProductComponent(){
     const btnSelect = document.querySelectorAll('.btnSelect')
     const btnQuantity = document.querySelectorAll('.btnQuantity')
     const amountProduct = document.querySelector('#amount-product')
@@ -60,5 +59,4 @@ export default function ProductComponent(){
         if(this.value == '0' && event.data == '0'){
             this.value = 1          
         }
-}
 }
