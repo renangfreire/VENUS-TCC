@@ -3,6 +3,7 @@ const express = require('express');
 const CreateUserController = require('./controller/CreateUserController')
 const ProductController = require('./controller/ProductController')
 const AuthenticateUserController = require('./controller/AuthenticateUserController')
+const UserLogoutController = require('./controller/UserLogoutController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
@@ -13,7 +14,6 @@ const router = express.Router()
 
 // Routes GET
 router.get('/', getUserName,  (req, res) => {
-    
     res.render("index",{page: "home", styles: ["home"], username: req.user_name})
 })
 router.get('/home', getUserName, (req, res) => {
@@ -47,13 +47,13 @@ router.get('/pesquisa', getUserName, (req, res) => {
     res.render('index',  {page: "pesquisa", username: req.user_name})
 })
 
+router.get('/logout', UserLogoutController.handle)
 
 
 // ROUTES POST
 router.post('/cadastro', CreateUserController.handle)
 
 router.post('/login', AuthenticateUserController.handle)
-
 
 
 module.exports = router 
