@@ -1,8 +1,23 @@
-
 [
     {
         "id": "9867652",
         "name": "Moletom Nezuko Demon Slayer Kimetsu No Yaiba",
-        "value": "120"
+        "value": "120",
+        "color": "Preta",
+        "size": "P"
+    },
+    {
+        "id": "8508534",
+        "name": "Moletom Tangiro Demon Slayer Kimetsu No Yaiba",
+        "value": "119",
+        "color": "Preta",
+        "size": "M"
+    },
+    {
+        "id": "1532834",
+        "name": "Moletom Zenitsu Demon Slayer Kimetsu No Yaiba",
+        "value": "90",
+        "color": "Preta",
+        "size": "M"
     }
 ]

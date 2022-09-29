@@ -8,9 +8,6 @@ module.exports = {
 
        await userLogoutService.execute({ venus_user_data, access_token, res})
 
-       res.clearCookie('venus_user_data');
-       res.clearCookie('access_token');
-
        return res.redirect('/')
 
         

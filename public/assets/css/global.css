@@ -111,7 +111,7 @@ a:active, a:visited{
 header {
     width: 100%;
     background: var(--background);
-    position: fixed; 
+    /* position: fixed;  */
 
     display: grid;
     grid-template-rows: 8.2rem 1fr;
@@ -275,7 +275,7 @@ header .bottom-header li a{
 
 /* footer space */
 main{
-    padding-top: 16.4rem;
+    /* padding-top: 16.4rem; */
 }
 
 footer{

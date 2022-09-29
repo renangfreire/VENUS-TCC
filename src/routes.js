@@ -7,7 +7,8 @@ const UserLogoutController = require('./controller/UserLogoutController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
-const getUserName = require('./middlewares/getUserName')
+const getUserName = require('./middlewares/getUserName');
+const CartController = require('./controller/CartController');
 
 const router = express.Router()
 
@@ -19,9 +20,8 @@ router.get('/', getUserName,  (req, res) => {
 router.get('/home', getUserName, (req, res) => {
     res.render("index", {page: "home", styles: ["home"], username: req.user_name})
 })
-router.get('/carrinho', getUserName, (req, res) => {
-    res.render("index", {page: "carrinho",libs:['carrinho'] ,styles: ["carrinho"], username: req.user_name})
-})
+
+router.get('/carrinho', getUserName, CartController.handle)
 
 router.get('/cadastro', getUserName, (req, res) => {
     res.render("index", {page: "cadastro", styles: ["logins"], username: req.user_name});
@@ -54,6 +54,8 @@ router.get('/logout', UserLogoutController.handle)
 router.post('/cadastro', CreateUserController.handle)
 
 router.post('/login', AuthenticateUserController.handle)
+
+router.post('/carrinho', CartController.handle)
 
 
 module.exports = router 
