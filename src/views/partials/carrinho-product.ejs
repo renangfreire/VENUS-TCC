@@ -4,40 +4,47 @@
             <% products.forEach((element) => { %>
             <div id="product">
               <div>
-                <img src="assets/images/product-moleton.png" class="product-image" alt="item" />
+                <img src="/assets/images/products/<%= element.images[0]%>.png" class="product-image" alt="item" />
               </div>
               <div id="description">
                 <p>
                   <%= element.name %>
                 </p>
                 <br />
-                <p>Cor: <%= element.color %></p>
-                <p>Tamanho: <%= element.size %></p>
+                <%if(element.color.length > 0){%>
+                <p>Cor: <% element.color.forEach((element) => { %>
+                  <span><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></span>
+                <%}) %>
+                </p>
+                <% } %>
+
+                <% if(element.size.length > 0){%>
+
+                
+                <p>Tamanho: <% element.size.forEach((element) => { %>
+                  <span><%= element.size %></span>
+                <%}) %>
+                </p>
+              <% } %>
               </div>
               <div id="qtd">
                 <p class="about">Quantidade</p>
-                <div class="qtd-button">
-                  <button class="button" id="subtraction">-</button>
-                  <input type="number" id="input" value="1" disabled />
-                  <button class="button" id="addition">+</button>
+                <div class="qtdButton">
+                  <button class="button amountSubtraction">-</button>
+                  <input type="number" id="input" class="inputAmount" placeholder=""value="1" disabled />
+                  <button class="button amountAddition">+</button>
                 </div>
               </div>
               <div>
                 <p class="about">Valor</p>
                 <div>
                   R$
-                  <input
-                    type="number"
-                    name="Valor"
-                    id="input-value"
-                    value="<%= Number(element.value).toFixed(2) %>""
-                    disabled
-                  /><span></span>
+                  <span name="Valor" class="inputValue"><%= Number(element.value).toFixed(2) %></span>
                 </div>
               </div>
             </div>
+            <% }) %>
           </div>
-        <% }) %>
           <div class="box">
             <div class="boxes" id="box-shipping">
               <form action="" method="post">
@@ -67,36 +74,28 @@
               <div>
                 <h3>Resumo do Pedido</h3>
                 <p>Subtotal</p>
-                <span id="span-1"
+                <span 
                   ><input
                     name="subtotal"
                     type="number"
                     class="inputs"
-                    id="sub"
                     value="150.00"
                     hidden
                     disabled
-                  />R$ 150.00</span
+                  />R$ <span  id="sub">0.00</span></span
                 >
                 <br />
                 <div class="line"></div>
                 <p>Frete</p>
-                <span id="span-2"
-                  ><input
-                    name="frete"
-                    type="number"
-                    class="inputs"
-                    id="freight"
-                    value="0"
-                    hidden
-                    disabled
-                  />
-                  R$ 0.00
-                </span>
+                <span id="span-2"></span>
+                R$ 0.00</span>
                 <br />
                 <div class="line"></div>
                 <p>Total</p>
-                <span id="span-3">R$ 150</span>
+                  <span id="span-3">
+                    R$
+                    <span class="totalValue"> 0.00</span>
+                  </span>       
                 <br />
                 <div class="button-links">
                   <a target="_blank" href="#"

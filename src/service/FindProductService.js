@@ -1,42 +1,67 @@
-const productJson = require('../../product.json')
-const { request, response } = require('express')
+const prisma = require('../prisma')
+
 class FindProductService{
-    async execute(productId){
-        const products = []
+    async execute({idProduct}){
+        let products = []
 
-         // Verifica se o Produto Existe
-        function productExits(productId, p){
-            
-                    if(p.id !== productId){
-                        throw new Error('Product not exits') 
+       const productExists = await prisma.products.findMany({
+                where: {
+                id:{ 
+                    in: 
+                    idProduct
+                }
+        },
+            orderBy: {
+                id: 'asc'
+            },
+                include:{
+                    color: {
+                        where:{
+                            color:{
+                                equals: "PRETO"
+                            }
+                        },
+                        select: {
+                           color: true
+                        }
+                    },
+                    size: {
+                        where:{
+                            size:{
+                                equals: "M"
+                            }
+                        },   
+                        orderBy: {
+                            size: 'asc',
+                        },
+                        select: {
+                            size: true
+                        }
                     }
-                    return p
-            } 
-        if(typeof productId == 'string'){
-            
-            for(const p of productJson) {
+                }
+          })          
+        
+          productExists.map((product, index) => {
+            if(typeof idProduct == 'string'){
+                
                 // se for STRING - PAGE DE PRODUTO
-                if(productId != p.id){
-                    continue
+                if(idProduct !== product.id){
+                    throw new Error('Product not exits') 
                 }
-                    productExits(productId, p)
-                    return p
+                products = productExists
             }
-            
-    }
 
-
-        // se for Array
-        productId.map((element) => {
+            // se for Array
             
-            for(const p of productJson){
-                if(element != p.id){
-                    continue
+            if(typeof idProduct !== 'string'){
+            idProduct = idProduct.sort((a, b) => {return a-b})  
+
+                if(idProduct[index] !== product.id){
+                    throw new Error('Product not exits') 
                 }
-                productExits(element, p);
-               
-                products.push(p)
-            }        
+                
+                    products.push(product)
+            }
         })
         
         return products
