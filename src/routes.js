@@ -1,6 +1,7 @@
 const express = require('express');
 
 const CreateUserController = require('./controller/CreateUserController')
+const CreateProductController = require('./controller/CreateProductController')
 const ProductController = require('./controller/ProductController')
 const AuthenticateUserController = require('./controller/AuthenticateUserController')
 const UserLogoutController = require('./controller/UserLogoutController')
@@ -24,7 +25,7 @@ router.get('/home', getUserName, (req, res) => {
 router.get('/carrinho', getUserName, CartController.handle)
 
 router.get('/cadastro', getUserName, (req, res) => {
-    res.render("index", {page: "cadastro", styles: ["logins"], username: req.user_name});
+    res.render("index", {page: "cadastro", styles: ["login"], username: req.user_name});
 })
 
 router.get('/product/', (req, res) => {
@@ -44,7 +45,7 @@ router.get('/popup', getUserName, (req, res) => {
     res.render('index', {page: "popup", username: req.user_name})
 })
 router.get('/pesquisa', getUserName, (req, res) => {
-    res.render('index',  {page: "pesquisa", username: req.user_name})
+    res.render('index',  {page: "pesquisa", styles: ["pesquisa"],username: req.user_name})
 })
 
 router.get('/logout', UserLogoutController.handle)
@@ -56,6 +57,8 @@ router.post('/cadastro', CreateUserController.handle)
 router.post('/login', AuthenticateUserController.handle)
 
 router.post('/carrinho', CartController.handle)
+
+router.post('/createproduct/product', CreateProductController.handle)
 
 
 module.exports = router 

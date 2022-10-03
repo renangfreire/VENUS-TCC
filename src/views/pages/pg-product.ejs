@@ -1,35 +1,35 @@
             <div class="content">
             <section class="container-product">
-                <img src="/assets/images/product-moleton.png" alt="Blusa">
+                <img src="/assets/images/products/<%= productJson.images[0] %>.png" alt="Blusa">
                 <div class="sell-info">
                     <h1><%= productJson.name %></h1>
-                    <p><%= `R$ ${productJson.value},00`%></p>
+                    <p><%= `R$ ${Number(productJson.value).toFixed(2).replace('.', ',')}`%></p>
                     <div class="method-card">
                         <span><%= `Em até 6x de R$ ${(productJson.value / 6).toFixed(2).replace('.', ',')} sem juros no cartão` %></span> <img src="/assets/images/card.svg">
                     </div>
 
-                    
+                    <% if(productJson.color.length > 0) { %>
+                        <% console.log(productJson.color)%>
                     <div class="select-color">
                         <p>Cor:</p>
                         <div class="select-buttons">
-                            <button class="btnSelect btnColor selected">Preto</button>
-                            <button class="btnSelect btnColor">Rosa</button>
-                            <button class="btnSelect btnColor">Branco</button>
-                            <button class="btnSelect btnColor">Verde</button>
-                            <button class="btnSelect btnColor">Azul</button>
+                            <% productJson.color.forEach((element) => { %>
+                                <button class="btnSelect btnColor"><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></button>
+                             <% })%>
                         </div>
-                        
                     </div>
+                    <% } %>
+
+                   <% if(productJson.color.length > 0){ %>
                     <div class="select-size">
                         <p>Tamanho:</p>
                         <div class="select-buttons">
-                            <button class="btnSelect btnSize">P</button>
-                            <button class="btnSelect btnSize">M</button>
-                            <button class="btnSelect btnSize selected">G</button>
-                            <button class="btnSelect btnSize">GG</button>
-                            <button class="btnSelect btnSize">XG</button>
+                            <% productJson.size.forEach((element) => { %>
+                                <button class="btnSelect btnSize"><%= element.size %></button>
+                             <% })%>
                         </div>
                     </div>
+                    <% } %>
                     <div class="stock-box">   
                         <p>Em estoque!</p>       
                     </div>
@@ -50,10 +50,10 @@
             </section>
             <section class="container-description">
                 <div class="mozaico-product">
-                    <img src="/assets/images/product-moleton.png" alt="">
-                    <img src="/assets/images/product-moleton.png" alt="">
-                    <img src="/assets/images/product-moleton.png" alt="">
-                    <img src="/assets/images/product-moleton.png" alt="">
+                    <img src="/assets/images/products/<%= productJson.images[0] %>.png" alt="">
+                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
+                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
+                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
                 </div>
                 <div class="product-info">
                     <h3>Descrição</h3>
@@ -171,14 +171,14 @@
                 <h3 class='section-title'>Mais vendidos</h3>
                 <div class="products-container">
                 <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
 
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
                     
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
@@ -186,14 +186,14 @@
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
 
                     <button class="buy">Compre</button>
                 </div>
                 <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/product-action.png" alt=""></div>
+                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
                     <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
                     <p>R$ 79.99</p>
                     <button class="buy">Compre</button>
