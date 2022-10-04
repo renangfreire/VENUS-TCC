@@ -133,11 +133,12 @@ header {
      
      display: flex;
      justify-content: space-between;
-
+    
     }
     
 .top-header > a > img {
-    width: 20rem;
+    width: 100%;
+    height: 10rem;
 }
 
 .top-header .search{
@@ -256,3 +257,95 @@ footer p{
     text-transform: uppercase;
     font-size: var(--small-font-size);
 }
+
+@media (max-width: 1000px) {
+    header {
+        width: 100%;
+        
+    }
+    .top-header {
+        width: 80%;
+        margin-right: auto;
+        gap: 4rem;
+    }
+    img {
+        width: 100%;
+    }
+    .bottom-header {
+        width: 80%;
+        margin-right: auto;
+    }
+    .top-header .features {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        width: 100%;
+        padding-left: 20%;
+    }
+    .top-header {
+        width: 100%;
+        margin-right: auto;
+    }
+    .bottom-header {
+        width: 100%;
+        margin-left: 5rem;
+    }
+    .bottom-header ul{
+        
+    }
+    .top-header .features {
+        
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        width: 50%;
+        align-items: center;
+        padding-left: 1rem;
+    }
+    .top-header {
+        width: 60%;
+        margin-right: auto;
+        padding-left: 2rem;
+        gap: .5rem;
+        align-items: center;
+        justify-content:center ;
+    }
+
+    .bottom-header {
+        width: 40%;
+    }
+    
+    .bottom-header ul:last-child{
+        margin-left: 5rem;
+        display: block;
+        text-align: center;
+    }
+
+    .top-header .search {
+        margin-left: 2rem;
+    }
+
+    .top-header .search img {
+        width: auto;
+    }
+
+    .top-header .search div form {
+        gap: 0;
+    }
+
+    .top-header .features {
+        gap: auto;
+        margin-top: auto;
+        display: block;
+        margin-left: 5rem;
+    }
+    .top-header .features p {
+        display: none;
+    }
+}
+

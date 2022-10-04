@@ -126,5 +126,26 @@ main .ad-container img{
     color: var(--black);
 }
 
+@media (max-width: 500px) {
+    header {
+        width: 100%;
+    }
 
+    .content {
+        width: 100%;
+        margin-top: 15rem;
+    }
 
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-container .product-box {
+        width: 15rem;
+        height: 32rem;
+    }
+
+    .ad-container img {
+        display: none;
+    }
+    }
