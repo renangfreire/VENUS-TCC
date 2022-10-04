@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -16,16 +16,210 @@ model User {
   name     String
   password String
   cpf      String
-  email    String @unique
-  sexo     String
-  tel      String
+  email    String  @unique
+  sexo     String?
+  tel      String?
+
+  orders  Orders[]
+  address UserAddresses[]
 
   @@map("users")
 }
 
-// model Products {
-//   id String @id @unique
+model UserAddresses {
+  id String @id @default(uuid())
 
-//   name String
+  cep           String
+  rua           String
+  identificacao String
+  estado        String
+  cidade        String
+  complemento   String?
 
-// }
+  userId String
+
+  Orders Orders[]
+
+  User User @relation(references: [id], fields: [userId])
+
+  @@map("usersAddresses")
+}
+
+model Orders {
+  id String @id @default(uuid())
+
+  valorTotal  Decimal
+  valorFrete  Decimal
+  dateOrdered DateTime @default(now())
+  statusOrder String
+  rastreio    String
+
+  userId          String
+  userAddressesId String
+  paymentDetails  Payment_details?
+
+  products ProductsOnOrder[]
+
+  color ColorsOnOrder[]
+  size  SizesOnOrder[]
+
+  shippingAddress UserAddresses @relation(fields: [userAddressesId], references: [id])
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("orders")
+}
+
+model Payment_details {
+  id String @id @default(uuid())
+
+  amount    Decimal
+  status    String
+  createdAt DateTime @default(now())
+  orderId   String   @unique
+
+  orders Orders @relation(fields: [orderId], references: [id])
+}
+
+model Products {
+  id String @id @unique
+
+  name   String
+  // description String 
+  value  Decimal
+  images Json
+
+  category CategoriesOnProducts[]
+  Orders   ProductsOnOrder[]
+  color    ProductColors[]
+  size     ProductSizes[]
+  Stock    Stock[]
+
+  @@map("products")
+}
+
+model ProductsOnOrder {
+  id String @id @default(uuid())
+
+  ordersId   String
+  productsId String
+
+  Products Products @relation(fields: [productsId], references: [id])
+  Orders   Orders   @relation(fields: [ordersId], references: [id])
+}
+
+model ProductColors {
+  id String @id @default(uuid())
+
+  id_product String
+  color      Color
+
+  Orders ColorsOnOrder[]
+
+  product Products @relation(fields: [id_product], references: [id])
+  Stock   Stock[]
+
+  @@map("productColors")
+}
+
+model ColorsOnOrder {
+  id String @id @default(uuid())
+
+  ordersId        String?
+  productColorsId String?
+
+  Orders        Orders?        @relation(fields: [ordersId], references: [id])
+  ProductColors ProductColors? @relation(fields: [productColorsId], references: [id])
+}
+
+model ProductSizes {
+  id String @id @default(uuid())
+
+  id_product String
+  size       Size
+  Stock      Stock?
+
+  Orders SizesOnOrder[]
+
+  product Products @relation(fields: [id_product], references: [id])
+
+  @@map("productSizes")
+}
+
+model SizesOnOrder {
+  id String @id @default(uuid())
+
+  ordersId       String
+  productSizesId String
+
+  Orders       Orders       @relation(fields: [ordersId], references: [id])
+  ProductSizes ProductSizes @relation(fields: [productSizesId], references: [id])
+}
+
+model CategoriesOnProducts {
+  id String @id @default(uuid())
+
+  productsId   String
+  categoriesId String
+
+  Products   Products   @relation(fields: [productsId], references: [id])
+  Categories Categories @relation(fields: [categoriesId], references: [id])
+}
+
+model Categories {
+  id String @id @default(uuid())
+
+  name String @unique
+
+  productsId CategoriesOnProducts[]
+}
+
+model Stock {
+  id String @id @default(uuid())
+
+  quantidade Int
+  productsId String
+
+  productColorsId String @unique
+  productSizesId  String @unique
+
+  product Products      @relation(fields: [productsId], references: [id])
+  color   ProductColors @relation(fields: [productColorsId], references: [id])
+  sizes   ProductSizes  @relation(fields: [productSizesId], references: [id])
+
+  @@map("stock")
+}
+
+enum Color {
+  PRETO
+  ROSA
+  BRANCO
+  VERDE
+  AZUL
+}
+
+enum Size {
+  P
+  M
+  G
+  GG
+  XG
+}
+
+enum StatusOrder {
+  PEDIDO_RECEBIDO
+  PEDIDO_SEPARACAO
+  NOTA_FISCAL_EMITIDA
+  PRODUTO_EXPEDIDO
+  ENVIADO
+  PEDIDO_EM_TRANSITO
+  ROTA_ENTREGA
+  ENTREGUE
+}
+
+enum StatusPag {
+  AGUARDANDO_PAG
+  PROCESSANDO
+  CANCELADO
+  PAGO
+}

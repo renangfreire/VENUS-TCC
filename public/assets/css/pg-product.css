@@ -74,66 +74,13 @@
     
 }
 
-.container-product .select-quantity{
+.container-product .stock-box{
     margin-top: 2rem;
 }
-.select-quantity p.quantity{
-    font-weight: 300;
-    font-size: 1.8rem;
-    
-    margin-bottom: 2.7rem;
-}
 
-.select-quantity p{
+.stock-box p{
     font-weight: 100;
     font-size: 1.4rem;
-    
-}
-
-.quantity-button{
-    width: 16rem;
-    height: 5rem;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* position: relative; */
-    /* left: 0; */
-
-    border: 1px solid var(--dark-purple);
-}
-
-.select-quantity .quantity-button button{
-    width: 5rem;
-    height: 4rem;
-
-    background-color: var(--white);
-    color: var(--dark-purple);
-
-    font-size: 1.8rem;
-    font-weight: 300;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-}
-.select-quantity .quantity-button input[type="number"]{
-    width: 6rem;
-    height: 5rem;
-    
-    text-align: center;
-    outline: var(--dark-purple);
-
-    border: 1px solid var(--dark-purple);
-    
-}
-
-.quantity-button input[type="number"]::-webkit-outer-spin-button,
-.quantity-button input[type="number"]::-webkit-inner-spin-button {
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 .shop-infos{
@@ -288,7 +235,6 @@
     cursor: pointer;
 }
 .products-container .product-box .imgBx{
-    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
