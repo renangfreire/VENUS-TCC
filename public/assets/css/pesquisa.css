@@ -1,0 +1,91 @@
+.switch-page{
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    margin-top: 4.1rem;
+
+}
+
+.switch-page .arrow{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .6rem;
+
+
+
+    font-weight: 300;
+
+    padding-right: 0;
+
+}
+
+.switch-page img{
+
+    width: 1.5rem
+
+}
+
+.switch-page a {
+
+    color: var(--black);
+
+    font-weight: 400;
+
+    font-size: 2rem;
+
+    padding-right: 0.5rem;
+
+}
+
+.switch-page a:visited, .switch-page a:link {
+
+    color: var(--black);
+
+}
+
+.page-title{
+
+    color: #653EB5;
+
+    text-align: center;
+
+    margin-top: 5rem;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    justify-content: space-between;
+
+    padding: 8.7rem;
+
+}
+
+.filters{
+
+   
+
+
+
+}
+
+.orderby{
+
+   
+
+}
