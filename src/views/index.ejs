@@ -7,9 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
     <!-- CSS  -->
+    <!-- INCLUDE IN ALL PAGES -->
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/sac.css">
+
+    <!-- INCLUDE IN SPECIFIC PAGES -->
+    <% if(typeof styles !== 'undefined'){%>
+        <% if(styles.length > 0) {%>
+            <% for(style of styles){%>
+                <link rel="stylesheet" href="/assets/css/<%= style %>.css">
+                <%}%>
+            <% } %>
+        <%} %>
+  
 
        <!-- IMPORTS  -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,16 +33,26 @@
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
     <!-- JAVASCRIPT -->
-    <script src="/scripts/main.js" defer type="module"></script>
 </head>
 </header>
 <body>
     <%- include(`./partials/header`)%>
     <main>
         <%- include(`./pages/${page}`)%>
-       <%- include(`./partials/modal`) %>
+        <%- include(`./partials/modal`) %>
     </main>
-
+    
     <%- include(`./partials/footer`) %>
+    <!-- INCLUDE IN ALL PAGES -->
+    <script src="/scripts/main.js" defer type="module"></script>
+
+    <!-- INCLUDE IN SPECIFIC PAGES -->
+    <% if(typeof libs !== 'undefined'){%>
+        <% if(libs.length > 0) {%>
+            <% for(lib of libs){%>
+                <script src="/scripts/<%= lib %>.js"></script>
+                <%}%>
+            <% } %>
+        <%} %>
 </body>
 </html>

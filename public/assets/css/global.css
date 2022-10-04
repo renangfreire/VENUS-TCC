@@ -105,12 +105,13 @@ a:active, a:visited{
 .material-icons.dark-gray{color: var(--dark-gray)}
 .material-icons.dark-purple{color: var(--dark-purple)}
 
+
 /* ----- header */
 
 header {
     width: 100%;
     background: var(--background);
-    position: fixed; 
+    /* position: fixed;  */
 
     display: grid;
     grid-template-rows: 8.2rem 1fr;
@@ -177,9 +178,9 @@ header {
 
 .top-header .features{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 
-    gap:5.7rem;
+    gap:7rem;
 
 }
 
@@ -187,10 +188,27 @@ header {
     height: 3rem;
     margin-bottom: 0.8rem;
 }
-
+.top-header .login-feature.logged img{
+    margin-bottom: 0;
+}
 .top-header .features a{
     display: inline-block;
     text-align: center;
+}
+
+.login-feature a {
+    color: var(--black);
+    font-weight: 100;
+    font-size: var(--medium-font-size);
+}
+.login-feature.logged a {
+    font-weight: 400;
+    font-size: var(--medium-font-size);
+}
+.login-feature.logged a:hover{
+    text-decoration: underline;
+    
+    transition: .2s;
 }
 
 .top-header .features p{
@@ -202,8 +220,26 @@ header {
 
     border-bottom: 1px solid var(--light-purple);
 }
+.top-header .login-feature p.bold{
+    line-height: 2.2rem;
+    font-weight: 500;
+    font-size: var(--medium-font-size);
+} 
 
+.login-feature.logged {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.login-feature .logged-nav{
+    margin-top: .2rem;
+    display:flex;
+    gap: .4rem;
+}
     
+.features .cart{
+    margin-bottom: 0;
+}
 /* ---------- bottom-header */
 
 header .bottom-header{
@@ -239,7 +275,7 @@ header .bottom-header li a{
 
 /* footer space */
 main{
-    padding-top: 16.4rem;
+    /* padding-top: 16.4rem; */
 }
 
 footer{
