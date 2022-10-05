@@ -2,9 +2,10 @@ const express = require('express');
 
 const CreateUserController = require('./controller/CreateUserController')
 const CreateProductController = require('./controller/CreateProductController')
-const ProductController = require('./controller/ProductController')
+const RenderProductController = require('./controller/RenderProductController')
 const AuthenticateUserController = require('./controller/AuthenticateUserController')
 const UserLogoutController = require('./controller/UserLogoutController')
+const AddProductCartController = require('./controller/AddProductCartController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
@@ -32,7 +33,7 @@ router.get('/product/', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/product/:id_product', getUserName, ProductController.handle)
+router.get('/product/:id_product', getUserName, RenderProductController.handle)
 
 
 router.get('/dados', ensureAuthenticate, getUserName, (req, res) => {
@@ -60,5 +61,6 @@ router.post('/carrinho', CartController.handle)
 
 router.post('/createproduct/product', CreateProductController.handle)
 
+router.post('/precarrinho', AddProductCartController.handle)
 
 module.exports = router 
