@@ -1,3 +1,5 @@
+// DOM VARIABLES
+
 const productAmount = document.querySelectorAll('.inputAmount')
 
 const btnAddition = document.querySelectorAll('.amountAddition')
@@ -14,6 +16,7 @@ const subTotal = document.querySelector('#sub')
 
 const totalValue = document.querySelector('.totalValue')
 
+// JS VARIABLES
 const originalProductValues = []
 
 // Para manter valor original dos produtos
@@ -35,7 +38,7 @@ function addQuantity(index){
 }
 
 function removeQuantity(index){
-  console.log(newProductValues);
+  // console.log(newProductValues);
   
   if(productAmount[index].value > 1){
     productAmount[index].value = Number(productAmount[index].value) - 1
@@ -72,37 +75,37 @@ btnSub.forEach((btn, index) => {
 
 
 
-function sus() {
-  btnAddition.addEventListener('click', function () {
+// function sus() {
+//   btnAddition.addEventListener('click', function () {
     
 
 
-    // if (amount.value < 30) {
-    //   amount.value++
-    //   sub.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-    //   qtdValue.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-    //   C.innerHTML = `R$ ${qtdValue.value}`
-    //   F.innerHTML = `R$ ${
-    //     parseFloat(qtdValue.value) + parseFloat(freight.value)
-    //   }`
-    // }
-  })
+//     // if (amount.value < 30) {
+//     //   amount.value++
+//     //   sub.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
+//     //   qtdValue.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
+//     //   C.innerHTML = `R$ ${qtdValue.value}`
+//     //   F.innerHTML = `R$ ${
+//     //     parseFloat(qtdValue.value) + parseFloat(freight.value)
+//     //   }`
+//     // }
+//   })
 
-  btnSub.addEventListener('click', function () {
-    if (amount.value > 1) {
-      amount.value--
-      sub.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-      qtdValue.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-      C.innerHTML = `R$ ${qtdValue.value}`
-      F.innerHTML = `R$ ${
-        parseFloat(qtdValue.value) - parseFloat(freight.value)
-      }`
-    }
-  })
-  buttonFrete.addEventListener('click', () => {
-    frete.value = buttonFrete.value
-    S.innerHTML = `R$ ${buttonFrete.value}`
-    F.innerHTML = `R$ ${parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)}`
-  })
-}
-sus()
+//   btnSub.addEventListener('click', function () {
+//     if (amount.value > 1) {
+//       amount.value--
+//       sub.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
+//       qtdValue.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
+//       C.innerHTML = `R$ ${qtdValue.value}`
+//       F.innerHTML = `R$ ${
+//         parseFloat(qtdValue.value) - parseFloat(freight.value)
+//       }`
+//     }
+//   })
+//   buttonFrete.addEventListener('click', () => {
+//     frete.value = buttonFrete.value
+//     S.innerHTML = `R$ ${buttonFrete.value}`
+//     F.innerHTML = `R$ ${parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)}`
+//   })
+// }
+// sus()

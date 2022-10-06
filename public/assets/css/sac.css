@@ -60,13 +60,11 @@
     background-color: #8462CA;
     border-radius: 0%;
 }
-
 .lista details summary{
     background-color: #fff;
     padding: 2%;
     border-bottom: 2px solid #0D114F;
     font-weight: 600;   
-    
 }
 .lista details p{
     background-color: #bebebe;
