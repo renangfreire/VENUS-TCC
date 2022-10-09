@@ -4,13 +4,15 @@
         <div class="user-box">
           <input type="text" id="email" name="email" required />
           <label for="email">E-mail</label>
+        <div class="error"> Email incorreto</div>
         </div>
         <div class="user-box">
           <input type="password" id="password"name="password" required />
           <label for="password">Senha</label>
-          <a href="/popup" id="forgot-password"
-            >Esqueceu a senha&#63;</a
-          >
+          <a href="/popup" id="forgot-password">
+            <div class="error"> Senha incorreta</div>
+            Esqueceu a senha&#63;
+            </a>
         </div>
         <button href="#" type="submit" class="text" class="text-block" id="enter"> ENTRAR </button>
         <div class="change-box">
