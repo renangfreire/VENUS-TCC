@@ -1,10 +1,21 @@
+const AddProductCartService = require('../service/AddProductCartService')
+
 module.exports = {
     async handle(req, res){
         const { id ,color, size } = req.body
+        let cookie
 
+        console.log(req.cookies.cart);
+        
+        if(req.cookies.cart){
+            cookie = JSON.parse(req.cookies.cart).products
+        }
 
-        console.log(color, size, id)
+        const addProductCartService = new AddProductCartService()
 
-        res.json({"message": "sucessfully"})
+        addProductCartService.execute({res, id, color, size, cookie})
+        
+
+        return res.redirect(`/carrinho/`)
     }
 }

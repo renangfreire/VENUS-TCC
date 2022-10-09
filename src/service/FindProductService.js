@@ -1,7 +1,9 @@
 const prisma = require('../prisma')
 
 class FindProductService{
-    async execute({idProduct}){
+    async execute({idProduct, colors, sizes}){
+        console.log(idProduct, colors, sizes);
+        
         let products = []
 
        const productExists = await prisma.products.findMany({
