@@ -18,21 +18,11 @@ class FindProductService{
             },
                 include:{
                     color: {
-                        where:{
-                            color:{
-                                equals: undefined
-                            }
-                        },
                         select: {
                            color: true
                         }
                     },
                     size: {
-                        where:{
-                            size:{
-                                equals: undefined
-                            }
-                        },   
                         orderBy: {
                             size: 'asc',
                         },
@@ -66,10 +56,16 @@ class FindProductService{
                     products.push(product)
             }
         })
-        
+
+
         return products
+
 
     } 
 }
 
 module.exports = FindProductService
+
+// pesquisar todos os produtos para NÂO quegrar a pag de produto
+// limitar para pag de carrinho
+// funcionar :)

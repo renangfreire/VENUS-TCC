@@ -11,6 +11,6 @@ module.exports = {
         const productJson = await findProductService.execute({ idProduct })
 
         return res.render('index', { page: 'pg-product' , productJson , libs: ["pg-product"], styles: ["pg-product"], username: req.user_name})
-        
+         
     }
 }

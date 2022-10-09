@@ -51,8 +51,8 @@
         method: "post",
         body: JSON.stringify({
             id,
-            color,
-            size,
+            color: color || undefined,
+            size: size || undefined
         })
     }
 
@@ -61,12 +61,6 @@
         window.location.href = response.url
     })
     }
-
-    function attCart(){
-
-        
-
-     }
 
   addCartButton.addEventListener('click', postCart)
   
