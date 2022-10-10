@@ -126,5 +126,56 @@ main .ad-container img{
     color: var(--black);
 }
 
+@media (max-width: 1000px) {
+    header {
+        width: 120rem;
+    }
+    .top-header {
+        
+    }
+}
 
+@media (max-width: 750px) {
+    .top-header {
+        width: 90rem;
+    }
+}
 
+@media (max-width: 500px) {
+    header {
+        width: 50rem;
+    }
+
+    .top-header {
+        width: 45rem;
+    }
+
+    .content {
+        width: 50rem;
+        margin-top: 15rem;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-container .product-box {
+        width: 15rem;
+        height: 32rem;
+    }
+
+    .ad-container img {
+        display: none;
+    }
+    }
+
+    @media (max-width: 330px) {
+        header {
+          width: 45rem;  
+          padding-left: 0;
+        }
+
+        .content {
+            width: 45rem;
+        }
+    }
