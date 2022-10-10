@@ -296,11 +296,10 @@ footer p{
 
 @media (max-width: 1000px) {
     header {
-        width: 100%;
-        
+        width: 120rem;
     }
     .top-header {
-        width: 80%;
+        width: 80rem;
         margin-right: auto;
         gap: 4rem;
     }
@@ -308,7 +307,7 @@ footer p{
         width: 100%;
     }
     .bottom-header {
-        width: 80%;
+        width: 80rem;
         margin-right: auto;
     }
     .top-header .features {
@@ -318,15 +317,15 @@ footer p{
 
 @media (max-width: 750px) {
     header {
-        width: 100%;
+        
         padding-left: 20%;
     }
     .top-header {
-        width: 100%;
+        
         margin-right: auto;
     }
     .bottom-header {
-        width: 100%;
+        
         margin-left: 5rem;
     }
     .bottom-header ul{
@@ -339,12 +338,12 @@ footer p{
 
 @media (max-width: 500px) {
     header {
-        width: 50%;
+        width: 45rem;
         align-items: center;
         padding-left: 1rem;
     }
     .top-header {
-        width: 60%;
+        width: 40rem;
         margin-right: auto;
         padding-left: 2rem;
         gap: .5rem;
@@ -353,7 +352,7 @@ footer p{
     }
 
     .bottom-header {
-        width: 40%;
+        width: 32.5rem;
     }
     
     .bottom-header ul:last-child{

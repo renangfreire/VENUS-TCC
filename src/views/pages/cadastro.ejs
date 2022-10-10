@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<head>
-  <link rel="stylesheet" href="/assets/css/login.css" />
-</head>
 <div class="login-box">
   <h2>Cadastre-se</h2>
   <form action="#" method="POST">
@@ -9,23 +5,36 @@
       <label>Nome</label>
       <input type="text" id="name" name="name" required />
     </div>
-=======
-
-    <div class="login-box">
-      <h2>Cadastre-se</h2>
-      <form action="#" method="POST">
-        <div class="user-box">
-          <input type="text" id="name" name="name" required />
-          <label>Nome</label>
-        </div>
->>>>>>> a05ec7295d0b195acea4ac6d84aadfb6e36ec17f
 
     <div class="user-box">
-      <label>E-mail</label>
-      <input type="text" id="email" name="email" required />
+      <label class="no-event">E-mail</label>
+      <input type="email" id="email" name="email" required />
     </div>
     <div class="user-box">
-      <label>Senha</label>
+      <label class="no-event">Sexo</label>
+      <div class="divsexo">
+        <label class="input_block" for="sex_mas">
+          <input type="radio" name="sexo" value="masculino" />
+          Masculino
+        </label>
+
+        <label class="input_block" for="sex_fem">
+          <input type="radio" name="sexo" value="feminino" />
+          Feminino
+        </label>
+
+        <label class="input_block" for="sex_nao_inf">
+          <input type="radio" name="sexo" value="nao-informar" />
+          Prefiro não informar
+        </label>
+      </div>
+    </div>
+    <div class="user-box">
+      <label class="no-event">CPF</label>
+      <input type="text" id="password" name="password" required />
+    </div>
+    <div class="user-box">
+      <label class="no-event">Senha</label>
       <input type="password" id="password" name="password" required />
     </div>
     <button type="submit" class="text" class="text-block" id="create">

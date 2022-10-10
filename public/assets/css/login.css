@@ -13,7 +13,7 @@ body {
   margin-right: auto;
   margin-top: 5rem;
   width: 50rem;
-  height: 50rem;
+  height: 100%;
   padding: 2.5rem;
   font-size: 2rem;
 
@@ -31,7 +31,9 @@ body {
   text-align: center;
 }
 
-
+.no-event {
+  pointer-events: none;
+}
 
 .login-box .user-box input {
   width: 100%;
@@ -51,7 +53,6 @@ body {
   padding: 0.6rem, 0;
   font-size: 1.5rem;
   color: rgb(0, 0, 0);
-  pointer-events: none;
   transition: 0.5s;
 }
 
@@ -61,6 +62,65 @@ body {
   left: 0;
   color: #5f68ff;
   font-size: 0.7rem;
+}
+
+.divsexo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divsexo input[type="radio"]{
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+
+  font: inherit;
+  color: var(--light-purple);
+  width: 1em;
+  height: .75em;
+  border: 0.15em solid var(--light-purple);
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+
+}
+
+.divsexo input[type="radio"]::before {
+  content: "";
+  width: 0.70em;
+  height: 0.70em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: var(--light-purple);
+}
+
+.divsexo input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.divsexo label{
+  text-align: center;
+}
+
+.input_block {
+  font-size: 2rem;
+  line-height: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input_block:focus-within {
+  color: var(--var(--light-blue));
+}
+.input_block span{
+  font-size: 1.6rem;
 }
 
 #forgot-password {
@@ -89,6 +149,7 @@ body {
   position: relative;
   display: block;
   text-align: center;
+  width: 100%;
   padding: 0.6rem 1.25rem;
   background: #5f68ff;
   color: #ffffff;
@@ -124,19 +185,34 @@ body {
 }
 
 @media (max-width: 700px) {
+  header {
+    width: 70rem;
+  }
   .login-box {
     width: 50rem;
-    
+  }
+  .top-header {
+    width: 40rem;
+  }
+  .bottom-header {
+    width: 35rem;
   }
 }
 
 @media (max-width: 500px) {
   header {
-    width: 100%;
+    width: 50rem;
   }
   .login-box {
     margin-top: 10rem;
-    width: 35rem;
+    width: 45rem;
     height: 20%;
+  }
+}
+
+@media (max-width: 330px) {
+  header {
+    width: 45rem;  
+    padding-left: 0;
   }
 }

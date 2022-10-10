@@ -9,7 +9,6 @@
                     </div>
 
                     <% if(productJson.color.length > 0) { %>
-                        <% console.log(productJson.color)%>
                     <div class="select-color">
                         <p>Cor:</p>
                         <div class="select-buttons">
@@ -17,6 +16,7 @@
                                 <button class="btnSelect btnColor"><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></button>
                              <% })%>
                         </div>
+                        <input type="hidden" name="color" class="currentColor" value="">
                     </div>
                     <% } %>
 
@@ -28,6 +28,7 @@
                                 <button class="btnSelect btnSize"><%= element.size %></button>
                              <% })%>
                         </div>
+                        <input type="hidden" class="currentSize" name="">
                     </div>
                     <% } %>
                     <div class="stock-box">   
@@ -43,9 +44,8 @@
                        <input type="hidden" name="id" value="valor em id"> -->
 
                     <div class="send-button">
-                        <button>Adicionar ao Carrinho</button>
+                        <button id="addCartButton">Adicionar ao Carrinho</button>
                     </div>
-                </form>
                 </div>
             </section>
             <section class="container-description">

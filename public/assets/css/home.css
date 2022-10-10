@@ -126,13 +126,32 @@ main .ad-container img{
     color: var(--black);
 }
 
+@media (max-width: 1000px) {
+    header {
+        width: 120rem;
+    }
+    .top-header {
+        
+    }
+}
+
+@media (max-width: 750px) {
+    .top-header {
+        width: 90rem;
+    }
+}
+
 @media (max-width: 500px) {
     header {
-        width: 100%;
+        width: 50rem;
+    }
+
+    .top-header {
+        width: 45rem;
     }
 
     .content {
-        width: 100%;
+        width: 50rem;
         margin-top: 15rem;
     }
 
@@ -148,4 +167,15 @@ main .ad-container img{
     .ad-container img {
         display: none;
     }
+    }
+
+    @media (max-width: 330px) {
+        header {
+          width: 45rem;  
+          padding-left: 0;
+        }
+
+        .content {
+            width: 45rem;
+        }
     }
