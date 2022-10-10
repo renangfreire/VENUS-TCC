@@ -1,112 +1,133 @@
-        <section>
-          <div id="cart">
-            <h2>Carrinho</h2>
-            <% products.forEach((element) => { %>
-            <div id="product">
-              <div>
-                <img src="/assets/images/products/<%= element.images[0]%>.png" class="product-image" alt="item" />
-              </div>
-              <div id="description">
-                <p>
-                  <%= element.name %>
-                </p>
-                <br />
-                <%if(element.color.length > 0){%>
-                <p>Cor: <% element.color.forEach((element) => { %>
-                  <span><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></span>
-                <%}) %>
-                </p>
-                <% } %>
+<section>
+  <div id="cart">
+    <h2>Carrinho</h2>
+    <% products.forEach((element) => { %>
+    <div id="product-cart">
+      <div>
+        <img
+          src="/assets/images/products/<%= element.images[0]%>.png"
+          class="product-image"
+          alt="item"
+        />
+      </div>
+      <div id="description">
+        <p><%= element.name %></p>
+        <br />
+        <%if(element.color.length > 0){%>
+        <p>
+          Cor: <% element.color.forEach((element) => { %>
+          <span
+            ><%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
+            %></span
+          >
+          <%}) %>
+        </p>
+        <% } %> <% if(element.size.length > 0){%>
 
-                <% if(element.size.length > 0){%>
+        <p>
+          Tamanho: <% element.size.forEach((element) => { %>
+          <span><%= element.size %></span>
+          <%}) %>
+        </p>
+        <% } %>
+      </div>
 
-                
-                <p>Tamanho: <% element.size.forEach((element) => { %>
-                  <span><%= element.size %></span>
-                <%}) %>
-                </p>
-              <% } %>
-              </div>
-              <div id="qtd">
-                <p class="about">Quantidade</p>
-                <div class="qtdButton">
-                  <button class="button amountSubtraction">-</button>
-                  <input type="number" id="input" class="inputAmount" placeholder=""value="1" disabled />
-                  <button class="button amountAddition">+</button>
-                </div>
-              </div>
-              <div>
-                <p class="about">Valor</p>
-                <div>
-                  R$
-                  <span name="Valor" class="inputValue"><%= Number(element.value).toFixed(2) %></span>
-                </div>
-              </div>
-            </div>
-            <% }) %>
+      <div id="box-qtd">
+        <div id="qtd">
+          <p class="about">Quantidade</p>
+          <div class="qtdButton">
+            <button class="button-sum amountSubtraction">-</button>
+            <input
+              type="number"
+              id="input-sum"
+              class="inputAmount"
+              placeholder=""
+              value="1"
+              disabled
+            />
+            <button class="button-sum amountAddition">+</button>
           </div>
-          <div class="box">
-            <div class="boxes" id="box-shipping">
-              <form action="" method="post">
-                <img src="Caminhon.svg" alt="" />
-                <h3>Envio:</h3>
-                <div id="shipping">
-                  <img src="map.svg" alt="" />
-                  <p>Calcular o frete</p>
-                  <input type="search" class="input-search" />
-                  <button class="button-search">OK</button>
-                </div>
-                <div class="line"></div>
-
-                <div>
-                  <input
-                    type="radio"
-                    name="Pagamento"
-                    value="12.00"
-                    id="input-1"
-                  />
-                  <p>Expresso | até 3 dias</p>
-                  <span>R$ 12,00</span>
-                </div>
-              </form>
-            </div>
-            <form action="/pag" method="post" class="boxes" id="box-request">
-              <div>
-                <h3>Resumo do Pedido</h3>
-                <p>Subtotal</p>
-                <span 
-                  ><input
-                    name="subtotal"
-                    type="number"
-                    class="inputs"
-                    value="150.00"
-                    hidden
-                    disabled
-                  />R$ <span  id="sub">0.00</span></span
-                >
-                <br />
-                <div class="line"></div>
-                <p>Frete</p>
-                <span id="span-2"></span>
-                R$ 0.00</span>
-                <br />
-                <div class="line"></div>
-                <p>Total</p>
-                  <span id="span-3">
-                    R$
-                    <span class="totalValue"> 0.00</span>
-                  </span>       
-                <br />
-                <div class="button-links">
-                  <a target="_blank" href="#"
-                    ><button type="submit">Ir para o pagamento</button></a
-                  >
-                  <div>
-                    <br />
-                    <a href="#"><button>Voltar para loja</button></a>
-                  </div>
-                </div>
-              </div>
-            </form>
+        </div>
+        <div>
+          <p class="about">Valor</p>
+          <div>
+            R$
+            <span name="Valor" class="inputValue"
+              ><%= Number(element.value).toFixed(2) %></span
+            >
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <div class="box-spg-req">
+    <div class="boxes" id="box-shipping">
+      <form action="" method="post">
+        <img src="/assets/images/truck.svg" alt="caminhão" />
+        <h3>Envio:</h3>
+        <div id="shipping">
+          <img src="/assets/images/map.svg" alt="" />
+          <p>Calcular o frete</p>
+          <input type="search" class="input-search" />
+          <button class="button-search-shipping">OK</button>
+        </div>
+        <div class="line"></div>
+
+        <div>
+          <input type="radio" name="Pagamento" value="12.00" id="input-1" />
+          <p>Expresso | até 3 dias</p>
+          <span>R$ 12,00</span>
+        </div>
+      </form>
+    </div>
+    <form action="/pag" method="post" class="boxes" id="box-request">
+      <div>
+        <h3>Resumo do Pedido</h3>
+        <p>Subtotal</p>
+        <span
+          ><input
+            name="subtotal"
+            type="number"
+            class="input-request"
+            hidden
+            disabled
+          />R$ <span class="request-values" id="sub">0.00</span></span
+        >
+        <br />
+        <div class="line"></div>
+        <p>Frete</p>
+        <span id="span-2">
+          <input
+            name="frete"
+            type="number"
+            class="input-request"
+            id="freight"
+            value="0"
+            hidden
+            disabled
+          />
+          R$ 0.00
+        </span>
+
+        <br />
+        <div class="line"></div>
+        <p>Total</p>
+        <span id="span-3">
+          R$
+          <span class="totalValue request-values"> 0.00</span>
+        </span>
+        <br />
+        <div class="button-links">
+          <a target="_blank" href="#"
+            ><button type="submit">Ir para o pagamento</button></a
+          >
+          <div>
+            <br />
+            <a href="#"><button>Voltar para loja</button></a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

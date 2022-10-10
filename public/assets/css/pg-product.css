@@ -235,6 +235,7 @@
     cursor: pointer;
 }
 .products-container .product-box .imgBx{
+    
     width: 100%;
     display: flex;
     justify-content: center;
