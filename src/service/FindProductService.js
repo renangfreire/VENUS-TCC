@@ -55,10 +55,16 @@ class FindProductService{
                     products.push(product)
             }
         })
-        
+
+
         return products
+
 
     } 
 }
 
 module.exports = FindProductService
+
+// pesquisar todos os produtos para NÂO quegrar a pag de produto
+// limitar para pag de carrinho
+// funcionar :)
