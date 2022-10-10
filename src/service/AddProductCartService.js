@@ -12,18 +12,18 @@ class AddProductCartService{
         let alreadyExistsId
 
         if(cookie){
-            alreadyExistsId = cookie.map((element) => {
+            cookie.map((element) => {
                 if(element.id == id){
-                    
+                    if(element.color == color && element.size == size){
+                        return alreadyExistsId = true
+                    }
                 }
             })
         }
-       
-        console.log(alreadyExistsId);
-        
 
         if(alreadyExistsId){
-            return console.log("poora")
+            console.log("teste")
+            return
         }
 
         cartCookie.push(newDate)

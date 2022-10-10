@@ -10,20 +10,20 @@ module.exports = {
         if(req.cookies.cart != null){
         const arrayList = JSON.parse(req.cookies.cart).products;
         
-        const idArray = []
-        const colorsArray = []
-        const sizesArray = []
+        const productArray = []
     
         arrayList.map(function(product){
 
-            idArray.push(product.id)
-            colorsArray.push((product.color).toUpperCase())
-            sizesArray.push(product.size)
+            productArray.push({
+                id: product.id,
+                color: product.color.toUpperCase(),
+                size: product.size.toUpperCase()
+            })
         });
         
         const findProductService = new FindProductService();
 
-        products = await findProductService.execute({idProduct: idArray, colors: colorsArray, sizes: sizesArray})
+        products = await findProductService.execute(productArray)
 
     }
 

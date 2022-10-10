@@ -1,15 +1,21 @@
 const prisma = require('../prisma')
 
 class FindProductService{
-    async execute({idProduct, colors, sizes}){
-        
+    async execute(productArray){
+        console.log(productArray)
         let products = []
+        let idArray = []
 
-       const productExists = await prisma.products.findMany({
+        console.log(productArray)
+
+
+        productArray.map(e => idArray.push(e.id))
+
+       const getProducts = await prisma.products.findMany({
                 where: {
                 id:{ 
                     in: 
-                    idProduct
+                    idArray
                 }
         },
             orderBy: {
@@ -30,32 +36,26 @@ class FindProductService{
                         }
                     }
                 }
-          })         
-          
-            productExists.map((product, index) => {
-            if(typeof idProduct == 'string'){
-                
-                // se for STRING - PAGE DE PRODUTO
-                if(idProduct !== product.id){
-                    throw new Error('Product not exits') 
-                }
-
-                products = product
-            }
-
-            // se for Array
-            
-            if(typeof idProduct !== 'string'){
-            idProduct = idProduct.sort((a, b) => {return a-b})  
-
-                if(idProduct[index] !== product.id){
-                    throw new Error('Product not exits') 
-                }
-                
-                    products.push(product)
-            }
         })
 
+         getProducts.map((product, i) => {
+            if(productArray.length == 1){
+                // se for Req de pag produto
+                if(idArray[i] !== product.id){
+                    throw new Error('Product not exits') 
+                }
+                products = product
+            }
+        })
+            // se for Array
+            
+            if(productArray.length > 1){
+            productArray.map(id => {
+                console.log(id)
+                
+            })
+
+            }
 
         return products
 
@@ -65,6 +65,9 @@ class FindProductService{
 
 module.exports = FindProductService
 
-// pesquisar todos os produtos para NÂO quegrar a pag de produto
+// pesquisar todos os produtos com todas cores e tamanhos
+// validação para quando for pag product
+// quand for carrinho, ele vai se auto configurar
+
 // limitar para pag de carrinho
 // funcionar :)
