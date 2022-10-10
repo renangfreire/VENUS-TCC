@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 
 #cart {
   margin: 5rem;
@@ -13,25 +9,27 @@
   font-size: 2rem;
 }
 
-#product {
+#product-cart {
   display: flex;
   justify-content: space-around;
   padding: 2rem;
+  margin-bottom: 5rem;
   border: 1px solid #653EB5;
   height: 17.75rem; 
+  width: 100%;
 }
 
 .product-image{
   width: 15rem;
+  height: 15rem;
 }
 
 #description {
-  margin-top: 2rem;
+  width: 15rem;
 }
 
-
-#input {
-  width: 2rem;
+#input-sum {
+  width: 3rem;
   border: none;
   outline: transparent; 
   text-align: center;
@@ -39,12 +37,17 @@
   
 }
 
-#inputs {
+#input-request {
   width: 2rem;
   border: none;
   outline: transparent; 
   text-align: center;
   background: #fff;
+}
+
+.request-values {
+  margin-top: 0;
+  margin-left: .4rem;
 }
 
 input[type=number]::-webkit-inner-spin-button { 
@@ -53,28 +56,27 @@ input[type=number]::-webkit-inner-spin-button {
 
 .about {
   color: #8462CA;
-  font-size: 1rem;
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.button {
-  width: 2.2rem;
-  height: 1.4rem;
+.button-sum {
+  width: 3.5rem;
   color: #ffffff;
   background: #653EB5;
   border-radius: 2px;
   border: none;
 }
 
-.qtd-button {
+.qtdButton {
   border: solid 1px #653EB5;
   border-radius: 5px;
 }
 
-.box {
+.box-spg-req {
   display: flex;
-  margin: 5rem; 
+  align-items: center;
+  justify-content: center;
 }
 
 #box-shipping {
@@ -85,9 +87,9 @@ input[type=number]::-webkit-inner-spin-button {
 .boxes {
   border: 1px solid #653EB5;
   margin: 5rem;
-  height: 23.75rem;
   padding: 1rem;
-  width: 29.75rem;
+  width: 35.75rem;
+  height: 32rem;
   gap: 1rem;
   box-shadow: 0 3px hsla(0, 0%, 82%, 0.6);
 }
@@ -107,8 +109,8 @@ form span {
 }
 
 .input-search {
-  height: 1.4rem;
-  width: 9rem;
+  height: 2.2rem;
+  width: 12rem;
   border-radius: 0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -124,12 +126,12 @@ form span {
 
 #shipping p{
   margin-bottom: 1rem;
-  padding-right: 3rem;
+  padding-right: 4rem;
 }
 
-.button-search {
-  width: 2.2rem;
-  height: 1.4rem;
+.button-search-shipping {
+  width: 3.2rem;
+  height: 2.2rem;
   color: #ffffff;
   background: #653EB5;
   border-top-right-radius: 3px;
@@ -145,7 +147,6 @@ form span {
 
 #box-request span {
   float: right;
-  margin-top: 1rem;
 }
 
 .button-links {
@@ -154,9 +155,8 @@ form span {
 }
 
 .button-links button {
-  height: 2.5rem;
-  width: 11.8rem;
-  font-size: 1rem;
+  height: 3rem;
+  width: 20rem;
 }
 
 .button-links a button {
@@ -179,4 +179,63 @@ form span {
   outline: transparent; 
   font-size: 1rem;
   background: #fff;
+}
+
+#bus {
+  display: flex;
+}
+
+#box-qtd {
+  display: flex;
+  gap: 5rem;
+}
+
+@media (max-width: 550px) {
+  header {
+    width: 100%;
+  }
+
+  img {
+    width: 1rem;
+  }
+
+  #cart {
+    margin-top: 15rem;
+  }
+
+  #product-cart {
+    height: 100%;
+    width: 29.7rem;
+  }
+
+  .qtd-button {
+    margin-bottom: 5rem;
+    display: flex;
+  }
+  
+
+  #bus {
+    display: block;
+  }
+
+  #box-qtd {
+    display: block;
+    text-align: center;
+  }
+
+  .product-image {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .box-spg-req  {
+    display: block;
+  }
+}
+
+@media (max-width: 330px) {
+  header {
+    width: 36rem;  
+    padding-left: 0;
+  }
 }
