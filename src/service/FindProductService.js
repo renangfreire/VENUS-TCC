@@ -2,7 +2,6 @@ const prisma = require('../prisma')
 
 class FindProductService{
     async execute({idProduct, colors, sizes}){
-        console.log(idProduct, colors, sizes);
         
         let products = []
 
@@ -18,21 +17,11 @@ class FindProductService{
             },
                 include:{
                     color: {
-                        where:{
-                            color:{
-                                equals: undefined
-                            }
-                        },
                         select: {
                            color: true
                         }
                     },
-                    size: {
-                        where:{
-                            size:{
-                                equals: undefined
-                            }
-                        },   
+                    size: {  
                         orderBy: {
                             size: 'asc',
                         },

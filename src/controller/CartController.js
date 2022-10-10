@@ -16,9 +16,6 @@ module.exports = {
             colorsArray.push(product.color.toUpperCase())
             sizesArray.push(product.size)
         });
-                
-        
-        console.log(arrayList);
         
         const findProductService = new FindProductService();
 
