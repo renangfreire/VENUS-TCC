@@ -18,7 +18,7 @@ class FindProductService{
                     color: {
                         where:{
                             color:{
-                                equals: "PRETO"
+                                equals: undefined
                             }
                         },
                         select: {
@@ -28,7 +28,7 @@ class FindProductService{
                     size: {
                         where:{
                             size:{
-                                equals: "M"
+                                equals: undefined
                             }
                         },   
                         orderBy: {
@@ -39,16 +39,17 @@ class FindProductService{
                         }
                     }
                 }
-          })          
-        
-          productExists.map((product, index) => {
+          })         
+          
+            productExists.map((product, index) => {
             if(typeof idProduct == 'string'){
                 
                 // se for STRING - PAGE DE PRODUTO
                 if(idProduct !== product.id){
                     throw new Error('Product not exits') 
                 }
-                products = productExists
+
+                products = product
             }
 
             // se for Array
