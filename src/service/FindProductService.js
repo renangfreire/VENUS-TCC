@@ -8,7 +8,6 @@ class FindProductService{
 
         console.log(productArray)
 
-
         productArray.map(e => idArray.push(e.id))
 
        const getProducts = await prisma.products.findMany({
@@ -58,8 +57,6 @@ class FindProductService{
             }
 
         return products
-
-
     } 
 }
 
