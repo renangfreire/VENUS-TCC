@@ -6,6 +6,7 @@ const RenderProductController = require('./controller/RenderProductController')
 const AuthenticateUserController = require('./controller/AuthenticateUserController')
 const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
+const RemoveProductCartController = require('./controller/RemoveProductCartController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
@@ -62,5 +63,7 @@ router.post('/carrinho', CartController.handle)
 router.post('/createproduct/product', CreateProductController.handle)
 
 router.post('/precarrinho', AddProductCartController.handle)
+
+router.post('/removeProduct', RemoveProductCartController.handle)
 
 module.exports = router 

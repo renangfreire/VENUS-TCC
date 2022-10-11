@@ -25,7 +25,12 @@
                         <p>Tamanho:</p>
                         <div class="select-buttons">
                             <% productJson.size.forEach((element) => { %>
-                                <button class="btnSelect btnSize"><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></button>
+                                
+                                    <% if(element.size.length > 2) { %>
+                                        <button class="btnSelect btnSize"><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></button>
+                                     <% } else {%>
+                                        <button class="btnSelect btnSize"><%= element.size %></button>
+                                      <% } %>
                              <% })%>
                         </div>
                         <input type="hidden" class="currentSize" name="">

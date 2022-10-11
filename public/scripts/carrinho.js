@@ -14,6 +14,8 @@ const displayFrete = document.querySelector('#freight')
 
 const subTotal = document.querySelector('#sub')
 
+const btnTrash = document.querySelectorAll(".removeItem")
+
 const totalValue = document.querySelector('.totalValue')
 
 // JS VARIABLES
@@ -38,7 +40,6 @@ function addQuantity(index){
 }
 
 function removeQuantity(index){
-  // console.log(newProductValues);
   
   if(productAmount[index].value > 1){
     productAmount[index].value = Number(productAmount[index].value) - 1
@@ -63,6 +64,26 @@ function attTotalValue(sum){
   totalValue.innerHTML = sum.toFixed(2)
 }
 
+async function removeProduct(index){
+  const fetchData = {
+    headers:{
+        'Accept': 'application/json',
+         'Content-Type': 'application/json'
+        // "Content-Type": "application/x-www-form-urlencoded"
+    },
+    method: "post",
+    body: JSON.stringify({
+        index
+    })
+}
+
+await fetch('/removeProduct', fetchData).then((response) => {
+  window.location.href = response.url
+})
+  
+}
+  
+
 
 btnAddition.forEach((btn, index) => {
   btn.addEventListener('click', addQuantity.bind(btn, index))
@@ -72,40 +93,6 @@ btnSub.forEach((btn, index) => {
   btn.addEventListener('click', removeQuantity.bind(btn, index))
 })
 
-
-
-
-// function sus() {
-//   btnAddition.addEventListener('click', function () {
-    
-
-
-//     // if (amount.value < 30) {
-//     //   amount.value++
-//     //   sub.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-//     //   qtdValue.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-//     //   C.innerHTML = `R$ ${qtdValue.value}`
-//     //   F.innerHTML = `R$ ${
-//     //     parseFloat(qtdValue.value) + parseFloat(freight.value)
-//     //   }`
-//     // }
-//   })
-
-//   btnSub.addEventListener('click', function () {
-//     if (amount.value > 1) {
-//       amount.value--
-//       sub.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-//       qtdValue.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-//       C.innerHTML = `R$ ${qtdValue.value}`
-//       F.innerHTML = `R$ ${
-//         parseFloat(qtdValue.value) - parseFloat(freight.value)
-//       }`
-//     }
-//   })
-//   buttonFrete.addEventListener('click', () => {
-//     frete.value = buttonFrete.value
-//     S.innerHTML = `R$ ${buttonFrete.value}`
-//     F.innerHTML = `R$ ${parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)}`
-//   })
-// }
-// sus()
+btnTrash.forEach((btn, index) => {
+  btn.addEventListener('click', removeProduct.bind(btn, index))
+})

@@ -2,13 +2,16 @@ const prisma = require('../prisma')
 
 class FindProductService{
     async execute(productArray){
-        console.log(productArray)
         let products = []
         let idArray = []
 
-        console.log(productArray)
+        if(typeof productArray == "string"){
+            idArray.push(productArray)
+        }
 
-        productArray.map(e => idArray.push(e.id))
+        if(typeof productArray !== "string"){
+            productArray.map(e => idArray.push(e.id))
+        }
 
        const getProducts = await prisma.products.findMany({
                 where: {
@@ -38,24 +41,33 @@ class FindProductService{
         })
 
          getProducts.map((product, i) => {
-            if(productArray.length == 1){
+             console.log(productArray)
+            if(typeof productArray == "string"){
                 // se for Req de pag produto
-                if(idArray[i] !== product.id){
+                if(productArray !== product.id){
                     throw new Error('Product not exits') 
                 }
                 products = product
+                console.log(product)
             }
         })
             // se for Array
             
-            if(productArray.length > 1){
-            productArray.map(id => {
-                console.log(id)
-                
+            if(productArray.length > 1 && typeof productArray !== "string"){
+            productArray.forEach(cookieProduct => {
+                getProducts.find(el => {
+                    if(el.id == cookieProduct.id){
+                        const newObj = Object.assign({}, el)
+
+                        newObj.color = [{color: cookieProduct.color}]
+                        newObj.size = [{size: cookieProduct.size}]
+
+                        products.push(newObj)
+                }})
             })
-
+            
             }
-
+        console.log(products)
         return products
     } 
 }
