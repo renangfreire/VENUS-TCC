@@ -235,6 +235,10 @@
     cursor: pointer;
 }
 .products-container .product-box .imgBx{
+<<<<<<< HEAD
+    
+=======
+>>>>>>> a05ec7295d0b195acea4ac6d84aadfb6e36ec17f
     width: 100%;
     display: flex;
     justify-content: center;

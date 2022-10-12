@@ -1,16 +1,16 @@
     <div class="login-box">
       <h2>Faça Login</h2>
-      <form action="#" method="POST">
+      <form action="#" method="POST">      
         <div class="user-box">
-          <input type="text" id="email" name="email" required />
           <label for="email">E-mail</label>
-        <div class="error"> Email incorreto</div>
+          <input type="text" id="email" name="email" required />
+        <div class="error" id="email-required-error"> E-mail incorreto</div>
         </div>
-        <div class="user-box">
+        
+        <div class="user-box"><label for="password">Senha</label>
           <input type="password" id="password"name="password" required />
-          <label for="password">Senha</label>
+          <div class="error"> Senha incorreta</div>
           <a href="/popup" id="forgot-password">
-            <div class="error"> Senha incorreta</div>
             Esqueceu a senha&#63;
             </a>
         </div>

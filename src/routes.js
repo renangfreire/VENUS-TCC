@@ -51,6 +51,10 @@ router.get('/pesquisa', getUserName, (req, res) => {
 
 router.get('/logout', UserLogoutController.handle)
 
+router.get('/404', getUserName, (req, res) => {
+    res.render('index', {page: "error404", styles: ["error404"], libs: ["error404"], username: req.user_name}) })
+
+
 
 // ROUTES POST
 router.post('/cadastro', CreateUserController.handle)

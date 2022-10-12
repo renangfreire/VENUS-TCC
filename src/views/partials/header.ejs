@@ -1,49 +1,42 @@
 <header>
-    <section class="top-header">
-    <a href="/"><img src="/assets/images/logo.svg" alt="Logo Venus Store"></a>
+  <section class="top-header">
+    <a href="/"><img src="/assets/images/logo.svg" alt="Logo Venus Store" /></a>
 
     <div class="search">
-        <div>
+      <div>
         <form>
-    <img src="/assets/images/search.svg" alt="Pesquisar">
-        <label for-id="search-bar" class="sr-only">Barra de Pesquisa</label>
-        <input autocomplete="off" id="search-"type="text" name="search" id="search-bar" placeholder="Pesquisar Produto">
+          <img src="/assets/images/search.svg" alt="Pesquisar" />
+          <label for-id="search-bar" class="sr-only">Barra de Pesquisa</label>
+          <input
+            autocomplete="off"
+            id="search-"
+            type="text"
+            name="search"
+            id="search-bar"
+            placeholder="Pesquisar Produto"
+          />
         </form>
+      </div>
     </div>
+    <div class="features">
+      <a href="/login" class="login-feature">
+        <img src="/assets/images/human.svg" alt="Flor" />
+        <p>Faça Login</p>
+      </a>
+
+      <a href="/carrinho" class="cart-feature">
+        <img src="/assets/images/cart.svg" alt="Carrinho" />
+        <p>Carrinho</p>
+      </a>
     </div>
-    <div  class="features">
-        <% if(!username){ %>
-            <a href="/login" class="login-featurelogged">
-                <img src="/assets/images/human.svg" alt="Flor">
-                <p>Faça Login</p>
-            </a>
-       <% } else{ %>
-        <div class="login-feature logged">
-            <img src="/assets/images/human.svg" alt="Flor">
-                <div class="logged-box">
-                    <p class="bold">Olá, <span><%- username %></span></p>
-                    <div class="logged-nav">
-                    <a href="/dados">Minha conta</a>
-                    <span> | </span>
-                    <a href="/logout">Sair</a>
-                </div>
-            </div>
-        </div>
-       <% } %>
- 
-        <a class="cart" href="/carrinho" class="cart-feature">
-            <img src="/assets/images/cart.svg" alt="Carrinho">
-            <!-- <p>Carrinho</p> -->
-        </a>
-    </div>
-    </section>
-    <nav class='bottom-header'>
-        <ul>
-        <li><a href=#>Todos os produtos</a></li>
-        <li><a href=#>Moda Anime</a></li>
-        <li><a href=#>Acessórios</a></li>
-        <li><a href=#>Camisetas</a></li>
-        <li><a href=#>Moletons</a></li>
-        </ul>
-    </nav>
+  </section>
+  <nav class="bottom-header">
+    <ul>
+      <li><a href="#">Todos os produtos</a></li>
+      <li><a href="#">Moda Anime</a></li>
+      <li><a href="#">Acessórios</a></li>
+      <li><a href="#">Camisetas</a></li>
+      <li><a href="#">Moletons</a></li>
+    </ul>
+  </nav>
 </header>
