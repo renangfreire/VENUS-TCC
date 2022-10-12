@@ -6,7 +6,7 @@ const btnSub = document.querySelectorAll('.amountSubtraction')
 
 const qtdValue = document.querySelectorAll('.inputValue')
 
-const buttonFrete = document.querySelector('#input-1')
+const buttonFrete = document.querySelector('#input-freight')
 
 const displayFrete = document.querySelector('#freight')
 
@@ -17,49 +17,52 @@ const totalValue = document.querySelector('.totalValue')
 const originalProductValues = []
 
 // Para manter valor original dos produtos
-qtdValue.forEach((value) => {originalProductValues.push(Number(value.innerHTML))})
+qtdValue.forEach(value => {
+  originalProductValues.push(Number(value.innerHTML))
+})
 
 const newProductValues = [...originalProductValues]
 
-
-
 attSubTotalValue(originalProductValues)
 
-function addQuantity(index){
-        productAmount[index].value = Number(productAmount[index].value) + 1
+function addQuantity(index) {
+  productAmount[index].value = Number(productAmount[index].value) + 1
 
-        qtdValue[index].innerHTML = (newProductValues[index] + originalProductValues[index]).toFixed(2)
-        newProductValues[index] += originalProductValues[index]
-      
-        attSubTotalValue(newProductValues)
+  qtdValue[index].innerHTML = (
+    newProductValues[index] + originalProductValues[index]
+  ).toFixed(2)
+  newProductValues[index] += originalProductValues[index]
+
+  attSubTotalValue(newProductValues)
 }
 
-function removeQuantity(index){
-  console.log(newProductValues);
-  
-  if(productAmount[index].value > 1){
+function removeQuantity(index) {
+  console.log(newProductValues)
+
+  if (productAmount[index].value > 1) {
     productAmount[index].value = Number(productAmount[index].value) - 1
-    qtdValue[index].innerHTML = (newProductValues[index] - originalProductValues[index]).toFixed(2) 
+    qtdValue[index].innerHTML = (
+      newProductValues[index] - originalProductValues[index]
+    ).toFixed(2)
     newProductValues[index] -= originalProductValues[index]
 
     attSubTotalValue(newProductValues)
-  } 
+  }
 }
 
-function attSubTotalValue(newValue){
-  let sum = 0;
+function attSubTotalValue(newValue) {
+  let sum = 0
 
-  newValue.forEach((element) => sum += element)
-  
+  newValue.forEach(element => (sum += element))
+
   subTotal.innerHTML = sum.toFixed(2)
 
   attTotalValue(sum)
 }
 
-function attTotalValue(sum){
+function attTotalValue(sum) {
   totalValue.innerHTML = sum.toFixed(2)
 }
-
 
 btnAddition.forEach((btn, index) => {
   btn.addEventListener('click', addQuantity.bind(btn, index))
@@ -69,14 +72,8 @@ btnSub.forEach((btn, index) => {
   btn.addEventListener('click', removeQuantity.bind(btn, index))
 })
 
-
-
-
 function sus() {
   btnAddition.addEventListener('click', function () {
-    
-
-
     // if (amount.value < 30) {
     //   amount.value++
     //   sub.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
@@ -102,7 +99,9 @@ function sus() {
   buttonFrete.addEventListener('click', () => {
     frete.value = buttonFrete.value
     S.innerHTML = `R$ ${buttonFrete.value}`
-    F.innerHTML = `R$ ${parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)}`
+    F.innerHTML = `R$ ${
+      parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)
+    }`
   })
 }
 sus()
