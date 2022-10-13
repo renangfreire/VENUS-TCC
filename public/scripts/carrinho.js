@@ -1,3 +1,5 @@
+// DOM VARIABLES
+
 const productAmount = document.querySelectorAll('.inputAmount')
 
 const btnAddition = document.querySelectorAll('.amountAddition')
@@ -14,6 +16,7 @@ const subTotal = document.querySelector('#sub')
 
 const totalValue = document.querySelector('.totalValue')
 
+// JS VARIABLES
 const originalProductValues = []
 
 // Para manter valor original dos produtos
@@ -37,7 +40,7 @@ function addQuantity(index) {
 }
 
 function removeQuantity(index) {
-  console.log(newProductValues)
+  // console.log(newProductValues)
 
   if (productAmount[index].value > 1) {
     productAmount[index].value = Number(productAmount[index].value) - 1

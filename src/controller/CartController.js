@@ -1,15 +1,13 @@
 const FindProductService = require('../service/FindProductService')
 
 module.exports = {
-  async handle(req, res) {
-    res.cookie(
-      'cart',
-      JSON.stringify({ products: [{ id: '03408245' }, { id: '68624231' }] }),
-      { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }
-    )
-    let products
-    if (req.cookies.cart != null) {
-      const arrayList = JSON.parse(req.cookies.cart).products
+    async handle(req, res){
+        res.cookie('cart', JSON.stringify({products: [{id: "60906868"}, {id: '75852980'}]}), { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)})
+        let products
+        if(req.cookies.cart != null){
+        const arrayList = JSON.parse(req.cookies.cart).products;
+        
+        const idArray = []
 
       const idArray = []
 
