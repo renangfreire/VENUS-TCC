@@ -1,7 +1,8 @@
 const prisma = require('../prisma')
+const express = require('express')
 
 class FindProductService{
-    async execute(productArray){
+    async execute({productArray, res}){
         let products = []
         let idArray = []
 
@@ -12,6 +13,8 @@ class FindProductService{
         if(typeof productArray !== "string"){
             productArray.map(e => idArray.push(e.id))
         }
+
+       
 
        const getProducts = await prisma.products.findMany({
                 where: {
@@ -40,20 +43,22 @@ class FindProductService{
                 }
         })
 
+        if(getProducts.length < 1){
+            throw new Error("Product not exists")
+        }
+
          getProducts.map((product, i) => {
-             console.log(productArray)
             if(typeof productArray == "string"){
                 // se for Req de pag produto
                 if(productArray !== product.id){
                     throw new Error('Product not exits') 
                 }
                 products = product
-                console.log(product)
             }
         })
             // se for Array
             
-            if(productArray.length > 1 && typeof productArray !== "string"){
+            if(typeof productArray !== "string"){
             productArray.forEach(cookieProduct => {
                 getProducts.find(el => {
                     if(el.id == cookieProduct.id){
@@ -67,7 +72,6 @@ class FindProductService{
             })
             
             }
-        console.log(products)
         return products
     } 
 }
