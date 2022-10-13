@@ -75,14 +75,19 @@
         <div class="line"></div>
 
         <div>
-          <input type="radio" name="Pagamento" value="12.00" id="input-1" />
+          <input
+            type="radio"
+            name="Pagamento"
+            value="12.00"
+            id="input-freight"
+          />
           <p>Expresso | até 3 dias</p>
           <span>R$ 12,00</span>
         </div>
       </form>
     </div>
-    <form action="/pag" method="post" class="boxes" id="box-request">
-      <div>
+    <div class="boxes" id="box-request">
+      <form action="/pagamento" method="get">
         <h3>Resumo do Pedido</h3>
         <p>Subtotal</p>
         <span
@@ -97,7 +102,7 @@
         <br />
         <div class="line"></div>
         <p>Frete</p>
-        <span id="span-2">
+        <span>
           <input
             name="frete"
             type="number"
@@ -113,21 +118,21 @@
         <br />
         <div class="line"></div>
         <p>Total</p>
-        <span id="span-3">
+        <span>
           R$
           <span class="totalValue request-values"> 0.00</span>
         </span>
         <br />
+        <div class="button-links button-payment">
+          <button type="submit">Ir para o pagamento</button>
+        </div>
+      </form>
+      <div>
         <div class="button-links">
-          <a target="_blank" href="#"
-            ><button type="submit">Ir para o pagamento</button></a
-          >
-          <div>
-            <br />
-            <a href="#"><button>Voltar para loja</button></a>
-          </div>
+          <br />
+          <a href="/home"><button>Voltar para loja</button></a>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </section>

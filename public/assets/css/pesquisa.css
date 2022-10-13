@@ -77,7 +77,7 @@
 }
 
 .filters{
-
+    
    
 
 
@@ -88,4 +88,17 @@
 
    
 
+}
+.button-filters {
+    background-color: white; 
+    height: 3rem;
+    width: 7rem;
+    color: #653EB5;
+    border: 1px solid #653EB5;
+    border-radius: 3px;
+
+}
+
+.imgBx {
+    padding: 3rem;
 }
