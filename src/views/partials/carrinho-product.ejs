@@ -32,6 +32,7 @@
         <% } %>
       </div>
 
+<<<<<<< HEAD
       <div id="box-qtd">
         <div id="qtd">
           <p class="about">Quantidade</p>
@@ -46,6 +47,34 @@
               disabled
             />
             <button class="button-sum amountAddition">+</button>
+=======
+                
+                <p>Tamanho: <% element.size.forEach((element) => { %>
+                  <span><%= element.size %></span>
+                <%}) %>
+                </p>
+              <% } %>
+              </div>
+            </div>
+            <div id="sua">
+              <div id="qtd">
+                <p class="about">Quantidade</p>
+                <div class="qtdButton">
+                  <button class="button amountSubtraction">-</button>
+                  <input type="number" id="input" class="inputAmount" placeholder=""value="1" disabled />
+                  <button class="button amountAddition">+</button>
+                </div>
+              </div>
+              <div>
+                <p class="about">Valor</p>
+                <div>
+                  R$
+                  <span name="Valor" class="inputValue"><%= Number(element.value).toFixed(2) %></span>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+>>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
           </div>
         </div>
         <div>
@@ -56,6 +85,7 @@
               ><%= Number(element.value).toFixed(2) %></span
             >
           </div>
+<<<<<<< HEAD
         </div>
       </div>
     </div>
@@ -136,3 +166,6 @@
     </div>
   </div>
 </section>
+=======
+        </section>
+>>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a

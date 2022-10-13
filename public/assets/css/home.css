@@ -126,6 +126,7 @@ main .ad-container img{
     color: var(--black);
 }
 
+<<<<<<< HEAD
 @media (max-width: 1000px) {
     header {
         width: 120rem;
@@ -152,6 +153,15 @@ main .ad-container img{
 
     .content {
         width: 50rem;
+=======
+@media (max-width: 500px) {
+    header {
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+>>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
         margin-top: 15rem;
     }
 
@@ -167,6 +177,7 @@ main .ad-container img{
     .ad-container img {
         display: none;
     }
+<<<<<<< HEAD
     }
 
     @media (max-width: 330px) {
@@ -178,4 +189,6 @@ main .ad-container img{
         .content {
             width: 45rem;
         }
+=======
+>>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
     }
