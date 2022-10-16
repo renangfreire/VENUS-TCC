@@ -1,10 +1,10 @@
 input, button {
   border-radius: 3px;
+  outline: none;
 }
 
-.identification-payment {
+.identification-payment-orderSummary {
   display: flex;
-  justify-content: center;
   height: 100%;
   margin: 3rem;
   gap: 5rem;
@@ -83,7 +83,7 @@ input, button {
   margin: 2rem 3rem;
   padding-left: 1rem;
   border: 1px solid var(--light-purple);
-  outline: none;
+  
 }
 
 .register-address {
@@ -204,4 +204,36 @@ input, button {
 
 .order-summary img {
   width: 10rem;
+}
+
+
+@media (max-width: 500px) {
+
+ 
+
+  .identification-payment-orderSummary  {
+    flex-direction: column;
+    
+  }
+
+  .identification-data {
+    display: none;
+  }
+
+  .identification-client {
+    height: 30rem;
+    
+  }
+
+  .payment button{
+    width: 34rem;
+  }
+
+  .payment, .identification-client, .order-summary{
+    width: 40rem;
+  }
+
+  .order-summary {
+    
+  }
 }

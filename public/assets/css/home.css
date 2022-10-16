@@ -14,6 +14,8 @@ main .ad-container img{
 .products-container {
     width: 90%;
     margin: 0 auto;
+    
+    justify-items: center;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -152,11 +154,13 @@ main .ad-container img{
 
     .content {
         width: 50rem;
-        margin-top: 15rem;
+        margin-top: 5rem;
+        
     }
 
     .products-container {
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
     }
 
     .products-container .product-box {
@@ -173,6 +177,10 @@ main .ad-container img{
         header {
           width: 45rem;  
           padding-left: 0;
+        }
+
+        .top-header {
+            width: 40rem;
         }
 
         .content {

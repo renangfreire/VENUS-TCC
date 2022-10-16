@@ -195,8 +195,9 @@ form span {
     width: 100%;
   }
 
-  img {
-    width: 1rem;
+  #box-shipping img {
+    width: 2rem;
+    height: 2rem;
   }
 
   #cart {

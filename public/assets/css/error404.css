@@ -1,0 +1,54 @@
+._404{
+    font-size: 10rem;
+    text-align: center;
+    color: black; 
+    text-align: center;
+    font-family: prata;
+    margin-bottom: 2rem;
+}
+._1{
+    text-align:center;
+    display:block;
+    letter-spacing: 5px;
+    font-size: 8rem;
+    line-height: 1rem;
+    color: black;
+    font-family: prata;
+   
+}
+._2 {
+    text-align:center;
+    display:block;
+    font-size: 20px;
+    line-height: 15rem;
+    font-family: prata;
+}
+
+.border-separator {
+    border: 3px solid #653EB5; 
+    margin-top: 30px; 
+}
+
+.btn {
+    padding: 17px 8px;
+    width: 20rem;
+    color: white;
+    background-color: #653EB5;
+   filter: drop-shadow(1px 0px 8px rgb(99, 89, 89));
+    border-radius: 5px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    font-family: Hammersmith One;
+    font-size: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: -30px;
+    
+    
+}
+.btn:hover {
+    background: #50328b;
+    transition: 400ms;
+}
