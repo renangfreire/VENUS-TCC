@@ -212,6 +212,10 @@ header {
     transition: .2s;
 }
 
+.features .menu-mobile {
+    display: none;
+}
+
 .top-header .features p{
     /* line-height: 0.7;; */
 
@@ -296,18 +300,10 @@ footer p{
 
 @media (max-width: 1000px) {
     header {
-<<<<<<< HEAD
         width: 120rem;
     }
     .top-header {
         width: 80rem;
-=======
-        width: 100%;
-        
-    }
-    .top-header {
-        width: 80%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
         margin-right: auto;
         gap: 4rem;
     }
@@ -315,21 +311,20 @@ footer p{
         width: 100%;
     }
     .bottom-header {
-<<<<<<< HEAD
         width: 80rem;
-=======
-        width: 80%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
         margin-right: auto;
     }
     .top-header .features {
         gap: 2rem;
     }
+
+    footer {
+        width: 120rem;
+    }
 }
 
 @media (max-width: 750px) {
     header {
-<<<<<<< HEAD
         
         padding-left: 20%;
     }
@@ -339,43 +334,21 @@ footer p{
     }
     .bottom-header {
         
-=======
-        width: 100%;
-        padding-left: 20%;
-    }
-    .top-header {
-        width: 100%;
-        margin-right: auto;
-    }
-    .bottom-header {
-        width: 100%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
         margin-left: 5rem;
     }
-    .bottom-header ul{
-        
-    }
-    .top-header .features {
-        
-    }
+
+    
 }
 
 @media (max-width: 500px) {
     header {
-<<<<<<< HEAD
         width: 45rem;
-=======
-        width: 50%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
-        align-items: center;
+        height: 17rem;
+        
         padding-left: 1rem;
     }
     .top-header {
-<<<<<<< HEAD
         width: 40rem;
-=======
-        width: 60%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
         margin-right: auto;
         padding-left: 2rem;
         gap: .5rem;
@@ -384,11 +357,8 @@ footer p{
     }
 
     .bottom-header {
-<<<<<<< HEAD
         width: 32.5rem;
-=======
-        width: 40%;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
+        display: none;
     }
     
     .bottom-header ul:last-child{
@@ -410,13 +380,50 @@ footer p{
     }
 
     .top-header .features {
-        gap: auto;
+        gap: .5rem;
         margin-top: auto;
-        display: block;
+        display: flex;
+        flex-direction: column;
         margin-left: 5rem;
+        
     }
     .top-header .features p {
         display: none;
     }
+
+    .features .menu-mobile {
+        display: flex;
+        color: var(--dark-purple);
+    }
+
+    .top-header.show .bottom-header {
+        opacity: 1;
+        visibility: visible;
+      
+        background: var(--body-color);
+      
+        height: 100vh;
+        width: 100vw;
+      
+        position: fixed;
+        top: 0;
+        left: 0;
+      
+        display: grid;
+        place-content: center;
+      }
+      
+      .top-header.show .bottom-header ul {
+        display: grid;
+      }
+      
+      .top-header.show ul.grid {
+        gap: 4rem;
+      }
+
+      footer {
+        width: 45rem;
+      }
+    
 }
 

@@ -4,11 +4,7 @@
 
     <div class="search">
       <div>
-<<<<<<< HEAD
-        <form action="/pesquisa" method="get" >
-=======
-        <form>
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
+        <form action="/pesquisa" method="get">
           <img src="/assets/images/search.svg" alt="Pesquisar" />
           <label for-id="search-bar" class="sr-only">Barra de Pesquisa</label>
           <input
@@ -23,44 +19,32 @@
       </div>
     </div>
     <div class="features">
-      <a href="/login" class="login-feature">
+      <% if(!username){ %>
+      <a href="/login" class="login-featurelogged">
         <img src="/assets/images/human.svg" alt="Flor" />
         <p>Faça Login</p>
       </a>
-
-      <a href="/carrinho" class="cart-feature">
-        <img src="/assets/images/cart.svg" alt="Carrinho" />
-        <p>Carrinho</p>
-      </a>
-    </div>
-<<<<<<< HEAD
-    <div  class="features">
-        <% if(!username){ %>
-            <a href="/login" class="login-featurelogged">
-                <img src="/assets/images/human.svg" alt="Flor">
-                <p>Faça Login</p>
-            </a>
-       <% } else{ %>
-        <div class="login-feature logged">
-            <img src="/assets/images/human.svg" alt="Flor">
-                <div class="logged-box">
-                    <p class="bold">Olá, <span><%- username %></span></p>
-                    <div class="logged-nav">
-                    <a href="/dados">Minha conta</a>
-                    <span> | </span>
-                    <a href="/logout">Sair</a>
-                </div>
-            </div>
+      <% } else{ %>
+      <div class="login-feature logged">
+        <div class="logged-box">
+          <p class="bold">Olá, <span><%- username %></span></p>
+          <div class="logged-nav">
+            <a href="/dados">Minha conta</a>
+            <span> | </span>
+            <a href="/logout">Sair</a>
+          </div>
         </div>
-       <% } %>
- 
-        <a class="cart" href="/carrinho" class="cart-feature">
-            <img src="/assets/images/cart.svg" alt="Carrinho">
-            <!-- <p>Carrinho</p> -->
-        </a>
+      </div>
+      <% } %>
+
+      <a class="cart" href="/carrinho" class="cart-feature">
+        <img src="/assets/images/cart.svg" alt="Carrinho" />
+        <!-- <p>Carrinho</p> -->
+      </a>
+      <div class="menu-mobile">
+        <span class="material-symbols-outlined"> menu </span>
+      </div>
     </div>
-=======
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
   </section>
   <nav class="bottom-header">
     <ul>

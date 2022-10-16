@@ -24,13 +24,10 @@
   height: 15rem;
 }
 
-<<<<<<< HEAD
 #description {
   width: 15rem;
 }
 
-=======
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
 #input-sum {
   width: 3rem;
   border: none;
@@ -91,11 +88,7 @@ input[type=number]::-webkit-inner-spin-button {
   border: 1px solid #653EB5;
   margin: 5rem;
   padding: 1rem;
-<<<<<<< HEAD
   width: 35.75rem;
-=======
-  width: 29.75rem;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
   height: 32rem;
   gap: 1rem;
   box-shadow: 0 3px hsla(0, 0%, 82%, 0.6);
@@ -117,11 +110,7 @@ form span {
 
 .input-search {
   height: 2.2rem;
-<<<<<<< HEAD
   width: 12rem;
-=======
-  width: 9rem;
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
   border-radius: 0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -196,11 +185,7 @@ form span {
   display: flex;
 }
 
-<<<<<<< HEAD
 #box-qtd {
-=======
-#sua {
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
   display: flex;
   gap: 5rem;
 }
@@ -210,13 +195,11 @@ form span {
     width: 100%;
   }
 
-<<<<<<< HEAD
-  img {
-    width: 1rem;
+  #box-shipping img {
+    width: 2rem;
+    height: 2rem;
   }
 
-=======
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
   #cart {
     margin-top: 15rem;
   }
@@ -236,11 +219,7 @@ form span {
     display: block;
   }
 
-<<<<<<< HEAD
   #box-qtd {
-=======
-  #sua {
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
     display: block;
     text-align: center;
   }
@@ -253,7 +232,6 @@ form span {
   .box-spg-req  {
     display: block;
   }
-<<<<<<< HEAD
 }
 
 @media (max-width: 330px) {
@@ -261,6 +239,4 @@ form span {
     width: 36rem;  
     padding-left: 0;
   }
-=======
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
 }

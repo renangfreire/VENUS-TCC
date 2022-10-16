@@ -79,14 +79,24 @@ router.get('/pagamento', getUserName, (req, res) => {
   })
 })
 
-<<<<<<< HEAD
+router.get('/addCarrinho', getUserName, (req, res) => {
+  res.render('index', {
+    page: 'addCarrinho',
+    styles: ['addCarrinho'],
+    username: req.user_name
+  })
+})
+
 router.get('/logout', UserLogoutController.handle)
-=======
+
 router.get('/404', getUserName, (req, res) => {
-    res.render('index', {page: "error404", styles: ["error404"], libs: ["error404"], username: req.user_name}) })
-
-
->>>>>>> 4b051a72c0218ec9fb836724c1b45c8bd8b44d4a
+  res.render('index', {
+    page: 'error404',
+    styles: ['error404'],
+    libs: ['error404'],
+    username: req.user_name
+  })
+})
 
 // ROUTES POST
 router.post('/cadastro', CreateUserController.handle)
