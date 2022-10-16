@@ -180,3 +180,10 @@ form span {
   font-size: 1rem;
   background: #fff;
 }
+
+
+.freteBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

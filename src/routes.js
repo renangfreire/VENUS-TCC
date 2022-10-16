@@ -8,6 +8,9 @@ const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
 const RemoveProductCartController = require('./controller/RemoveProductCartController')
 
+const calcFrete = require('./utils/calcFrete')
+
+
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
 const getUserName = require('./middlewares/getUserName');
@@ -52,9 +55,12 @@ router.get('/pesquisa', getUserName, (req, res) => {
 
 router.get('/user/logout', UserLogoutController.handle)
 
+router.get('/calcFrete', calcFrete)
+
 router.get('*', getUserName, (req, res) => {
     res.render('index', {page: 'error404', styles: ['error404'], username: req.user_name, err})
 })
+
 
 
 // ROUTES POST

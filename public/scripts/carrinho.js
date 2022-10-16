@@ -8,7 +8,9 @@ const btnSub = document.querySelectorAll('.amountSubtraction')
 
 const qtdValue = document.querySelectorAll('.inputValue')
 
-const buttonFrete = document.querySelector('#input-1')
+const buttonFrete = document.querySelector('.button-search')
+const freteBox = document.querySelector('.freteBox')
+
 
 const displayFrete = document.querySelector('#freight')
 
@@ -82,8 +84,6 @@ await fetch('/removeProduct', fetchData).then((response) => {
 })
   
 }
-  
-
 
 btnAddition.forEach((btn, index) => {
   btn.addEventListener('click', addQuantity.bind(btn, index))
@@ -96,3 +96,32 @@ btnSub.forEach((btn, index) => {
 btnTrash.forEach((btn, index) => {
   btn.addEventListener('click', removeProduct.bind(btn, index))
 })
+
+async function calcFrete(){
+  const response = await fetch('/calcFrete')
+
+  const data = await response.json()
+
+  freteBox.innerHTML = 
+  `
+  <input
+  type="radio"
+  name="Pagamento"
+  value="12.00"
+  id="input-1"
+  />
+  <div class="freteDate">
+  <p>SEDEX | até 
+  <span>${data.prazo} dia/s</span>
+   -                 
+  <span>R$ ${data.valor}</span>
+  </p>
+  </div>  
+  `
+}
+
+
+
+
+buttonFrete.addEventListener('click', calcFrete)
+
