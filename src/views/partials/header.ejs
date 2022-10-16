@@ -18,21 +18,24 @@
         </form>
       </div>
     </div>
-    <div class="features">
-      <% if(!username){ %>
-      <a href="/login" class="login-featurelogged">
-        <img src="/assets/images/human.svg" alt="Flor" />
-        <p>Faça Login</p>
-      </a>
-      <% } else{ %>
-      <div class="login-feature logged">
-        <div class="logged-box">
-          <p class="bold">Olá, <span><%- username %></span></p>
-          <div class="logged-nav">
-            <a href="/dados">Minha conta</a>
-            <span> | </span>
-            <a href="/logout">Sair</a>
-          </div>
+    </div>
+    <div  class="features">
+        <% if(!username){ %>
+            <a href="/login" class="login-featurelogged">
+                <img src="/assets/images/human.svg" alt="Flor">
+                <p>Faça Login</p>
+            </a>
+       <% } else{ %>
+        <div class="login-feature logged">
+            <img src="/assets/images/human.svg" alt="Flor">
+                <div class="logged-box">
+                    <p class="bold">Olá, <span><%- username %></span></p>
+                    <div class="logged-nav">
+                    <a href="/dados">Minha conta</a>
+                    <span> | </span>
+                    <a href="/user/logout">Sair</a>
+                </div>
+            </div>
         </div>
       </div>
       <% } %>

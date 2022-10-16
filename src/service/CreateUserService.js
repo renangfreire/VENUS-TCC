@@ -7,13 +7,13 @@ class CreateUserService {
         const userRepository = new PrismaUserRepository()
 
         if(!email){
-            throw new Error('Please provide a valid email')
+            throw new Error('Por favor insira um email correto')
         }
 
         const EmailAlreadyExists = await prisma.user.findUnique({where: { email }}) ? true : false
 
         if(EmailAlreadyExists){
-            throw new Error('Please provide a valid email')
+            throw new Error('Por favor insira um email correto')
         }
 
         const passwordHash = await hash(password, 8)

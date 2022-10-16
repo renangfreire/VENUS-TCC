@@ -191,6 +191,7 @@ model Stock {
 }
 
 enum Color {
+  UNICO
   PRETO
   ROSA
   BRANCO
@@ -199,6 +200,7 @@ enum Color {
 }
 
 enum Size {
+  UNICO
   P
   M
   G

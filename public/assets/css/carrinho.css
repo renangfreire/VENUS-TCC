@@ -181,6 +181,12 @@ form span {
   background: #fff;
 }
 
+
+
+.freteBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 #bus {
   display: flex;
 }
@@ -214,7 +220,6 @@ form span {
     display: flex;
   }
   
-
   #bus {
     display: block;
   }
@@ -239,4 +244,5 @@ form span {
     width: 36rem;  
     padding-left: 0;
   }
+
 }

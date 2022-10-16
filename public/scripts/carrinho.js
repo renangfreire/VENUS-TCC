@@ -8,11 +8,14 @@ const btnSub = document.querySelectorAll('.amountSubtraction')
 
 const qtdValue = document.querySelectorAll('.inputValue')
 
-const buttonFrete = document.querySelector('#input-freight')
+const buttonFrete = document.querySelector('.button-search')
+const freteBox = document.querySelector('.freteBox')
 
 const displayFrete = document.querySelector('#freight')
 
 const subTotal = document.querySelector('#sub')
+
+const btnTrash = document.querySelectorAll(".removeItem")
 
 const totalValue = document.querySelector('.totalValue')
 
@@ -39,10 +42,9 @@ function addQuantity(index) {
   attSubTotalValue(newProductValues)
 }
 
-function removeQuantity(index) {
-  // console.log(newProductValues)
-
-  if (productAmount[index].value > 1) {
+function removeQuantity(index){
+  
+  if(productAmount[index].value > 1){
     productAmount[index].value = Number(productAmount[index].value) - 1
     qtdValue[index].innerHTML = (
       newProductValues[index] - originalProductValues[index]
@@ -67,6 +69,24 @@ function attTotalValue(sum) {
   totalValue.innerHTML = sum.toFixed(2)
 }
 
+async function removeProduct(index){
+  const fetchData = {
+    headers:{
+        'Accept': 'application/json',
+         'Content-Type': 'application/json'
+        // "Content-Type": "application/x-www-form-urlencoded"
+    },
+    method: "post",
+    body: JSON.stringify({
+        index
+    })
+}
+
+await fetch('/removeProduct', fetchData).then((response) => {
+  window.location.href = response.url
+})
+  
+}
 btnAddition.forEach((btn, index) => {
   btn.addEventListener('click', addQuantity.bind(btn, index))
 })
@@ -75,36 +95,32 @@ btnSub.forEach((btn, index) => {
   btn.addEventListener('click', removeQuantity.bind(btn, index))
 })
 
-function sus() {
-  btnAddition.addEventListener('click', function () {
-    // if (amount.value < 30) {
-    //   amount.value++
-    //   sub.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-    //   qtdValue.value = `${parseFloat(qtdValue.value) + parseFloat(150)}.00`
-    //   C.innerHTML = `R$ ${qtdValue.value}`
-    //   F.innerHTML = `R$ ${
-    //     parseFloat(qtdValue.value) + parseFloat(freight.value)
-    //   }`
-    // }
-  })
+btnTrash.forEach((btn, index) => {
+  btn.addEventListener('click', removeProduct.bind(btn, index))
+})
 
-  btnSub.addEventListener('click', function () {
-    if (amount.value > 1) {
-      amount.value--
-      sub.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-      qtdValue.value = `${parseFloat(qtdValue.value) - parseFloat(150)}.00`
-      C.innerHTML = `R$ ${qtdValue.value}`
-      F.innerHTML = `R$ ${
-        parseFloat(qtdValue.value) - parseFloat(freight.value)
-      }`
-    }
-  })
-  buttonFrete.addEventListener('click', () => {
-    frete.value = buttonFrete.value
-    S.innerHTML = `R$ ${buttonFrete.value}`
-    F.innerHTML = `R$ ${
-      parseFloat(qtdValue.value) + parseFloat(buttonFrete.value)
-    }`
-  })
+async function calcFrete(){
+  const response = await fetch('/calcFrete')
+
+  const data = await response.json()
+
+  freteBox.innerHTML = 
+  `
+  <input
+  type="radio"
+  name="Pagamento"
+  value="12.00"
+  id="input-1"
+  />
+  <div class="freteDate">
+  <p>SEDEX | até 
+  <span>${data.prazo} dia/s</span>
+   -                 
+  <span>R$ ${data.valor}</span>
+  </p>
+  </div>  
+  `
 }
-sus()
+
+buttonFrete.addEventListener('click', calcFrete)
+

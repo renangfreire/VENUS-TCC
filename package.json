@@ -21,13 +21,19 @@
   "homepage": "https://github.com/yDragonEz/TCC-bahianos-2022#readme",
   "dependencies": {
     "@prisma/client": "^4.3.1",
+    "axios": "^1.1.2",
     "bcrypt": "^5.0.1",
+    "brasil-api-promise": "^1.1.1",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
+    "correios-brasil": "^3.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "ejs-lint": "^1.2.2",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.3",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
