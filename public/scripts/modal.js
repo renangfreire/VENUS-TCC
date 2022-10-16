@@ -1,14 +1,14 @@
 export default function Modal() {
-    const modalWrapper = document.querySelector('.popup-wrapper')
-    const buttonClose = document.querySelector('.popup-close')
+  const modalWrapper = document.querySelector('.popup-wrapper')
+  const buttonClose = document.querySelector('.popup-close')
 
-    buttonClose.addEventListener('click', close)
+  buttonClose.addEventListener('click', close)
 
-    function open(){
-        modalWrapper.classList.add('active')
-    }
-    function close(){
-        modalWrapper.classList.remove('active')
+  function open() {
+    modalWrapper.classList.add('active')
+  }
+  function close() {
+    modalWrapper.classList.remove('active')
 
     //     const classNameOfClickedElement = event.target.classList[0]
     //     const classNames = ['popup-close', 'popup-wrapper', 'popup-link']
@@ -16,9 +16,9 @@ export default function Modal() {
     // if (shouldClosePopup){
     //     popup.style.display = 'none'
     //   }
-    }
+  }
 
-    return {
-        open
-    }
+  return {
+    open
+  }
 }

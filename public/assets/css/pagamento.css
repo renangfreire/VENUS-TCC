@@ -1,0 +1,239 @@
+input, button {
+  border-radius: 3px;
+  outline: none;
+}
+
+.identification-payment-orderSummary {
+  display: flex;
+  height: 100%;
+  margin: 3rem;
+  gap: 5rem;
+}
+
+.identification-client {
+  border: 1px solid var(--light-purple);
+  width: 50rem;
+  height: 100%;
+}
+
+.identification-client .client-data {
+  margin: 2rem;
+}
+
+.identification-client .client-data div {
+  width: 20rem;
+  color: var(--light-purple);
+  border-bottom: 1px solid var(--dark-purple);
+  padding-top: 1rem;
+}
+
+.identification-client form h2{
+  text-align: center;
+  background: var(--dark-purple);
+  color: #fff;
+}
+
+.identification-client .line {
+  border: 1px solid var(--light-purple);
+  margin-top: 3rem;
+}
+
+.identification-client form a p{
+  margin: 2rem;
+  text-align: center;
+  color: var(--dark-purple);
+}
+
+.input-CEP input{
+  width: 20rem;
+  height: 4rem;
+}
+
+.input-CEP a {
+  color: var(--dark-blue);
+}
+
+.identification-client .input-complement {
+  display: flex;
+  gap: 5rem;
+  margin: 3rem;
+}
+
+.input-complement input:first-of-type {
+  width: 10rem;
+  background: var(--white);
+  border: 1px solid var(--light-purple);
+  color: var(--light-purple);
+}
+
+.input-complement input {
+  width: 25rem;
+  height: 4rem;
+  padding-left: 1rem;
+  background: var(--white);
+  border: 1px solid var(--dark-purple);
+}
+
+.inputs-identification {
+  width: 40rem;
+  height: 4rem;
+}
+
+.input-address {
+  margin: 2rem 3rem;
+  padding-left: 1rem;
+  border: 1px solid var(--light-purple);
+  
+}
+
+.register-address {
+  text-align: center;
+}
+
+.register-address button {
+  width: 30rem;
+  height: 5rem;
+  margin-bottom: 2rem;
+  background: var(--green);
+  color: var(--white);
+}
+
+.box-address {
+  margin: 2rem;
+  padding: 2rem;
+  background: var(--light-gray)
+}
+
+.box-address p {
+  margin-bottom: 2rem;
+}
+
+.box-address img {
+  background: var(--light-gray);
+}
+
+.payment {
+  width: 50rem;
+  height: 50rem;
+  
+  border: 1px solid var(--light-purple);
+}
+
+.payment h2 {
+  background: var(--dark-purple);
+  color: #fff;
+}
+
+.payment h3 {
+  margin-top: 3rem;
+}
+
+.payment h2, .payment h3 {
+  text-align: center;
+}
+
+.payment button {
+  width: 44rem;
+  height: 5rem;
+  margin: .5rem 3rem;
+  padding: 1rem;
+  text-align: start;
+  color: #fff;
+  background: var(--dark-purple)
+}
+
+.order-summary {
+  width: 50rem;
+  height: 100%;
+  background: var(--dark-purple);
+  border-radius: 5px;
+}
+
+.order-summary h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.box-order-summary {
+  background: #fff;
+  margin: 1rem;
+  padding: 3rem;
+}
+
+.box-order-summary p {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
+.subtotal-order {
+  color: #fff;
+  padding: 1rem;
+}
+
+.subtotal-order span {
+  float: right;
+}
+
+.subtotal-order div:last-of-type{
+  font-size: 2rem;
+  color: #0ff;
+}
+
+.order-summary p:last-of-type {
+  text-align: center;
+  color: #fff;
+}
+
+.order-summary p a {
+  color: #0ff;
+}
+
+.back-cart {
+  text-align: center;
+}
+
+.order-summary a:last-of-type button {
+  width: 20rem;
+  height: 5rem;
+  margin: 3rem 0;
+  justify-content: center;
+  background: var(--light-purple);
+  color: var(--white);
+}
+
+.order-summary img {
+  width: 10rem;
+}
+
+
+@media (max-width: 500px) {
+
+ 
+
+  .identification-payment-orderSummary  {
+    flex-direction: column;
+    
+  }
+
+  .identification-data {
+    display: none;
+  }
+
+  .identification-client {
+    height: 30rem;
+    
+  }
+
+  .payment button{
+    width: 34rem;
+  }
+
+  .payment, .identification-client, .order-summary{
+    width: 40rem;
+  }
+
+  .order-summary {
+    
+  }
+}

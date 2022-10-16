@@ -202,3 +202,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   width: 20rem
 }
+
+@media (max-width: 500px) {
+  .global-section {
+    padding: 0;
+    margin-left: 20rem;
+    
+  }
+  .global-section .data-section {
+    flex-wrap: wrap;
+  }
+
+  .databasic-container form input {
+    width: 45rem;
+  }
+
+  .address-container .address-box{
+    width: 40rem;
+  }
+
+  .address-btn, .save-button  {
+    justify-content: center;
+  }
+}

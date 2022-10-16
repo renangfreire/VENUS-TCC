@@ -14,6 +14,8 @@ main .ad-container img{
 .products-container {
     width: 90%;
     margin: 0 auto;
+    
+    justify-items: center;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -126,5 +128,62 @@ main .ad-container img{
     color: var(--black);
 }
 
+@media (max-width: 1000px) {
+    header {
+        width: 120rem;
+    }
+    .top-header {
+        
+    }
+}
 
+@media (max-width: 750px) {
+    .top-header {
+        width: 90rem;
+    }
+}
 
+@media (max-width: 500px) {
+    header {
+        width: 50rem;
+    }
+
+    .top-header {
+        width: 45rem;
+    }
+
+    .content {
+        width: 50rem;
+        margin-top: 5rem;
+        
+    }
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+
+    .products-container .product-box {
+        width: 15rem;
+        height: 32rem;
+    }
+
+    .ad-container img {
+        display: none;
+    }
+    }
+
+    @media (max-width: 330px) {
+        header {
+          width: 45rem;  
+          padding-left: 0;
+        }
+
+        .top-header {
+            width: 40rem;
+        }
+
+        .content {
+            width: 45rem;
+        }
+    }

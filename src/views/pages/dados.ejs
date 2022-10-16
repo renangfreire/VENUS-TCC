@@ -1,88 +1,109 @@
-    <section class="global-section">
-        <h1>Meus dados</h1> 
-        <section class='data-section'>
-        <div class="databasic-container">
-                <div class="databasic-title"> 
-                    <h3>Dados básicos: </h3>
-                    <button class="btn-outlined alter-password">Alterar Senha</button>
-                </div>
-                    <form action="">
-                            <label for="name">Nome*</label>
-                            <input type="text" name="name" id="name">
-                            <div class="input-locked">
-                                <label for="email">Email*</label>
-                                <input type="email" disabled name="email" id="email" value="texugo@brasil.com">
-                                <span class="material-icons dark-gray">lock</span>
-                            </div>
-                            
-                            <div class="input-locked">
-                                <label for="cpf">CPF*</label>
-                                <input type="text" name="cpf" id="cpf" disabled value="398.880.000-00">
-                                <span class="material-icons dark-gray">lock</span>
-                            </div>
+<section class="global-section">
+  <h1>Meus dados</h1>
+  <section class="data-section">
+    <div class="databasic-container">
+      <div class="databasic-title">
+        <h3>Dados básicos:</h3>
+        <button class="btn-outlined alter-password">Alterar Senha</button>
+      </div>
+      <form action="">
+        <label for="name">Nome*</label>
+        <input type="text" name="name" id="name" />
+        <div class="input-locked">
+          <label for="email">Email*</label>
+          <input
+            type="email"
+            disabled
+            name="email"
+            id="email"
+            value="texugo@brasil.com"
+          />
+          <span class="material-symbols-outlined dark-gray"> lock </span>
+        </div>
 
-                            <p>Sexo*</p>
-                                <div class="divsexo">
-                                    <label class='input_block'for="sex_mas">
-                                            <input type="radio" name="sexo" id="sex_mas" value="masculino">
-                                            Masculino
-                                        </label>
-                                        
-                                        <label class='input_block' for="sex_fem">
-                                            <input type="radio" name="sexo" id="sex_fem" value="feminino">
-                                            Feminino
-                                        </label>
-                                       
-                                        <label class='input_block' for="sex_nao_inf">
-                                            <input type="radio" name="sexo" id="sex_nao_inf" value="nao-informar">
-                                           Prefiro não informar
-                                        </label>
-                                </div>
-                                
-                                <div class="input-locked">
-                                    <label for="born">Data de Nascimento</label>
-                                    <input type="date" name="born" disabled value='1983-12-02' id="born">
-                                    <span class="material-icons dark-gray">lock</span>
-                                </div>
-                          
-                            <label for="phone">Telefone*</label>
-                            <input type="text" name="phone" id="phone"> 
-                        <div class='save-button'>
-                            <button class="btn">Salvar</button>
-                        </div>
-                    </form>
-            </div> 
+        <div class="input-locked">
+          <label for="cpf">CPF*</label>
+          <input
+            type="text"
+            name="cpf"
+            id="cpf"
+            disabled
+            value="398.880.000-00"
+          />
+          <span class="material-symbols-outlined dark-gray"> lock </span>
+        </div>
 
-            <div class="address-container">
-                <h2>Endereço</h2>
-                    <div class="address-box active">
-                        <h3>Casa</h3>
-                        <p>Rua Maria</p>
-                        <p>Numero: 299</p>
-                        <p>CEP 07390930 - Barueri, SP</p>
-                    </div>  
+        <p>Sexo*</p>
+        <div class="divsexo">
+          <label class="input_block" for="sex_mas">
+            <input type="radio" name="sexo" id="sex_mas" value="masculino" />
+            Masculino
+          </label>
 
-                    <div class="address-box">
-                        <h3>Casa</h3>
-                        <p>Rua José</p>
-                        <p>Numero: 039</p>
-                        <p>CEP 06497930 - Ibiúna, SP</p>
-                    </div> 
-                    <div class="address-box">
-                        <h3>Trabalho</h3>
-                        <p>Torre Maqueico</p>
-                        <p>Numero: 029</p>
-                        <p>CEP 08774200 - Ibiúna, SP</p>
-                    </div> 
+          <label class="input_block" for="sex_fem">
+            <input type="radio" name="sexo" id="sex_fem" value="feminino" />
+            Feminino
+          </label>
 
-                    <div class="address-btn">
-                        <button class="btn" >
-                            <span class="material-icons">
-                            add_circle
-                            </span>
-                            Novo Endereço
-                        </button>
-                    </div>
-            </div>
-    </section>
+          <label class="input_block" for="sex_nao_inf">
+            <input
+              type="radio"
+              name="sexo"
+              id="sex_nao_inf"
+              value="nao-informar"
+            />
+            Prefiro não informar
+          </label>
+        </div>
+
+        <div class="input-locked">
+          <label for="born">Data de Nascimento</label>
+          <input
+            type="date"
+            name="born"
+            disabled
+            value="1983-12-02"
+            id="born"
+          />
+          <span class="material-symbols-outlined dark-gray"> lock </span>
+        </div>
+
+        <label for="phone">Telefone*</label>
+        <input type="text" name="phone" id="phone" />
+        <div class="save-button">
+          <button class="btn">Salvar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="address-container">
+      <h2>Endereço</h2>
+      <div class="address-box active">
+        <h3>Casa</h3>
+        <p>Rua Maria</p>
+        <p>Numero: 299</p>
+        <p>CEP 07390930 - Barueri, SP</p>
+      </div>
+
+      <div class="address-box">
+        <h3>Casa</h3>
+        <p>Rua José</p>
+        <p>Numero: 039</p>
+        <p>CEP 06497930 - Ibiúna, SP</p>
+      </div>
+      <div class="address-box">
+        <h3>Trabalho</h3>
+        <p>Torre Maqueico</p>
+        <p>Numero: 029</p>
+        <p>CEP 08774200 - Ibiúna, SP</p>
+      </div>
+
+      <div class="address-btn">
+        <button class="btn">
+          <span class="material-symbols-outlined"> add_circle </span>
+          Novo Endereço
+        </button>
+      </div>
+    </div>
+  </section>
 </section>

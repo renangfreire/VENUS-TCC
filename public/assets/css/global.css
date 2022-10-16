@@ -134,11 +134,12 @@ header {
      
      display: flex;
      justify-content: space-between;
-
+    
     }
     
 .top-header > a > img {
-    width: 20rem;
+    width: 100%;
+    height: 10rem;
 }
 
 .top-header .search{
@@ -209,6 +210,10 @@ header {
     text-decoration: underline;
     
     transition: .2s;
+}
+
+.features .menu-mobile {
+    display: none;
 }
 
 .top-header .features p{
@@ -291,3 +296,133 @@ footer p{
     text-transform: uppercase;
     font-size: var(--small-font-size);
 }
+
+@media (max-width: 1000px) {
+    header {
+        width: 120rem;
+    }
+    .top-header {
+        width: 80rem;
+        margin-right: auto;
+        gap: 4rem;
+    }
+    img {
+        width: 100%;
+    }
+    .bottom-header {
+        width: 80rem;
+        margin-right: auto;
+    }
+    .top-header .features {
+        gap: 2rem;
+    }
+
+    footer {
+        width: 120rem;
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        
+        padding-left: 20%;
+    }
+    .top-header {
+        
+        margin-right: auto;
+    }
+    .bottom-header {
+        
+        margin-left: 5rem;
+    }
+
+    
+}
+
+@media (max-width: 500px) {
+    header {
+        width: 45rem;
+        height: 17rem;
+        
+        padding-left: 1rem;
+    }
+    .top-header {
+        width: 40rem;
+        margin-right: auto;
+        padding-left: 2rem;
+        gap: .5rem;
+        align-items: center;
+        justify-content:center ;
+    }
+
+    .bottom-header {
+        width: 32.5rem;
+        display: none;
+    }
+    
+    .bottom-header ul:last-child{
+        margin-left: 5rem;
+        display: block;
+        text-align: center;
+    }
+
+    .top-header .search {
+        margin-left: 2rem;
+    }
+
+    .top-header .search img {
+        width: auto;
+    }
+
+    .top-header .search div form {
+        gap: 0;
+    }
+
+    .top-header .features {
+        gap: .5rem;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5rem;
+        
+    }
+    .top-header .features p {
+        display: none;
+    }
+
+    .features .menu-mobile {
+        display: flex;
+        color: var(--dark-purple);
+    }
+
+    .top-header.show .bottom-header {
+        opacity: 1;
+        visibility: visible;
+      
+        background: var(--body-color);
+      
+        height: 100vh;
+        width: 100vw;
+      
+        position: fixed;
+        top: 0;
+        left: 0;
+      
+        display: grid;
+        place-content: center;
+      }
+      
+      .top-header.show .bottom-header ul {
+        display: grid;
+      }
+      
+      .top-header.show ul.grid {
+        gap: 4rem;
+      }
+
+      footer {
+        width: 45rem;
+      }
+    
+}
+

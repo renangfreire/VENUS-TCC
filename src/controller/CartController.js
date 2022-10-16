@@ -21,10 +21,17 @@ module.exports = {
         const findProductService = new FindProductService();
 
         products = await findProductService.execute({productArray})
-
-    }
+      const findProductService = new FindProductService()
 
     return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products, err: undefined});
-        
     }
+
+    return res.render('index', {
+      page: 'carrinho',
+      libs: ['carrinho'],
+      styles: ['carrinho'],
+      username: req.user_name,
+      products
+    })
+  }
 }

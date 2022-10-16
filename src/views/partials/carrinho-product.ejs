@@ -1,26 +1,36 @@
-        <section>
-          <div id="cart">
-            <h2>Carrinho</h2>
-            <% products.forEach((element) => { %>
-            <div id="product">
-              <div>
-                <img src="/assets/images/products/<%= element.images[0]%>.png" class="product-image" alt="item" />
-              </div>
-              <div id="description">
-                <p>
-                  <%= element.name %>
-                </p>
-                <br />
-                <%if(element.color.length > 0){%>
-                <p>Cor: <% element.color.forEach((element) => { %>
-                  <span><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></span>
-                <%}) %>
-                </p>
-                <% } %>
+<section>
+  <div id="cart">
+    <h2>Carrinho</h2>
+    <% products.forEach((element) => { %>
+    <div id="product-cart">
+      <div>
+        <img
+          src="/assets/images/products/<%= element.images[0]%>.png"
+          class="product-image"
+          alt="item"
+        />
+      </div>
+      <div id="description">
+        <p><%= element.name %></p>
+        <br />
+        <%if(element.color.length > 0){%>
+        <p>
+          Cor: <% element.color.forEach((element) => { %>
+          <span
+            ><%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
+            %></span
+          >
+          <%}) %>
+        </p>
+        <% } %> <% if(element.size.length > 0){%>
 
-                <% if(element.size.length > 0){%>
-
-                
+        <p>
+          Tamanho: <% element.size.forEach((element) => { %>
+          <span><%= element.size %></span>
+          <%}) %>
+        </p>
+        <% } %>
+      </div>
                 <p>Tamanho: <% element.size.forEach((element) => { %>
                   <% if(element.size.length > 2) { %>
                     <span><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></span>
@@ -107,4 +117,83 @@
               </div>
             </form>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <div class="box-spg-req">
+    <div class="boxes" id="box-shipping">
+      <form action="" method="post">
+        <img src="/assets/images/truck.svg" alt="caminhão" />
+        <h3>Envio:</h3>
+        <div id="shipping">
+          <img src="/assets/images/map.svg" alt="" />
+          <p>Calcular o frete</p>
+          <input type="search" class="input-search" />
+          <button class="button-search-shipping">OK</button>
+        </div>
+        <div class="line"></div>
+
+        <div>
+          <input
+            type="radio"
+            name="Pagamento"
+            value="12.00"
+            id="input-freight"
+          />
+          <p>Expresso | até 3 dias</p>
+          <span>R$ 12,00</span>
+        </div>
+      </form>
+    </div>
+    <div class="boxes" id="box-request">
+      <form action="/pagamento" method="get">
+        <h3>Resumo do Pedido</h3>
+        <p>Subtotal</p>
+        <span
+          ><input
+            name="subtotal"
+            type="number"
+            class="input-request"
+            hidden
+            disabled
+          />R$ <span class="request-values" id="sub">0.00</span></span
+        >
+        <br />
+        <div class="line"></div>
+        <p>Frete</p>
+        <span>
+          <input
+            name="frete"
+            type="number"
+            class="input-request"
+            id="freight"
+            value="0"
+            hidden
+            disabled
+          />
+          R$ 0.00
+        </span>
+
+        <br />
+        <div class="line"></div>
+        <p>Total</p>
+        <span>
+          R$
+          <span class="totalValue request-values"> 0.00</span>
+        </span>
+        <br />
+        <div class="button-links button-payment">
+          <button type="submit">Ir para o pagamento</button>
+        </div>
+      </form>
+      <div>
+        <div class="button-links">
+          <br />
+          <a href="/home"><button>Voltar para loja</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

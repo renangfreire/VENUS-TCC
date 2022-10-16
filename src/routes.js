@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 
 const CreateUserController = require('./controller/CreateUserController')
 const CreateProductController = require('./controller/CreateProductController')
@@ -13,8 +13,8 @@ const calcFrete = require('./utils/calcFrete')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
-const getUserName = require('./middlewares/getUserName');
-const CartController = require('./controller/CartController');
+const getUserName = require('./middlewares/getUserName')
+const CartController = require('./controller/CartController')
 
 const router = express.Router()
 const err = undefined
@@ -34,11 +34,10 @@ router.get('/cadastro', getUserName, (req, res) => {
 })
 
 router.get('/product/', (req, res) => {
-    res.redirect('/')
+  res.redirect('/')
 })
 
 router.get('/product/:id_product', getUserName, RenderProductController.handle)
-
 
 router.get('/dados', ensureAuthenticate, getUserName, (req, res) => {
     res.render('index', {page: "dados", styles: ["dados"], username: req.user_name, err});
@@ -62,6 +61,14 @@ router.get('*', getUserName, (req, res) => {
 })
 
 
+router.get('/404', getUserName, (req, res) => {
+  res.render('index', {
+    page: 'error404',
+    styles: ['error404'],
+    libs: ['error404'],
+    username: req.user_name
+  })
+})
 
 // ROUTES POST
 router.post('/cadastro', CreateUserController.handle)
