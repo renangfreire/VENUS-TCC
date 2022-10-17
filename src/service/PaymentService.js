@@ -1,32 +1,25 @@
 const mercadoPago = require('mercadopago')
 
 mercadoPago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP);
+// console.log(process.env.ACCESS_TOKEN_MP)
 
 class PaymentService{
-    async execute(){
-    
-        var preference = {
-            items: [
-              {
-                id: '26972801',
-                title: "Moletom Nezuko",
-                description: "Moletom Nezuko",
-                quantity: 1,
-                currency_id: 'BRL',
-                unit_price: 79.99
-              }
-            ],
-            payer : {
-              email: 'teste@teste.com'
-            },
-            auto_return : "all",
-            external_reference : "26972801",
-          }
-          
-          const mp = mercadoPago.payment.create(preference)
-          console.log(mp)
+    async execute({payment_data, res}){
 
-        return
+      // console.log(payment_data)
+
+ await mercadoPago.payment.save(payment_data)
+  .then(function(response) {
+    return res.status(response.status).json({
+      status: response.body.status,
+      status_detail: response.body.status_detail,
+      id: response.body.id
+    });
+  })
+  .catch(function(error) {
+    return console.error(error)
+  });
+  
     }
 }
 

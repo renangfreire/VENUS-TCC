@@ -53,6 +53,12 @@
     <!-- INCLUDE IN ALL PAGES -->
     <script src="/scripts/main.js" defer type="module"></script>
 
+    <%if(typeof libs !== 'undefined') {%>
+        <%if(libs == "pagamento"){%>
+            <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <% } %>
+     <% } %> 
+
     <!-- INCLUDE IN SPECIFIC PAGES -->
     <% if(typeof libs !== 'undefined'){%>
         <% if(libs.length > 0) {%>
@@ -61,10 +67,6 @@
                 <%}%>
             <% } %>
         <%} %>
-        <%if(typeof libs !== 'undefined') {%>
-            <%if(libs == "pagamento"){%>
-                <script src="https://sdk.mercadopago.com/js/v2"></script>
-            <% } %>
-         <% } %> 
+        
 </body>
 </html>
