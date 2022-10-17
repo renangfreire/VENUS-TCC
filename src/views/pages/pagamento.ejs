@@ -48,6 +48,45 @@
     <h2>2 Pagamento</h2>
     <h3>Escolha a forma de pagamento</h3>
     <button>Cartão de crédito</button>
+    <!-- <form id="form-checkout">
+      <div id="form-checkout__cardNumber" class="container formInputs"></div>
+      <div id="form-checkout__expirationDate" class="container formInputs"></div>
+      <div id="form-checkout__securityCode" class="container formInputs"></div>
+      <input type="text" id="form-checkout__cardholderName" class="formInputs"/>
+      <select id="form-checkout__issuer" class="formInputs"></select>
+      <select id="form-checkout__installments" class="formInputs"></select>
+      <select id="form-checkout__identificationType" class="formInputs"></select>
+      <input type="text" id="form-checkout__identificationNumber" class="formInputs"/>
+      <input type="email" id="form-checkout__cardholderEmail" class="formInputs"/>
+  
+      <button type="submit" id="form-checkout__submit">Pagar</button>
+      <progress value="0" class="progress-bar">Carregando...</progress>
+
+    </form> -->
+    <form id="form-checkout" action="/pagamento" method="POST">
+      <div id="form-checkout__cardNumber" class="container formInputs"></div>
+      <div id="form-checkout__expirationDate" class="container formInputs"></div>
+      <div id="form-checkout__securityCode" class="container formInputs"></div>
+      <input type="text" id="form-checkout__cardholderName" class="formInputs" placeholder="Titular do cartão" />
+      <select id="form-checkout__issuer" name="issuer" class="formInputs">
+        <option value="" disabled selected>Banco emissor</option>
+      </select>
+      <select id="form-checkout__installments" name="installments" class="formInputs">
+        <option value="" disabled selected>Parcelas</option>
+      </select>
+      <select id="form-checkout__identificationType" name="identificationType" class="formInputs">
+        <option value="" disabled selected>Tipo de documento</option>
+      </select>
+      <input type="text" id="form-checkout__identificationNumber" class="formInputs" name="identificationNumber" placeholder="Número do documento" />
+      <input type="email" id="form-checkout__email" name="email" class="formInputs" placeholder="E-mail" />
+  
+      <input id="token" name="token" type="hidden" class="formInputs">
+      <input id="paymentMethodId" name="paymentMethodId" type="hidden" class="formInputs">
+      <input id="transactionAmount" name="transactionAmount" type="hidden" class="formInputs"value="100">
+      <input id="description" name="description" type="hidden" class="formInputs" value="Nome do Produto">
+  
+      <button type="submit" id="form-checkout__submit">Pagar</button>
+
     <button>Pix à Vista</button>
     <button>Boleto Bancário à Vista</button>
     <button>Pagamento com Carteira(Paypal)</button>

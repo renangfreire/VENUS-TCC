@@ -242,3 +242,20 @@ input[type=number]::-webkit-inner-spin-button {
     
   }
 }
+
+#form-checkout {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.formInputs{
+  width: 80%;
+  height: 30px;
+  display: inline-block;
+  border: 1px solid var(--dark-purple);
+  border-radius: 2px;
+  padding: 1px 2px4
+}
