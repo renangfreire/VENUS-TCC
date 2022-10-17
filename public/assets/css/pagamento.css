@@ -3,11 +3,16 @@ input, button {
   outline: none;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+}
+
 .identification-payment-orderSummary {
   display: flex;
   height: 100%;
   margin: 3rem;
   gap: 5rem;
+  justify-content: space-around;
 }
 
 .identification-client {
