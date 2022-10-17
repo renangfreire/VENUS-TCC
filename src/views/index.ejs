@@ -61,8 +61,10 @@
                 <%}%>
             <% } %>
         <%} %>
-    <%if(libs == "pagamento"){%>
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <% } %>
+        <%if(typeof libs !== 'undefined') {%>
+            <%if(libs == "pagamento"){%>
+                <script src="https://sdk.mercadopago.com/js/v2"></script>
+            <% } %>
+         <% } %> 
 </body>
 </html>
