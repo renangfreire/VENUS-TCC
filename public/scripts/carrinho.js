@@ -10,6 +10,8 @@ const qtdValue = document.querySelectorAll('.inputValue')
 
 const buttonFrete = document.querySelector('.button-search')
 const freteBox = document.querySelector('.freteBox')
+const inputFrete = document.querySelector('#cepUser')
+
 
 const displayFrete = document.querySelector('#freight')
 
@@ -100,9 +102,16 @@ btnTrash.forEach((btn, index) => {
 })
 
 async function calcFrete(){
-  const response = await fetch('/calcFrete')
+  const cepUser = document.querySelector("#cepUser").value
+
+  const response = await fetch(`/calcFrete/${cepUser}`)
 
   const data = await response.json()
+  
+  if(data.message){
+    alert(data.message)
+    return
+  }
 
   freteBox.innerHTML = 
   `
@@ -124,3 +133,8 @@ async function calcFrete(){
 
 buttonFrete.addEventListener('click', calcFrete)
 
+inputFrete.addEventListener('keyup', function() {
+  if(this.value.length == 5){
+    this.value += '-'
+  }
+})

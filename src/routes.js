@@ -7,6 +7,8 @@ const AuthenticateUserController = require('./controller/AuthenticateUserControl
 const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
 const RemoveProductCartController = require('./controller/RemoveProductCartController')
+const PaymentController = require('./controller/PaymentController')
+
 
 const calcFrete = require('./utils/calcFrete')
 
@@ -54,20 +56,14 @@ router.get('/pesquisa', getUserName, (req, res) => {
 
 router.get('/user/logout', UserLogoutController.handle)
 
-router.get('/calcFrete', calcFrete)
+router.get('/calcFrete/:cepUser', calcFrete)
+
+router.get('/pagamento', ensureAuthenticate, (req, res) => {
+    res.render('index', {page: "pagamento", styles: ["pagamento"], libs: ['pagamento'], username: req.user_name, err})
+})
 
 router.get('*', getUserName, (req, res) => {
     res.render('index', {page: 'error404', styles: ['error404'], username: req.user_name, err})
-})
-
-
-router.get('/404', getUserName, (req, res) => {
-  res.render('index', {
-    page: 'error404',
-    styles: ['error404'],
-    libs: ['error404'],
-    username: req.user_name
-  })
 })
 
 // ROUTES POST
@@ -82,5 +78,7 @@ router.post('/createproduct/product', CreateProductController.handle)
 router.post('/precarrinho', AddProductCartController.handle)
 
 router.post('/removeProduct', RemoveProductCartController.handle)
+
+router.post('/pagamento', PaymentController.handle)
 
 module.exports = router 

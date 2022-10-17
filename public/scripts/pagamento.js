@@ -1,0 +1,1 @@
+const mp = new MercadoPago('TEST-8386369f-066b-469b-8e28-e6d5181c347c');

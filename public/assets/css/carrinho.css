@@ -96,6 +96,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .line {
   border: 1px solid #8462CA;
+  margin-top: 1rem;
 }
 
 form p {
@@ -104,7 +105,6 @@ form p {
 }
 
 form span {
-  float: right;
   margin-top: 1rem;
 }
 
@@ -114,7 +114,7 @@ form span {
   border-radius: 0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  border: solid 1px;
+  border: solid #653EB5 1px;
   background-color: #FDF7F7;
   outline: transparent;
 }
@@ -122,14 +122,15 @@ form span {
 #shipping {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: .5rem;
 }
 
-#shipping p{
-  margin-bottom: 1rem;
-  padding-right: 4rem;
+.shipping-search{
+  display: flex;
 }
 
-.button-search-shipping {
+.button-search {
   width: 3.2rem;
   height: 2.2rem;
   color: #ffffff;
@@ -181,12 +182,31 @@ form span {
   background: #fff;
 }
 
-
-
 .freteBox {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+.box-shipping img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.box-shipping-title{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.shipping-title{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 #bus {
   display: flex;
 }
@@ -201,18 +221,13 @@ form span {
     width: 100%;
   }
 
-  #box-shipping img {
-    width: 2rem;
-    height: 2rem;
-  }
-
   #cart {
     margin-top: 15rem;
   }
 
   #product-cart {
     height: 100%;
-    width: 29.7rem;
+    /* width: 29.7rem; */
   }
 
   .qtd-button {
