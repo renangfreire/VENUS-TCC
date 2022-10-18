@@ -107,7 +107,7 @@ a:active, a:visited{
 
 /* ----- header */
 
-header {
+.headerTop {
     width: 100%;
     background: var(--background);
     /* position: fixed;  */

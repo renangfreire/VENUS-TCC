@@ -1,7 +1,10 @@
 const mp = new MercadoPago('TEST-8386369f-066b-469b-8e28-e6d5181c347c');
 
 const bricksBuilder = mp.bricks();
-let paymentId
+
+const modalPagamento = document.querySelector('.modalPagamento-overlay');
+const closeModalButton = document.querySelector('.closeModalPagamento')
+const loadingDiv = document.querySelector('.loading')
 
 const renderPaymentBrick = async (bricksBuilder) => {
   const settings = {
@@ -19,7 +22,7 @@ const renderPaymentBrick = async (bricksBuilder) => {
     },
     callbacks: {
       onReady: () => {
-        // callback chamado quando o Brick estiver pronto
+        hasLoadingReady()
       },
       onSubmit: ({ selectedPaymentMethod, formData }) => {
         // callback chamado ao clicar no botão de submissão dos dados
@@ -35,6 +38,7 @@ const renderPaymentBrick = async (bricksBuilder) => {
                 const data = await response.json();
 
                 renderStatusScreenBrick(bricksBuilder, data.id);
+
                 resolve();
               })
               .catch((error) => {
@@ -57,24 +61,34 @@ const renderPaymentBrick = async (bricksBuilder) => {
  renderPaymentBrick(bricksBuilder);
 
  const renderStatusScreenBrick = async (bricksBuilder, paymentId) => {
-  const settings = {
-    initialization: {
-      paymentId, // id de pagamento gerado pelo Mercado Pago
-    },
-    callbacks: {
-      onReady: () => {
-        // callback chamado quando o Brick estiver pronto
+   const settings = {
+     initialization: {
+       paymentId, // id de pagamento gerado pelo Mercado Pago
       },
-      onError: (error) => {
-        // callback chamado para todos os casos de erro do Brick
+      callbacks: {
+        onReady: () => {
+          // callback chamado quando o Brick estiver pronto
+        },
+        onError: (error) => {
+          // callback chamado para todos os casos de erro do Brick
+        },
       },
-    },
-  };
-  window.statusBrickController = await bricksBuilder.create(
-    'statusScreen',
-    'statusScreenBrick_container',
-    settings
-  );
-  };
+    };
+    window.statusBrickController = await bricksBuilder.create(
+      'statusScreen',
+      'statusScreenBrick_container',
+      settings
+      );
+      toggleModalPagamento()
+    };
+    
+  function toggleModalPagamento(){
+  modalPagamento.classList.toggle('active')
+  }
+
+  function hasLoadingReady(){
+    loadingDiv.classList.add('remove');
+  }
 
 
+closeModalButton.addEventListener('click', toggleModalPagamento)
