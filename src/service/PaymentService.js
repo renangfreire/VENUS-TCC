@@ -1,12 +1,9 @@
 const mercadoPago = require('mercadopago')
 
 mercadoPago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP);
-// console.log(process.env.ACCESS_TOKEN_MP)
 
 class PaymentService{
     async execute({payment_data, res}){
-
-      // console.log(payment_data)
 
  await mercadoPago.payment.save(payment_data)
   .then(function(response) {
