@@ -8,9 +8,10 @@ const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
 const RemoveProductCartController = require('./controller/RemoveProductCartController')
 const PaymentController = require('./controller/PaymentController')
+const NewAddressController = require('./controller/NewUserAddressController')
 
 
-const calcFrete = require('./utils/calcFrete')
+const { calcFrete, searchCep} = require('./utils/Correios-Frete')
 
 
 // MIDDLEWARE
@@ -57,6 +58,7 @@ router.get('/pesquisa', getUserName, (req, res) => {
 router.get('/user/logout', UserLogoutController.handle)
 
 router.get('/calcFrete/:cepUser', calcFrete)
+router.get('/searchCep/:cepUser', searchCep)
 
 router.get('/pagamento', ensureAuthenticate, (req, res) => {
     res.render('index', {page: "pagamento", styles: ["pagamento"], libs: ['pagamento'], username: req.user_name, err})
@@ -79,6 +81,8 @@ router.post('/precarrinho', AddProductCartController.handle)
 
 router.post('/removeProduct', RemoveProductCartController.handle)
 
-router.post('/pagamento', PaymentController.handle)
+router.post('/pagamento', ensureAuthenticate, PaymentController.handle)
+
+router.post('/new-address', NewAddressController.handle)
 
 module.exports = router 

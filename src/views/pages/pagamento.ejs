@@ -1,6 +1,5 @@
 <div class="identification-payment-orderSummary">
   <section class="identification-client">
-    <form action="" method="get">
       <h2>1 - Identificação</h2>
       <div class="client-data">
         <h3>Dados Pessoais</h3>
@@ -14,70 +13,44 @@
       <div class="line"></div>
       <a href="#"><p>Cadastrar um novo endereço de entrega</p> </a>
       <div class="identification-data">
-        <div class="input-CEP">
-          <input class="input-address" type="text" placeholder="CEP" />
-          <a href="">Não sei meu CEP</a>
+        <div class="searchCepBox">
+          <div class="input-CEP">
+            <input class="input-address" id="cepUser" type="text" placeholder="CEP" maxlength="8" />
+            <button button class="search-cep">OK</button>
+          </div>
+          <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu CEP</a>
         </div>
-        <div class="box-address">
-          <p>
-            <span class="material-symbols-outlined"> location_on </span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur qui porro aut exercitationem minus sit eius dicta iste
-            sunt quasi
-          </p>
-          <a href="">Nao e meu endereço</a>
+        <div class="address-form">
+          <div class="box-address">
+            <p>
+              <span class="material-symbols-outlined icon">
+                location_on
+                </span>
+              <span class="address-location"></span>
+            </p>
+            <a href="">Nao e meu endereço</a>
+          </div>
+          <div class="input-complement">
+            <input type="number" name="" id="identificacao" placeholder="Numero" />
+            <input type="text" id="complemento" placeholder="Complemento" />
+          </div>
+          <input
+            class="input-address inputs-identification"
+            type="text"
+            placeholder="Identificaçao Endereço"
+          />
+          <input
+            class="input-address inputs-identification"
+            type="text"
+            placeholder="Renan Gomes"
+          />
+          <div class="register-address"><button>Cadastrar Endereço</button></div>
         </div>
-
-        <div class="input-complement">
-          <input type="number" placeholder="Numero" />
-          <input type="text" placeholder="Complemento" />
-        </div>
-        <input
-          class="input-address inputs-identification"
-          type="text"
-          placeholder="Identificaçao Endereço"
-        />
-        <input
-          class="input-address inputs-identification"
-          type="text"
-          placeholder="Renan Gomes"
-        />
-        <div class="register-address"><button>Cadastrar Endereço</button></div>
       </div>
-    </form>
   </section>
   <section class="payment">
     <h2>2 - Pagamento</h2>
     <div id="paymentBrick_container"></div>
-    <!-- <h3>Escolha a forma de pagamento</h3>
-    <button>Cartão de crédito</button> -->
-    <!-- <form id="form-checkout" action="/pagamento" method="POST">
-      <div id="form-checkout__cardNumber" class="container formInputs"></div>
-      <div id="form-checkout__expirationDate" class="container formInputs"></div>
-      <div id="form-checkout__securityCode" class="container formInputs"></div>
-      <input type="text" id="form-checkout__cardholderName" class="formInputs" placeholder="Titular do cartão" />
-      <select id="form-checkout__issuer" name="issuer" class="formInputs">
-        <option value="" disabled selected>Banco emissor</option>
-      </select>
-      <select id="form-checkout__installments" name="installments" class="formInputs">
-        <option value="" disabled selected>Parcelas</option>
-      </select>
-      <input type="hidden" id="form-checkout__identificationNumber" class="formInputs" name="identificationNumber" placeholder="Número do documento" />
-      <input type="email" id="form-checkout__email" name="email" class="formInputs" placeholder="E-mail" />
-  
-      <input id="token" name="token" type="hidden" class="formInputs">
-      <input id="paymentMethodId" name="paymentMethodId" type="hidden" class="formInputs">
-      <input id="transactionAmount" name="transactionAmount" type="hidden" class="formInputs" value="120">
-      <input id="description" name="description" type="hidden" class="formInputs" value="Nome do Produto">
-  
-      <button type="submit" id="form-checkout__submit">Pagar</button>
-   </form> -->
-
-    <!-- <button>Pix à Vista</button>
-    <button>Boleto Bancário à Vista</button>
-    <button>Pagamento com Carteira(Paypal)</button>
-    <button>Cartão de crédito</button>
-    <button>Depósito Transferência</button> -->
   </section>
 
   <section class="order-summary">

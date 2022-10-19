@@ -11,7 +11,7 @@ class PaymentService{
       status: response.body.status,
       status_detail: response.body.status_detail,
       id: response.body.id
-    });
+    })
   })
   .catch(function(error) {
     return console.error(error)

@@ -5,6 +5,7 @@ const bricksBuilder = mp.bricks();
 const modalPagamento = document.querySelector('.modalPagamento-overlay');
 const closeModalButton = document.querySelector('.closeModalPagamento')
 const loadingDiv = document.querySelector('.loading')
+const searchCepButton = document.querySelector('.search-cep')
 
 const renderPaymentBrick = async (bricksBuilder) => {
   const settings = {
@@ -27,24 +28,26 @@ const renderPaymentBrick = async (bricksBuilder) => {
       onSubmit: ({ selectedPaymentMethod, formData }) => {
         // callback chamado ao clicar no botão de submissão dos dados
           return new Promise((resolve, reject) => {
-            fetch("/pagamento", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData)
-            })
-              .then(async (response) => {
-                const data = await response.json();
-
-                renderStatusScreenBrick(bricksBuilder, data.id);
-
-                resolve();
+            
+              fetch("/pagamento", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData)
               })
-              .catch((error) => {
-                // lidar com a resposta de erro ao tentar criar o pagamento
-                reject();
-              })
+                .then(async (response) => {
+                  
+                  const data = await response.json();
+  
+                  renderStatusScreenBrick(bricksBuilder, data.id);
+  
+                  resolve();
+                })
+                .catch((error) => {
+                  // lidar com a resposta de erro ao tentar criar o pagamento
+                  reject();
+                })  
           });
       },
       onError: (error) => {
@@ -90,5 +93,29 @@ const renderPaymentBrick = async (bricksBuilder) => {
     loadingDiv.classList.add('remove');
   }
 
+  async function searchCep(){
+    const cepUser = document.querySelector("#cepUser").value
+    
+    if(cepUser == ''){
+      alert('Por favor insira um CEP')
+      return 
+    }
+
+    const response = await fetch(`/searchCep/${cepUser}`)
+
+    const data = await response.json()
+
+    if(data.message){
+      alert(data.message)
+      return
+    }
+
+    document.querySelector('.address-location').innerHTML = `${data.address.rua}, ${data.address.bairro}, ${data.address.cidade}-${data.address.estado}, Cep ${data.address.cep}`
+
+
+    document.querySelector('.address-form').classList.add('active')
+  }
 
 closeModalButton.addEventListener('click', toggleModalPagamento)
+
+searchCepButton.addEventListener('click', searchCep)

@@ -3,6 +3,14 @@ input, button {
   outline: none;
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 input[type=number]::-webkit-inner-spin-button { 
   -webkit-appearance: none; 
 }
@@ -49,12 +57,20 @@ input[type=number]::-webkit-inner-spin-button {
   color: var(--dark-purple);
 }
 
-.input-CEP input{
+.searchCepBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem
+}
+
+.searchCepBox input{
   width: 20rem;
   height: 4rem;
 }
 
-.input-CEP a {
+.searchCepBox a {
   color: var(--dark-blue);
 }
 
@@ -85,10 +101,22 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .input-address {
-  margin: 2rem 3rem;
   padding-left: 1rem;
   border: 1px solid var(--light-purple);
-  
+  border-radius: 3px 0px 0px 3px
+}
+
+.input-CEP {
+  display: flex;
+  align-items: center;
+}
+
+.search-cep{
+  background-color: var(--dark-purple);
+  color: var(--white);
+  height: 4rem;
+  border-radius: 0px 3px 3px 0px;
+  width: 3rem;
 }
 
 .register-address {
@@ -106,11 +134,20 @@ input[type=number]::-webkit-inner-spin-button {
 .box-address {
   margin: 2rem;
   padding: 2rem;
-  background: var(--light-gray)
+  background: #F1F1F1;
+}
+
+.box-address .icon {
+  color: var(--green)
 }
 
 .box-address p {
   margin-bottom: 2rem;
+}
+
+.box-address a{
+  color: var(--black);
+  text-decoration: underline;
 }
 
 .box-address img {
@@ -248,6 +285,19 @@ input[type=number]::-webkit-inner-spin-button {
 
 }
 
+.address-form {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  height: 0;
+}
+
+.address-form.active{
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+}
+
 #form-checkout {
   display: flex;
   flex-direction: column;
@@ -255,6 +305,7 @@ input[type=number]::-webkit-inner-spin-button {
   align-items: center;
   gap: 1rem;
 }
+
 
 .formInputs{
   width: 80%;

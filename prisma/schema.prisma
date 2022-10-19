@@ -32,9 +32,11 @@ model UserAddresses {
   cep           String
   rua           String
   identificacao String
+  bairro        String
   estado        String
   cidade        String
   complemento   String?
+  padrao        Boolean @default(false)
 
   userId String
 

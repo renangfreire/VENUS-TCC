@@ -132,9 +132,3 @@ async function calcFrete(){
 }
 
 buttonFrete.addEventListener('click', calcFrete)
-
-inputFrete.addEventListener('keyup', function() {
-  if(this.value.length == 5){
-    this.value += '-'
-  }
-})
