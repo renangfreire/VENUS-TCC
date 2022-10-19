@@ -1,23 +1,19 @@
-const mercadoPago = require('mercadopago')
+const prisma = require('../prisma')
 
-mercadoPago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP);
+class PaymentService {
+    async execute({userId}){
+        const [ activeAddress ] = await prisma.userAddresses.findMany({where: { userId, padrao: true }})
+    
+        delete activeAddress.id
+        delete activeAddress.userId
 
-class PaymentService{
-    async execute({payment_data, res}){
-
- await mercadoPago.payment.save(payment_data)
-  .then(function(response) {
-    return res.status(response.status).json({
-      status: response.body.status,
-      status_detail: response.body.status_detail,
-      id: response.body.id
-    })
-  })
-  .catch(function(error) {
-    return console.error(error)
-  });
-  
+        return { activeAddress }
     }
 }
 
-module.exports = PaymentService;
+module.exports = PaymentService
+
+
+
+
+

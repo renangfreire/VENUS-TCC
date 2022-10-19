@@ -1,13 +1,22 @@
 const PaymentService = require('../service/PaymentService')
 
-
 module.exports = {
-    async handle(req, res) {
+    async handle(req, res){
 
-      const payment_data = req.body
+        const userId = req.user_id
 
         const paymentService = new PaymentService()
 
-        await paymentService.execute({payment_data, res})
+        const { activeAddress } = await paymentService.execute({userId})
+
+        console.log(activeAddress)
+
+        res.render('index', {
+        page: "pagamento", 
+        styles: ["pagamento"], 
+        libs: ['pagamento'], 
+        err: undefined,
+        username: req.user_name,
+        activeAddress})
     }
 }

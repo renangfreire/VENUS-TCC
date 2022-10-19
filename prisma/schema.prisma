@@ -37,6 +37,8 @@ model UserAddresses {
   cidade        String
   complemento   String?
   padrao        Boolean @default(false)
+  destinatario  String 
+  idenEndereco  String
 
   userId String
 

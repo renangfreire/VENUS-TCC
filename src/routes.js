@@ -7,6 +7,7 @@ const AuthenticateUserController = require('./controller/AuthenticateUserControl
 const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
 const RemoveProductCartController = require('./controller/RemoveProductCartController')
+const MercadoPagoPaymentController = require('./controller/MercadoPagoPaymentController')
 const PaymentController = require('./controller/PaymentController')
 const NewAddressController = require('./controller/NewUserAddressController')
 
@@ -60,9 +61,8 @@ router.get('/user/logout', UserLogoutController.handle)
 router.get('/calcFrete/:cepUser', calcFrete)
 router.get('/searchCep/:cepUser', searchCep)
 
-router.get('/pagamento', ensureAuthenticate, (req, res) => {
-    res.render('index', {page: "pagamento", styles: ["pagamento"], libs: ['pagamento'], username: req.user_name, err})
-})
+router.get('/pagamento', ensureAuthenticate, getUserName, PaymentController.handle)
+
 
 router.get('*', getUserName, (req, res) => {
     res.render('index', {page: 'error404', styles: ['error404'], username: req.user_name, err})
@@ -81,8 +81,8 @@ router.post('/precarrinho', AddProductCartController.handle)
 
 router.post('/removeProduct', RemoveProductCartController.handle)
 
-router.post('/pagamento', ensureAuthenticate, PaymentController.handle)
+router.post('/pagamento', ensureAuthenticate, MercadoPagoPaymentController.handle)
 
-router.post('/new-address', NewAddressController.handle)
+router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
 
 module.exports = router 
