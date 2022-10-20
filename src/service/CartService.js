@@ -17,8 +17,6 @@ class CartService{
           })
         }
 
-        console.log(products)
-
         return products;
 
     }

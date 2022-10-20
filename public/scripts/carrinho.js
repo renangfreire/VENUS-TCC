@@ -37,6 +37,18 @@ const newProductValues = [...originalProductValues]
 attValues(originalProductValues)
 attSubTotalValue(originalProductValues)
 
+function attValues(orgValues){
+  productAmount.forEach((value, index) => {
+  const displayValue = (originalProductValues[index] * value.value).toFixed(2)
+
+  qtdValue[index].innerHTML = String(displayValue).replace('.', ',')
+  
+  newProductValues[index] = (originalProductValues[index] * value.value)
+  })  
+
+  attSubTotalValue()
+}
+
 function addQuantity(index) {
   productAmount[index].value = String(Number(productAmount[index].value) + 1)
   const displayValue = (newProductValues[index] + originalProductValues[index]).toFixed(2)

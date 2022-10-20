@@ -5,10 +5,28 @@ module.exports = {
 
         const userId = req.user_id
 
+        if(req.cookies.cart == null){
+            res.redirect('/carrinho')
+        }
+
+        if(req.cookies.cart != null){
+            const arrayList = JSON.parse(req.cookies.cart).products;
+            const productArray = []
+            
+            arrayList.map(function(product){
+                productArray.push({
+                    id: product.id,
+                    color: product.color.toUpperCase(),
+                    size: product.size.toUpperCase(),
+                    quantity: product.quantity
+                })
+            });
+        
+
         const paymentService = new PaymentService()
 
-        const { activeAddress, freteData } = await paymentService.execute({userId})
-
+        const { activeAddress, freteData, products } = await paymentService.execute({userId, productArray})
+        
         res.render('index', {
         page: "pagamento", 
         styles: ["pagamento"], 
@@ -16,7 +34,9 @@ module.exports = {
         err: undefined,
         username: req.user_name,
         activeAddress,
-        freteData
+        freteData,
+        products
         })
+    }
     }
 }

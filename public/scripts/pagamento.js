@@ -8,7 +8,42 @@ const loadingDiv = document.querySelector('.loading')
 const searchCepButton = document.querySelector('.search-cep')
 const registerNewAddress = document.querySelector('.register-new-address')
 
+const productSubTotal = document.querySelectorAll('.productTotalValue')
+const subTotal = document.querySelector('.subTotal')
+const freteDisplayed = document.querySelector('.freteDisplayed')
+const totalDisplayed = document.querySelector('.totalDisplayed')
+
+let freteValue = 0
+
+// JS VARIABLES
 let cepData
+let subTotalValue
+let totalValue
+
+// INIT VALUES
+
+let sum = 0
+
+productSubTotal.forEach(element => sum += Number(element.innerHTML.replace(',', '.')))
+
+const displayValue = String(sum.toFixed(2)).replace('.', ',')
+
+subTotal.innerHTML = displayValue
+
+if(document.querySelector('.freteValue')){
+  freteValue = Number(document.querySelector('.freteValue').innerHTML.replace(',', '.'))
+
+  freteDisplayed.innerHTML = String(freteValue.toFixed(2)).replace('.', ',')
+}
+
+subTotalValue = sum
+
+totalValue = sum + freteValue
+
+totalDisplayed.innerHTML = String(totalValue.toFixed(2)).replace('.', ',')
+
+// ---------
+
 
 const renderPaymentBrick = async (bricksBuilder) => {
   const settings = {
@@ -94,6 +129,12 @@ const renderPaymentBrick = async (bricksBuilder) => {
 
   function hasLoadingReady(){
     loadingDiv.classList.add('remove');
+    document.documentElement.style.overflow = 'auto';  // firefox, chrome
+    document.body.scroll = "yes"; // ie only
+  }
+
+  function attSubTotalValue() {
+   
   }
 
   async function searchCep(){
@@ -147,12 +188,15 @@ const renderPaymentBrick = async (bricksBuilder) => {
   }
 
   await fetch('/new-address', fetchData).then(response => {
-    window.location.href = response.url
+    window.location.reload()
   })
 }
 
 closeModalButton.addEventListener('click', toggleModalPagamento)
 
+if(searchCepButton){
 searchCepButton.addEventListener('click', searchCep)
-
-registerNewAddress.addEventListener('click', fetchAddress)
+}
+if(registerNewAddress){
+  registerNewAddress.addEventListener('click', fetchAddress)
+}

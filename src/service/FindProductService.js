@@ -2,7 +2,7 @@ const prisma = require('../prisma')
 const express = require('express')
 
 class FindProductService{
-    async execute({productArray, res}){
+    async execute({productArray}){
         let products = []
         let idArray = []
 

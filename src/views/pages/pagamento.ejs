@@ -1,6 +1,6 @@
 <div class="identification-payment-orderSummary">
   <section class="identification-client">
-      <h2 class="">1 - Identificação</h2>
+      <h2 class="header-h2">1 - Identificação</h2>
       <div class="client-data">
         <h3>Dados Pessoais</h3>
         <div>Nome Completo</div>
@@ -11,7 +11,6 @@
         <p class="client-cpf">870.673.870-27</p>
       </div>
       <div class="line"></div>
-      <a href="#"><p>Cadastrar um novo endereço de entrega</p> </a>
       <% if(!activeAddress) { %>
         <div class="identification-data">
           <div class="searchCepBox">
@@ -56,6 +55,7 @@
         </div>
         <% } %>
       <% if(typeof activeAddress !== 'undefined'){ %>
+      <a href="#"><p>Cadastrar um novo endereço de entrega</p> </a>
         <div class="address-box">
           <div class="registred-address">
             <h3>Endereço de Entrega</h3>
@@ -76,7 +76,7 @@
             </div>
             <p>Escolha a melhor opção para a sua entrega</p>
             <div class="box-address">
-              <div class=""><h4>EXPRESSO</h4> | <span>R$ <%- freteData.valor %></span> </div>
+              <div class="freteInput"><h4>EXPRESSO</h4> | <span>R$ <span class="freteValue"><%- freteData.valor %></span></span> </div>
               <div class="prazo-maximo">Até <%- freteData.prazo%> dia/s</div>
             </div>
           </div>
@@ -84,29 +84,56 @@
       <% } %>
   </section>
   <section class="payment">
-    <h2>2 - Pagamento</h2>
+    <h2 class="header-h2">2 - Pagamento</h2>
     <div id="paymentBrick_container"></div>
   </section>
 
   <section class="order-summary">
     <h2>Resumo do Pedido</h2>
     <div class="box-order-summary">
-      <p>
-        <img src="/assets/images/products/product-moleton.png" alt="" />Lorem
-        ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-      <p>Sabor</p>
-      <div>R$</div>
-      <div>Quantidade:</div>
-      <div>R$</div>
+      <% products.forEach((element) => { %>
+      <div class="box-order">
+        <div class="header-boxOrder">
+          <img src="/assets/images/products/<%= element.images[0]%>.png" alt="<%- element.name %>" />
+          <div>
+            <span><%= element.name %></span>
+            <div class="order-info">
+              <%if(element.color.length > 0){%>
+                <p>
+                  Cor: <% element.color.forEach((element) => { %>
+                  <span
+                    ><%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
+                    %></span
+                  >
+                  <%}) %>
+                </p>
+                <% } %>
+                <% if(element.size.length > 0){%>
+                  <p>Tamanho: <% element.size.forEach((element) => { %>
+                    <% if(element.size.length > 2) { %>
+                      <span><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></span>
+                   <% } else {%>
+                      <span><%= element.size %></span>
+                    <% } %>
+                  <%}) %>
+                  </p>
+                <% } %>
+              </div>
+              <p>R$ <span><%= String(Number(element.value).toFixed(2)).replace('.', ',') %></span></p>
+        </div>  
+      </div>
+      <div class="main-boxOrder">
+        <p>Quantidade: <span><%- element.quantity %></span></p>
+        <p>R$ <span class="productTotalValue"><%= String((Number(element.value) * Number(element.quantity)).toFixed(2)).replace('.',',') %></span></p>
+      </div>
+      </div>
+      <% }) %>
     </div>
     <div class="subtotal-order">
-      <div>subtotal <span>R$ </span></div>
-      <div>Frete <span>R$ </span></div>
-      <div>Total <span>R$ </span></div>
+      <p>subtotal <span>R$ <span class="subTotal">0,00</span></span></p>
+      <p>Frete <span>R$ <span class="freteDisplayed">0,00</span></span></p>
+      <p>Total <span>R$ <span class="totalDisplayed">0,00</span></span></p>
     </div>
-    <%- err %>
-    <p>Ganhe <a href="">110.000 pontos</a> nesta compra</p>
     <div class="back-cart">
       <a href="/carrinho"> <button>Voltar ao carrinho</button> </a>
     </div>
