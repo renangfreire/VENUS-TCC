@@ -10,9 +10,9 @@ const RemoveProductCartController = require('./controller/RemoveProductCartContr
 const MercadoPagoPaymentController = require('./controller/MercadoPagoPaymentController')
 const PaymentController = require('./controller/PaymentController')
 const NewAddressController = require('./controller/NewUserAddressController')
+const CorreiosFreteController = require('./controller/CorreiosFreteController')
 
 
-const { calcFrete, searchCep} = require('./utils/Correios-Frete')
 
 
 // MIDDLEWARE
@@ -58,8 +58,8 @@ router.get('/pesquisa', getUserName, (req, res) => {
 
 router.get('/user/logout', UserLogoutController.handle)
 
-router.get('/calcFrete/:cepUser', calcFrete)
-router.get('/searchCep/:cepUser', searchCep)
+router.get('/calcFrete/:cepUser', CorreiosFreteController.handle)
+router.get('/searchCep/:cepUser', CorreiosFreteController.handle)
 
 router.get('/pagamento', ensureAuthenticate, getUserName, PaymentController.handle)
 

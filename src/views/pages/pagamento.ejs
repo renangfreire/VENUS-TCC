@@ -13,48 +13,49 @@
       <div class="line"></div>
       <a href="#"><p>Cadastrar um novo endereço de entrega</p> </a>
       <% if(!activeAddress) { %>
-      <div class="identification-data">
-        <div class="searchCepBox">
-          <div class="input-CEP">
-            <input class="input-address form-control" id="cepUser" type="text" placeholder="CEP" maxlength="8" />
-            <button button class="search-cep">OK</button>
+        <div class="identification-data">
+          <div class="searchCepBox">
+            <div class="input-CEP">
+              <input class="input-address form-control" id="cepUser" type="text" placeholder="CEP" maxlength="8" />
+              <button button class="search-cep">OK</button>
+            </div>
+            <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu CEP</a>
           </div>
-          <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu CEP</a>
+          <form>
+          <div class="address-form">
+            <div class="box-address">
+              <p>
+                <span class="material-symbols-outlined icon">
+                  location_on
+                  </span>
+                <span class="address-location"></span>
+              </p>
+              <a href="">Nao e meu endereço</a>
+            </div>
+            <div class="input-complement">
+              <input type="number" name="" id="numeroAddress" placeholder="Numero *" required/>
+              <input type="text" id="complementoAddress" placeholder="Complemento"/>
+            </div>
+            <input
+              class="input-address inputs-identification"
+              type="text"
+              id="identificationAddress"
+              placeholder="Identificaçao do Endereço *(ex: casa, trabalho)"
+              required
+            />
+            <input
+              class="input-address inputs-identification"
+              type="text"
+              id="destinatarioAddress"
+              placeholder="Desinatário *"
+              required
+            />
+            <div class="register-address"><button class="register-new-address">Cadastrar Endereço</button></div>
+          </div>
+        </form>
         </div>
-        <form>
-        <div class="address-form">
-          <div class="box-address">
-            <p>
-              <span class="material-symbols-outlined icon">
-                location_on
-                </span>
-              <span class="address-location"></span>
-            </p>
-            <a href="">Nao e meu endereço</a>
-          </div>
-          <div class="input-complement">
-            <input type="number" name="" id="numeroAddress" placeholder="Numero *" required/>
-            <input type="text" id="complementoAddress" placeholder="Complemento"/>
-          </div>
-          <input
-            class="input-address inputs-identification"
-            type="text"
-            id="identificationAddress"
-            placeholder="Identificaçao do Endereço *(ex: casa, trabalho)"
-            required
-          />
-          <input
-            class="input-address inputs-identification"
-            type="text"
-            id="destinatarioAddress"
-            placeholder="Desinatário *"
-            required
-          />
-          <div class="register-address"><button class="register-new-address">Cadastrar Endereço</button></div>
-        </div>
-      </form>
-      </div>
-      <% } else {%>
+        <% } %>
+      <% if(typeof activeAddress !== 'undefined'){ %>
         <div class="address-box">
           <div class="registred-address">
             <h3>Endereço de Entrega</h3>
@@ -75,8 +76,8 @@
             </div>
             <p>Escolha a melhor opção para a sua entrega</p>
             <div class="box-address">
-              <div class=""><h4>EXPRESSO</h4> | <span>R$ 79,99</span> </div>
-              <div class="prazo-maximo">Até 4 dia/s</div>
+              <div class=""><h4>EXPRESSO</h4> | <span>R$ <%- freteData.valor %></span> </div>
+              <div class="prazo-maximo">Até <%- freteData.prazo%> dia/s</div>
             </div>
           </div>
         </div>

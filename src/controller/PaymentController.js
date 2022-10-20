@@ -7,9 +7,7 @@ module.exports = {
 
         const paymentService = new PaymentService()
 
-        const { activeAddress } = await paymentService.execute({userId})
-
-        console.log(activeAddress)
+        const { activeAddress, freteData } = await paymentService.execute({userId})
 
         res.render('index', {
         page: "pagamento", 
@@ -17,6 +15,8 @@ module.exports = {
         libs: ['pagamento'], 
         err: undefined,
         username: req.user_name,
-        activeAddress})
+        activeAddress,
+        freteData
+        })
     }
 }

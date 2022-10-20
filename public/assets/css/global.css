@@ -61,9 +61,12 @@ a{
     text-decoration: none;
 }
 a:active, a:visited{
-    color: var(--white);
+    color: var(--black);
 }
 
+.a-white:active, .a-white:visited{
+    color: var(--white)
+}
 
 /* Buttons && titles*/
 .btn-outlined{
