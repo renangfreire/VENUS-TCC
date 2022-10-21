@@ -6,11 +6,11 @@ module.exports = {
         const productRepository = new ProductRepository()
         const findProductService = new FindProductService(productRepository)
 
-        const idProduct = req.params.id_product;
+        const id = req.params.id_product;
         
-        const productJson = await findProductService.execute({ idProduct })
+        const productJson = await findProductService.execute(id)
 
         return res.render('index', { page: 'pg-product' , productJson , libs: ["pg-product"], styles: ["pg-product"], username: req.user_name})
-        
+         
     }
 }

@@ -1,14 +1,23 @@
 const prisma = require('../prisma')
 
 class FindProductService{
-    async execute({idProduct}){
+    async execute(productArray){
         let products = []
+        let idArray = []
 
-       const productExists = await prisma.products.findMany({
+        if(typeof productArray == "string"){
+            idArray.push(productArray)
+        }
+
+        if(typeof productArray !== "string"){
+            productArray.map(e => idArray.push(e.id))
+        }
+
+       const getProducts = await prisma.products.findMany({
                 where: {
                 id:{ 
                     in: 
-                    idProduct
+                    idArray
                 }
         },
             orderBy: {
@@ -16,21 +25,11 @@ class FindProductService{
             },
                 include:{
                     color: {
-                        where:{
-                            color:{
-                                equals: undefined
-                            }
-                        },
                         select: {
                            color: true
                         }
                     },
-                    size: {
-                        where:{
-                            size:{
-                                equals: undefined
-                            }
-                        },   
+                    size: {  
                         orderBy: {
                             size: 'asc',
                         },
@@ -39,35 +38,45 @@ class FindProductService{
                         }
                     }
                 }
-          })         
-          
-            productExists.map((product, index) => {
-            if(typeof idProduct == 'string'){
-                
-                // se for STRING - PAGE DE PRODUTO
-                if(idProduct !== product.id){
+        })
+
+         getProducts.map((product, i) => {
+             console.log(productArray)
+            if(typeof productArray == "string"){
+                // se for Req de pag produto
+                if(productArray !== product.id){
                     throw new Error('Product not exits') 
                 }
-
                 products = product
-            }
-
-            // se for Array
-            
-            if(typeof idProduct !== 'string'){
-            idProduct = idProduct.sort((a, b) => {return a-b})  
-
-                if(idProduct[index] !== product.id){
-                    throw new Error('Product not exits') 
-                }
-                
-                    products.push(product)
+                console.log(product)
             }
         })
-        
-        return products
+            // se for Array
+            
+            if(productArray.length > 1 && typeof productArray !== "string"){
+            productArray.forEach(cookieProduct => {
+                getProducts.find(el => {
+                    if(el.id == cookieProduct.id){
+                        const newObj = Object.assign({}, el)
 
+                        newObj.color = [{color: cookieProduct.color}]
+                        newObj.size = [{size: cookieProduct.size}]
+
+                        products.push(newObj)
+                }})
+            })
+            
+            }
+        console.log(products)
+        return products
     } 
 }
 
 module.exports = FindProductService
+
+// pesquisar todos os produtos com todas cores e tamanhos
+// validação para quando for pag product
+// quand for carrinho, ele vai se auto configurar
+
+// limitar para pag de carrinho
+// funcionar :)

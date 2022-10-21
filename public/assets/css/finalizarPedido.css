@@ -1,0 +1,113 @@
+.finalize-order section {
+  border: 1px solid var(--dark-purple);
+}
+
+.finalize-order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10rem;
+  margin: 5rem;
+}
+
+.finalizing-order {
+  display: flex;
+  
+  width: 120rem;
+  height: 10rem;
+  
+  border-radius: 3px;
+}
+
+.finalizing-order .request-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+
+  padding: 1rem;
+  color: var(--white);
+  background: var(--dark-purple);
+}
+
+.finalizing-order .finalize {
+  display: flex;
+  align-items: center;
+}
+
+.finalizing-order .finalize .done {
+  padding: 1rem;
+}
+
+.finalizing-order .finalize div:last-of-type{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+}
+
+.information-boxes {
+  display: flex;
+  gap: 7rem;
+}
+
+.information-boxes section {
+  width: 45rem;
+  
+}
+
+.payment-information {
+  
+  
+}
+
+.description-box {
+  display: flex;
+  justify-content: center;
+  background: var(--dark-purple);
+  color: var(--white);
+}
+
+.payment-information div:first-of-type {
+  padding: 2rem;
+}
+
+.payment-information h3 {
+  color: var(--dark-blue);
+}
+
+.delivery-address {
+  padding: 2rem;
+
+}
+
+.delivery-address div:last-of-type {
+  margin-top: 2rem;
+}
+
+.delivery-address h3 {
+  color: var(--dark-blue);
+}
+
+.orderSummary-box {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.orderSummary-box:first-child {
+
+}
+
+.orderSummary-box .aling{
+  display: flex;
+  justify-content: space-between;
+}
+
+.line {
+  border: 1px solid var(--dark-purple);
+}

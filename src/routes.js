@@ -6,6 +6,7 @@ const RenderProductController = require('./controller/RenderProductController')
 const AuthenticateUserController = require('./controller/AuthenticateUserController')
 const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
+const RemoveProductCartController = require('./controller/RemoveProductCartController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
@@ -87,6 +88,14 @@ router.get('/addCarrinho', getUserName, (req, res) => {
   })
 })
 
+router.get('/finalizarPedido', getUserName, (req, res) => {
+  res.render('index', {
+    page: 'finalizarPedido',
+    styles: ['finalizarPedido'],
+    username: req.user_name
+  })
+})
+
 router.get('/logout', UserLogoutController.handle)
 
 router.get('/404', getUserName, (req, res) => {
@@ -106,5 +115,9 @@ router.post('/login', AuthenticateUserController.handle)
 router.post('/carrinho', CartController.handle)
 
 router.post('/createproduct/product', CreateProductController.handle)
+
+router.post('/precarrinho', AddProductCartController.handle)
+
+router.post('/removeProduct', RemoveProductCartController.handle)
 
 module.exports = router

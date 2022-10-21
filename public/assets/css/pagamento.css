@@ -232,8 +232,4 @@ input, button {
   .payment, .identification-client, .order-summary{
     width: 40rem;
   }
-
-  .order-summary {
-    
-  }
 }

@@ -14,6 +14,8 @@ const displayFrete = document.querySelector('#freight')
 
 const subTotal = document.querySelector('#sub')
 
+const btnTrash = document.querySelectorAll('.removeItem')
+
 const totalValue = document.querySelector('.totalValue')
 
 // JS VARIABLES
@@ -40,8 +42,6 @@ function addQuantity(index) {
 }
 
 function removeQuantity(index) {
-  // console.log(newProductValues)
-
   if (productAmount[index].value > 1) {
     productAmount[index].value = Number(productAmount[index].value) - 1
     qtdValue[index].innerHTML = (
@@ -65,6 +65,24 @@ function attSubTotalValue(newValue) {
 
 function attTotalValue(sum) {
   totalValue.innerHTML = sum.toFixed(2)
+}
+
+async function removeProduct(index) {
+  const fetchData = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+      // "Content-Type": "application/x-www-form-urlencoded"
+    },
+    method: 'post',
+    body: JSON.stringify({
+      index
+    })
+  }
+
+  await fetch('/removeProduct', fetchData).then(response => {
+    window.location.href = response.url
+  })
 }
 
 btnAddition.forEach((btn, index) => {

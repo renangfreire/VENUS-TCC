@@ -4,7 +4,7 @@ module.exports = {
   async handle(req, res) {
     res.cookie(
       'cart',
-      JSON.stringify({ products: [{ id: '60906868' }, { id: '75852980' }] }),
+      JSON.stringify({ products: [{ id: '03408245' }, { id: '75852980' }] }),
       { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }
     )
     let products
@@ -17,7 +17,7 @@ module.exports = {
         idArray.push(product.id)
       })
 
-      const findProductService = new FindProductService()
+      products = await findProductService.execute(productArray)
 
       products = await findProductService.execute({ idProduct: idArray })
     }
