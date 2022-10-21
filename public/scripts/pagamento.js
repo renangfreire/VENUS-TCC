@@ -13,12 +13,26 @@ const subTotal = document.querySelector('.subTotal')
 const freteDisplayed = document.querySelector('.freteDisplayed')
 const totalDisplayed = document.querySelector('.totalDisplayed')
 
+const productIds = document.querySelectorAll('.productId')
+const productSizes = document.querySelectorAll('.productSize')
+const productColors = document.querySelectorAll('.productColor')
+
 let freteValue = 0
 
 // JS VARIABLES
 let cepData
 let subTotalValue
 let totalValue
+let statusPag
+const productsArray = []
+
+productIds.forEach((element, i) => {
+  productsArray.push({
+    id: element.value,
+    size: productSizes[i].innerHTML.toUpperCase(),
+    color: productColors[i].innerHTML.toUpperCase()
+  })
+})
 
 // INIT VALUES
 
@@ -44,11 +58,10 @@ totalDisplayed.innerHTML = String(totalValue.toFixed(2)).replace('.', ',')
 
 // ---------
 
-
 const renderPaymentBrick = async (bricksBuilder) => {
   const settings = {
     initialization: {
-      amount: 100, // valor total a ser pago
+      amount: totalValue, // valor total a ser pago
     },
     
     customization: {
@@ -65,18 +78,30 @@ const renderPaymentBrick = async (bricksBuilder) => {
       },
       onSubmit: ({ selectedPaymentMethod, formData }) => {
         // callback chamado ao clicar no botão de submissão dos dados
+        if(!freteValue){
+          alert('Insira um endereço para envio')
+          return window.location.reload()
+        }
+
           return new Promise((resolve, reject) => {
-            
+
+            const orderData = {
+              freteValue,
+              productsArray
+            }
+
               fetch("/pagamento", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({formData, orderData})
               })
                 .then(async (response) => {
                   
                   const data = await response.json();
+
+                  statusPag = data.status;
   
                   renderStatusScreenBrick(bricksBuilder, data.id);
   
@@ -192,7 +217,16 @@ const renderPaymentBrick = async (bricksBuilder) => {
   })
 }
 
-closeModalButton.addEventListener('click', toggleModalPagamento)
+closeModalButton.addEventListener('click',function() {
+  toggleModalPagamento()
+  setTimeout(function() {}, 500)
+
+  if(statusPag == 'rejected'){
+    window.location.reload()
+  } else{
+    window.location.href = '/'
+  }
+})
 
 if(searchCepButton){
 searchCepButton.addEventListener('click', searchCep)

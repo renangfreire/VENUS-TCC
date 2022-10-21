@@ -11,6 +11,9 @@ class PaymentService {
 
         const [ activeAddress ] = await prisma.userAddresses.findMany({where: { userId, padrao: true }})
         
+        // Por algum motivo quando eu dou refresh na pagina, apos a inserção os dados não são inseridos na pagina, mesmo retornando, com esse timeout funciona.
+        setTimeout(() => {}, 100)
+
         let products = await findProductService.execute({productArray})
 
         for(let cookieProduct of productArray){

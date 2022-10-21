@@ -14,8 +14,6 @@ class FindProductService{
             productArray.map(e => idArray.push(e.id))
         }
 
-       
-
        const getProducts = await prisma.products.findMany({
                 where: {
                 id:{ 

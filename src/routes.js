@@ -11,14 +11,12 @@ const MercadoPagoPaymentController = require('./controller/MercadoPagoPaymentCon
 const PaymentController = require('./controller/PaymentController')
 const NewAddressController = require('./controller/NewUserAddressController')
 const CorreiosFreteController = require('./controller/CorreiosFreteController')
-
-
-
+const CartController = require('./controller/CartController')
+const OrderController = require('./controller/OrderController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
 const getUserName = require('./middlewares/getUserName')
-const CartController = require('./controller/CartController')
 
 const router = express.Router()
 const err = undefined
@@ -84,5 +82,7 @@ router.post('/removeProduct', RemoveProductCartController.handle)
 router.post('/pagamento', ensureAuthenticate, MercadoPagoPaymentController.handle)
 
 router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
+
+router.post('/criarPedido', OrderController.handle)
 
 module.exports = router 

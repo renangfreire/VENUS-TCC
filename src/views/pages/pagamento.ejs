@@ -97,23 +97,21 @@
           <img src="/assets/images/products/<%= element.images[0]%>.png" alt="<%- element.name %>" />
           <div>
             <span><%= element.name %></span>
+            <input type="hidden" class="productId" value="<%- element.id %>">
             <div class="order-info">
               <%if(element.color.length > 0){%>
                 <p>
                   Cor: <% element.color.forEach((element) => { %>
-                  <span
-                    ><%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
-                    %></span
-                  >
+                  <span class="productColor"><%= element.color.charAt(0) + element.color.toLowerCase().slice(1)%></span>
                   <%}) %>
                 </p>
                 <% } %>
                 <% if(element.size.length > 0){%>
                   <p>Tamanho: <% element.size.forEach((element) => { %>
                     <% if(element.size.length > 2) { %>
-                      <span><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></span>
+                      <span class="productSize"><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></span>
                    <% } else {%>
-                      <span><%= element.size %></span>
+                      <span class="productSize"><%= element.size %></span>
                     <% } %>
                   <%}) %>
                   </p>

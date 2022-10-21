@@ -37,7 +37,7 @@ model UserAddresses {
   cidade        String
   complemento   String?
   padrao        Boolean @default(false)
-  destinatario  String 
+  destinatario  String
   idenEndereco  String
 
   userId String
@@ -54,9 +54,9 @@ model Orders {
 
   valorTotal  Decimal
   valorFrete  Decimal
-  dateOrdered DateTime @default(now())
-  statusOrder String
-  rastreio    String
+  dateOrdered DateTime    @default(now())
+  statusOrder StatusOrder @default(PEDIDO_RECEBIDO)
+  rastreio    String?
 
   userId          String
   userAddressesId String
@@ -78,9 +78,9 @@ model Payment_details {
   id String @id @default(uuid())
 
   amount    Decimal
-  status    String
-  createdAt DateTime @default(now())
-  orderId   String   @unique
+  statusPag StatusPag
+  createdAt DateTime  @default(now())
+  orderId   String    @unique
 
   orders Orders @relation(fields: [orderId], references: [id])
 }
@@ -224,8 +224,9 @@ enum StatusOrder {
 }
 
 enum StatusPag {
-  AGUARDANDO_PAG
-  PROCESSANDO
-  CANCELADO
-  PAGO
+  PENDING
+  INPROCESS
+  REJECTED
+  CANCELED
+  APPROVED
 }
