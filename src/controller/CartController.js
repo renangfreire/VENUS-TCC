@@ -7,7 +7,7 @@ module.exports = {
         if(req.cookies.cart != null){
         const arrayList = JSON.parse(req.cookies.cart).products;
         
-        const idArray = []
+       
 
       const idArray = []
 
