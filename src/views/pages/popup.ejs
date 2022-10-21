@@ -1,4 +1,5 @@
-<span>
+
+
   <div>
   <div class="popup">
     <div class="popup-content"> 
@@ -8,42 +9,48 @@
      
       <h2 class="popup-title">Esqueceu a senha&#63;</h2>
       <div> 
-        <div color="black">
-          <h4>Informe seu e-mail de cadastro e enviaremos um código para confirmar que é você </h4>
+        <div>
+          <h4 id="perg-senha">Informe seu e-mail de cadastro e enviaremos um código para confirmar que é você </h4>
         </div> 
       </div>
-  <form>
-    <label class="sc-VigVT dSfpfv" id="email">
-      <label class="sc-bwzfXH ckpBuh"> 
-        <div color="black">E-mail:</div> 
-        
-        <input type="email" placeholder="Ex. LucasVinícius@gmail.com" name="E-mail" required="">
+  <form id="email-senha">     
+        <input type="email" placeholder="E-mail@" name="E-mail" required="" id="email-senh">
       </form>
+      <div id="send-password">
+        <button href="#" type="submit" class="text" class="text-block" id="button-password"> ENVIAR </button>
+      </div>
       </div>
       </div> 
-    </span>
+   
         <style>
+  body {
+    background-color: white;
+  }
+
   .popup {
-            position: absolute;
-            top: 0;
-            left: 0;
-            
-            height: 100vh;
-            width: 100%;
-            z-index: 9;
-            overflow-y: auto;
-            background: linear-gradient(#f7f7f7, #f7f7f7);
+    margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  width: 40rem;
+  height: 100%;
+  padding: 0.1rem;
+  font-size: 2rem;
+  background: white;
+  box-sizing: border-box;
+  
+  border-radius: 10px;
+ 
             
           }
   
   
   
           .popup-content {
-            padding: 9px 15px 0;
+            padding: 50px 50px 0;
             background-color: rgb(255, 255, 255);
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 5px 6px hsla(0, 0%, 51%, 0.6);
+            box-shadow:  0 15px 25px hsla(239, 100%, 91%, 0.6);
           }
             .popup-leave.popup-leave-active {
             opacity: 0.01;
@@ -53,10 +60,12 @@
           }
   
           .popup-title {
-            font-size: 1.25em;
-            margin-top: 30px;
-            color:#8462CA;
-  
+            
+            padding-bottom: 2rem;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 2.8rem;
+            font-family: 'Poppins', sans-serif;
           }
   
           .popup-closeBtn {
@@ -110,7 +119,34 @@
               border-radius: 3px;
               
             }
-            
+            #perg-senha {
+              margin: 0 0 3rem;
+              color: rgb(0, 0, 0);
+              text-align:justify;
+              
+              font: 2.1rem sans-serif;
+            }
+
+            #email-senh {
+              height: 4rem;
+              width: 30rem;
+              margin-bottom: 2rem; 
+              border-color: #d3d3d3;
+              
+            }
+            #send-password {
+              text-align: center;
+              margin-bottom: 2rem;
+            }
+            #button-password {
+              background-color: #5f68ff;
+              width: 30rem;
+              height: 4rem;
+              border: none;
+              color: white;
+              font-size: 2rem;
+              
+            }
 </style>
 </body>
 </html>
