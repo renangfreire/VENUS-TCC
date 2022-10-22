@@ -6,5 +6,5 @@
 
 */
 -- AlterTable
-ALTER TABLE `usersaddresses` ADD COLUMN `destinatario` VARCHAR(191) NOT NULL,
+ALTER TABLE `usersAddresses` ADD COLUMN `destinatario` VARCHAR(191) NOT NULL,
     ADD COLUMN `idenEndereco` VARCHAR(191) NOT NULL;

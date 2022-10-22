@@ -1,9 +1,9 @@
 /*
   Warnings:
 
-  - You are about to alter the column `color` on the `productcolors` table. The data in that column could be lost. The data in that column will be cast from `Enum("productcolors_color")` to `Enum("productColors_color")`.
-  - You are about to alter the column `size` on the `productsizes` table. The data in that column could be lost. The data in that column will be cast from `Enum("productsizes_size")` to `Enum("productSizes_size")`.
-  - You are about to drop the `useraddresses` table. If the table is not empty, all the data it contains will be lost.
+  - You are about to alter the column `color` on the `productColors` table. The data in that column could be lost. The data in that column will be cast from `Enum("productcolors_color")` to `Enum("productColors_color")`.
+  - You are about to alter the column `size` on the `productSizes` table. The data in that column could be lost. The data in that column will be cast from `Enum("productsizes_size")` to `Enum("productSizes_size")`.
+  - You are about to drop the `usersAddresses` table. If the table is not empty, all the data it contains will be lost.
   - A unique constraint covering the columns `[productsId]` on the table `stock` will be added. If there are existing duplicate values, this will fail.
   - Added the required column `productColorsId` to the `orders` table without a default value. This is not possible if the table is not empty.
   - Added the required column `productSizesId` to the `orders` table without a default value. This is not possible if the table is not empty.
@@ -16,10 +16,10 @@
 
 */
 -- DropForeignKey
-ALTER TABLE `productcolors` DROP FOREIGN KEY `ProductColors_id_product_fkey`;
+ALTER TABLE `productColors` DROP FOREIGN KEY `ProductColors_id_product_fkey`;
 
 -- DropForeignKey
-ALTER TABLE `productsizes` DROP FOREIGN KEY `ProductSizes_id_product_fkey`;
+ALTER TABLE `productSizes` DROP FOREIGN KEY `ProductSizes_id_product_fkey`;
 
 -- AlterTable
 ALTER TABLE `orders` ADD COLUMN `productColorsId` VARCHAR(191) NOT NULL,
@@ -29,20 +29,20 @@ ALTER TABLE `orders` ADD COLUMN `productColorsId` VARCHAR(191) NOT NULL,
     ADD COLUMN `userId` VARCHAR(191) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `productcolors` MODIFY `color` ENUM('PRETO', 'ROSA', 'BRANCO', 'VERDE', 'AZUL') NULL;
+ALTER TABLE `productColors` MODIFY `color` ENUM('PRETO', 'ROSA', 'BRANCO', 'VERDE', 'AZUL') NULL;
 
 -- AlterTable
 ALTER TABLE `products` ADD COLUMN `stockId` VARCHAR(191) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `productsizes` MODIFY `size` ENUM('P', 'M', 'G', 'GG', 'XG') NULL;
+ALTER TABLE `productSizes` MODIFY `size` ENUM('P', 'M', 'G', 'GG', 'XG') NULL;
 
 -- AlterTable
 ALTER TABLE `stock` ADD COLUMN `productsId` VARCHAR(191) NOT NULL,
     ADD COLUMN `quantidade` INTEGER NOT NULL;
 
 -- DropTable
-DROP TABLE `useraddresses`;
+DROP TABLE `usersAddresses`;
 
 -- CreateTable
 CREATE TABLE `usersAddresses` (

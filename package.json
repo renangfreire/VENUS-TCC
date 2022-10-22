@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
-    "dev": "node ./src/server",
-    "start": "nodemon .",
+    "dev": "nodemon .",
+    "start": "node ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

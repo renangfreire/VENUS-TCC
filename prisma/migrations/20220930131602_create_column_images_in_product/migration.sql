@@ -1,7 +1,7 @@
 /*
   Warnings:
 
-  - Added the required column `images` to the `Products` table without a default value. This is not possible if the table is not empty.
+  - Added the required column `images` to the `products` table without a default value. This is not possible if the table is not empty.
 
 */
 -- AlterTable

@@ -35,14 +35,14 @@ ALTER TABLE `orders` DROP COLUMN `productColorsId`,
 ALTER TABLE `products` DROP COLUMN `stockId`;
 
 -- CreateTable
-CREATE TABLE `Payment_details` (
+CREATE TABLE `payment_details` (
     `id` VARCHAR(191) NOT NULL,
     `amount` DECIMAL(65, 30) NOT NULL,
     `status` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `orderId` VARCHAR(191) NOT NULL,
 
-    UNIQUE INDEX `Payment_details_orderId_key`(`orderId`),
+    UNIQUE INDEX `payment_details_orderId_key`(`orderId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -74,7 +74,7 @@ CREATE TABLE `SizesOnOrder` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Payment_details` ADD CONSTRAINT `Payment_details_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `payment_details` ADD CONSTRAINT `payment_details_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `ProductsOnOrder` ADD CONSTRAINT `ProductsOnOrder_productsId_fkey` FOREIGN KEY (`productsId`) REFERENCES `products`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
