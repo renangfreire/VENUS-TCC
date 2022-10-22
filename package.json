@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
-  "engines": {
-    "node": "16.x"
-  },
   "scripts": {
     "dev": "node ./src/server",
     "start": "nodemon .",
