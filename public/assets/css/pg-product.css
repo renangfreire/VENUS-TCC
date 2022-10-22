@@ -124,19 +124,43 @@
     
 }
 
+/* --- Swiper  */
+
+.swiper  {
+    
+    width: 67rem;
+    border: 0.1rem solid var(--dark-purple);
+  }
+  
+  .swiper .swiper-pagination-bullet{
+    height: 1rem;
+    width: 3rem;
+    border-radius: 25px;
+    background: var(--light-blue);
+  }
+  
+  .swiper .swiper-button-next, .swiper .swiper-button-prev{
+    opacity: 0.7;
+    color: var(--light-blue);
+    transition: all 0.3s ease;
+  }
+  .swiper .swiper-button-next:hover, .swiper .swiper-button-prev:hover{
+    opacity: 2;
+    color: var(--light-blue);
+  }
+
 /* --------------- description */
 .container-description{
     display: flex;
-
+    justify-content: space-between;
     margin-top: 3rem; 
     gap: 5rem;
 }
 .mozaico-product{
-    width: 67rem;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    width: 27rem;
+    height: 10rem;
+    display: flex;
+    
     gap: 3rem;
 }
 .mozaico-product img {

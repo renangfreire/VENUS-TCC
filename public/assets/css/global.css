@@ -344,12 +344,18 @@ footer p{
 }
 
 @media (max-width: 500px) {
-    header {
-        width: 45rem;
-        height: 17rem;
-        
-        padding-left: 1rem;
+    
+
+    .headerTop {
+        width: 50rem;
+        height: 15rem;
+        padding: 0;
     }
+
+    .logged img {
+        display: none;
+    }
+
     .top-header {
         width: 40rem;
         margin-right: auto;
@@ -398,31 +404,6 @@ footer p{
         display: flex;
         color: var(--dark-purple);
     }
-
-    .top-header.show .bottom-header {
-        opacity: 1;
-        visibility: visible;
-      
-        background: var(--body-color);
-      
-        height: 100vh;
-        width: 100vw;
-      
-        position: fixed;
-        top: 0;
-        left: 0;
-      
-        display: grid;
-        place-content: center;
-      }
-      
-      .top-header.show .bottom-header ul {
-        display: grid;
-      }
-      
-      .top-header.show ul.grid {
-        gap: 4rem;
-      }
 
       footer {
         width: 45rem;
