@@ -4,11 +4,11 @@
       <div class="client-data">
         <h3>Dados Pessoais</h3>
         <div>Nome Completo</div>
-        <p>Renan gameplays</p>
+        <p><%- user.name%></p>
         <div>E-mail</div>
-        <p>renantutu@gmail.com</p>
+        <p><%- user.email%></p>
         <div><span>CPF</span></div>
-        <p class="client-cpf">870.673.870-27</p>
+        <p class="client-cpf"><%- [user.cpf.slice(0, 3), '.', user.cpf.slice(3,6), '.', user.cpf.slice(6,9), '-', user.cpf.slice(9,11)].join('') %></p>
       </div>
       <div class="line"></div>
       <% if(!activeAddress) { %>

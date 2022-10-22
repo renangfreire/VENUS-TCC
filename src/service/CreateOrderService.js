@@ -34,6 +34,7 @@ class CreateOrderService{
             }
             },
             select:{
+                id: true,
              color: {
                     select: {
                         color: true,
@@ -49,18 +50,27 @@ class CreateOrderService{
                 },
         }
         )
-        
             orderData.productsArray.forEach(cookieProduct => {
-                getProducts.find(el => {
-                    if(el.id == orderData.productsArray.id){
+                getProducts.find(({id, color, size}) => {
+                    if(id == cookieProduct.id){
 
-                        const colors = el.color.find(elColor => elColor.color == cookieProduct.color)
-                        const sizes = el.size.find(elSize => elSize.size == cookieProduct.size)
+                        const colors = color.find(elColor => elColor.color == cookieProduct.color)
+                        const sizes = size.find(elSize => elSize.size == cookieProduct.size)
 
                         idColors.push({productColorsId: colors.id})
                         idSizes.push({productSizesId: sizes.id})
                 }})
             })
+
+            if(idColors.length == 0){
+                throw new Error("Falta cor")
+            }
+            if(idSizes.length == 0){
+                throw new Error("Falta tamanho")
+            }
+            if(idColors.length == 0){
+throw new Error("Falta cor")
+            }
 
             const arrayProducts = []
 

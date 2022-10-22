@@ -52,11 +52,13 @@ class FindProductService{
                     throw new Error('Product not exits') 
                 }
                 products = product
+                console.log(product)
             }
         })
             // se for Array
             
             if(typeof productArray !== "string"){
+
             productArray.forEach(cookieProduct => {
                 getProducts.find(el => {
                     if(el.id == cookieProduct.id){

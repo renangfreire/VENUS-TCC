@@ -224,7 +224,7 @@ closeModalButton.addEventListener('click',function() {
   if(statusPag == 'rejected'){
     window.location.reload()
   } else{
-    window.location.href = '/'
+    window.location.href = '/finalizarPedido'
   }
 })
 

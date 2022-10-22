@@ -10,6 +10,7 @@ class PaymentService {
         let freteData
 
         const [ activeAddress ] = await prisma.userAddresses.findMany({where: { userId, padrao: true }})
+        const user = await prisma.user.findUnique({where: {id: userId}, select: {name: true, cpf: true, email: true}})
         
         // Por algum motivo quando eu dou refresh na pagina, apos a inserção os dados não são inseridos na pagina, mesmo retornando, com esse timeout funciona.
         setTimeout(() => {}, 100)
@@ -33,9 +34,7 @@ class PaymentService {
 
             freteData = await correiosFreteService.calcFrete(activeAddress.cep)
         }
-
-
-        return { activeAddress, freteData, products}
+        return { activeAddress, freteData, products, user}
     }
 }
 

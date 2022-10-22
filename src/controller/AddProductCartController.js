@@ -13,7 +13,6 @@ module.exports = {
         const addProductCartService = new AddProductCartService()
 
         addProductCartService.execute({res, id, color, size, quantity, cookie})
-
         return res.redirect(`/carrinho/`)
     }
 }
