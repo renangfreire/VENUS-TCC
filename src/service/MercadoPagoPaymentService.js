@@ -16,7 +16,7 @@ class PaymentService{
   .then(function(response) {
 
     if(response.body.status != 'rejected'){
-      // res.clearCookie('cart')
+      res.clearCookie('cart')
     }
 
     createOrderService.execute({

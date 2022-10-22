@@ -230,7 +230,7 @@ main .ad-container img{
     }
 
     @media (max-width: 330px) {
-        header {
+        .headerTop {
           width: 45rem;  
           padding-left: 0;
         }

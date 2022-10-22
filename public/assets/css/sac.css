@@ -53,18 +53,19 @@
 #one {
     background: #50A74D;
     border-radius: 20px;
-    height: 280px;
+    height: 30rem;
     Width: 450px;
     margin: auto;
     color: aliceblue;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    margin-top: 20px;
+    margin-top: 1rem;
 }
+
 #two {
     background: white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 2rem;
     Width: 450px;
     margin: auto;
     color: #0D114F;
@@ -83,13 +84,13 @@
     text-align: justify;
     margin-right: 20px;
 }
-#msg {
+.msg {
     width: 410px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
 }
 .lista details summary{
     background-color: #fff;

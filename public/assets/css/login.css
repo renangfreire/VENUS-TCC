@@ -209,7 +209,7 @@ body {
 }
 
 @media (max-width: 700px) {
-  header {
+  .headerTop {
     width: 70rem;
   }
   .login-box {
@@ -224,8 +224,8 @@ body {
 }
 
 @media (max-width: 500px) {
-  header {
-    width: 50rem;
+  .headerTop {
+    width: 45rem;
   }
   .login-box {
     margin-top: 10rem;
