@@ -34,8 +34,6 @@ class PaymentService {
 
             freteData = await correiosFreteService.calcFrete(activeAddress.cep)
         }
-
-
         return { activeAddress, freteData, products, user}
     }
 }
