@@ -77,9 +77,9 @@ body {
 
   font: inherit;
   color: var(--light-purple);
-  width: 1em;
-  height: .75em;
-  border: 0.15em solid var(--light-purple);
+  width: 1.5rem;
+  height: 1rem;
+  border: 0.15rem solid var(--light-purple);
   border-radius: 50%;
   transform: translateY(-0.075em);
 
@@ -90,7 +90,7 @@ body {
 
 .divsexo input[type="radio"]::before {
   content: "";
-  width: .60em;
+  width: .70em;
   height: .70em;
   border-radius: 50%;
   transform: scale(0);
@@ -209,7 +209,7 @@ body {
 }
 
 @media (max-width: 700px) {
-  header {
+  .headerTop {
     width: 70rem;
   }
   .login-box {
@@ -224,8 +224,8 @@ body {
 }
 
 @media (max-width: 500px) {
-  header {
-    width: 50rem;
+  .headerTop {
+    width: 45rem;
   }
   .login-box {
     margin-top: 10rem;

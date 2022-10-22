@@ -37,7 +37,8 @@
     "express-async-errors": "^3.1.1",
     "express-session": "^1.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mercadopago": "^1.5.14"
+    "mercadopago": "^1.5.14",
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

@@ -1,0 +1,124 @@
+body {
+  background: linear-gradient(#ffffff, var(--light-gray));
+}
+
+.popup-password {
+  margin-left: auto;
+margin-right: auto;
+margin-top: 5rem;
+width: 40rem;
+height: 100%;
+padding: 0.1rem;
+font-size: 2rem;
+background: white;
+box-sizing: border-box;
+
+border-radius: 10px;
+
+          
+        }
+
+
+
+        .popup-content {
+          padding: 50px 50px 0;
+          background-color: rgb(255, 255, 255);
+          min-height: 100vh;
+          position: relative;
+          box-shadow:  0 15px 25px hsla(239, 93%, 84%, 0.6);
+        }
+          .popup-leave.popup-leave-active {
+          opacity: 0.01;
+          transform: scale(0.8) translateY(10vh);
+          transition: all 200ms;
+
+        }
+
+        .popup-title {
+          
+          padding-bottom: 2rem;
+          color: rgb(0, 0, 0);
+          text-align: center;
+          font-size: 2.8rem;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        .popup-closeBtn {
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top: 0;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          padding: 0;
+        }
+
+        .popup-closeBtn::before,
+        .popup-closeBtn::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: rgb(104, 94, 94);
+          top: 50%;
+          margin-top: -1px;
+        }
+        .popup-closeBtn::after {
+          transform: rotate(45deg);
+        }
+        .popup-closeBtn::before {
+          transform: rotate(-45deg);
+        }
+
+          .popup-password {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+
+
+          }
+          .popup-content {
+            max-width: 400px;
+            min-height: unset;
+            padding-bottom: 20px;
+          }
+
+          .popup-password input{
+            border: solid 1px;
+            border-radius: 3px;
+            
+          }
+          #perg-senha {
+            margin: 0 0 3rem;
+            color: rgb(0, 0, 0);
+            text-align:justify;
+            
+            font: 2.1rem sans-serif;
+          }
+
+          #email-senh {
+            height: 4rem;
+            width: 30rem;
+            margin-bottom: 2rem; 
+            border-color: #d3d3d3;
+            
+          }
+          #send-password {
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+          #button-password {
+            background-color: #5f68ff;
+            width: 30rem;
+            height: 4rem;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            
+          }

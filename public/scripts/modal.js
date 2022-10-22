@@ -1,4 +1,5 @@
 export default function Modal() {
+
   const modalWrapper = document.querySelector('.popup-wrapper')
   const buttonClose = document.querySelector('.popup-close')
 
@@ -22,3 +23,67 @@ export default function Modal() {
     open
   }
 }
+var pedisac = document.querySelector('#pedidos-sac');
+var pagsac = document.querySelector('#pagamento-sac');
+var contsac = document.querySelector('#conta-sac');
+
+
+pedisac.addEventListener('click', function() {
+
+  if(pagsac.style.display === 'none'){
+    pagsac.style.display = 'list-item';
+  } else {
+    pagsac.style.display = 'none';
+  }
+
+});
+
+pedisac.addEventListener('click', function() {
+
+  if(contsac.style.display === 'none'){
+    contsac.style.display = 'list-item';
+  } else {
+    contsac.style.display = 'none';
+  }
+
+});
+
+pagsac.addEventListener('click', function() {
+
+  if(pedisac.style.display === 'none'){
+    pedisac.style.display = 'list-item';
+  } else {
+    pedisac.style.display = 'none';
+  }
+
+});
+
+pagsac.addEventListener('click', function() {
+
+  if(contsac.style.display === 'none'){
+    contsac.style.display = 'list-item';
+  } else {
+    contsac.style.display = 'none';
+  }
+
+});
+
+contsac.addEventListener('click', function() {
+
+  if(pedisac.style.display === 'none'){
+    pedisac.style.display = 'list-item';
+  } else {
+    pedisac.style.display = 'none';
+  }
+
+});
+
+contsac.addEventListener('click', function() {
+
+  if(pagsac.style.display === 'none'){
+    pagsac.style.display = 'list-item';
+  } else {
+    pagsac.style.display = 'none';
+  }
+
+});
