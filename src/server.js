@@ -4,6 +4,8 @@ require("express-async-errors")
 const router = require('./routes')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const flush = require('connect-flash')
 
 const app = express()
 
@@ -16,6 +18,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json()) // SOMENTE PARA USO DO INSOMNIA, DESABILITAR PRA USAR NORMAL
 
+app.use(session({   
+    secret: 'secret', 
+    cookie: {maxAge: 60000}, 
+    resave: false, 
+    saveUninitialized: false
+}))
+app.use(flush())
 app.use(cookieParser())
 app.use(router)
 

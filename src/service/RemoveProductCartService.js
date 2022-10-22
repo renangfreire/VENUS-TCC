@@ -2,7 +2,6 @@
 
 class RemoveProductCartService{
     async execute({res, index, cookie}){
-        // console.log(cookie)
         const cookieIndex = cookie
         if(cookie){
             cookieIndex.splice(index, 1)

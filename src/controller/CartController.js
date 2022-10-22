@@ -1,33 +1,33 @@
-const FindProductService = require('../service/FindProductService')
+const CartService = require('../service/CartService')
 
 module.exports = {
-  async handle(req, res) {
-    res.cookie(
-      'cart',
-      JSON.stringify({ products: [{ id: '03408245' }, { id: '75852980' }] }),
-      { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }
-    )
-    let products
-    if (req.cookies.cart != null) {
-      const arrayList = JSON.parse(req.cookies.cart).products
+    async handle(req, res){
+        if(req.cookies.cart != null){
+        const arrayList = JSON.parse(req.cookies.cart).products;
 
-      const idArray = []
+        if(arrayList.length < 1){
+          res.clearCookie("cart");
+        }
 
-      arrayList.map(function (product) {
-        idArray.push(product.id)
-      })
+        const productArray = []
+    
+        const cartService = new CartService()
 
-      products = await findProductService.execute(productArray)
+        arrayList.map(function(product){
+            productArray.push({
+                id: product.id,
+                color: product.color.toUpperCase(),
+                size: product.size.toUpperCase(),
+                quantity: product.quantity
+            })
+        });
+        
+        const products = await cartService.execute({productArray})
 
-      products = await findProductService.execute({ idProduct: idArray })
+
+    return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products, err: undefined});
     }
 
-    return res.render('index', {
-      page: 'carrinho',
-      libs: ['carrinho'],
-      styles: ['carrinho'],
-      username: req.user_name,
-      products
-    })
+    return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products: undefined, err: undefined});
   }
 }
