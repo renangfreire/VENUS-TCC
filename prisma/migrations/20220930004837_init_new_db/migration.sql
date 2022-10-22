@@ -13,7 +13,7 @@ CREATE TABLE `users` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `UserAddresses` (
+CREATE TABLE `usersAddresses` (
     `id` VARCHAR(191) NOT NULL,
     `cep` VARCHAR(191) NOT NULL,
     `rua` VARCHAR(191) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE `UserAddresses` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Orders` (
+CREATE TABLE `orders` (
     `id` VARCHAR(191) NOT NULL,
     `valor` DECIMAL(65, 30) NOT NULL,
     `dateOrdered` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -37,7 +37,7 @@ CREATE TABLE `Orders` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Products` (
+CREATE TABLE `products` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `value` DECIMAL(65, 30) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `Products` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Stock` (
+CREATE TABLE `stock` (
     `id` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
