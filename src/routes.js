@@ -62,7 +62,11 @@ router.get('/login', getUserName, (req, res) => {
   })
 })
 router.get('/popup', getUserName, (req, res) => {
-  res.render('index', { page: 'popup', username: req.user_name })
+  res.render('index', {
+    page: 'popup',
+    styles: ['esqueceuSenha'],
+    username: req.user_name
+  })
 })
 router.get('/pesquisa', getUserName, (req, res) => {
   res.render('index', {

@@ -1,7 +1,18 @@
             <div class="content"> 
             <section class='ad-container'>
+                <div class="swiper mySwiper" >
+                <div class="swiper-wrapper">
                 <!-- JAVASCRIPT AQUI -->
-                <img src="./assets/images/anuncio.png" alt="">
+                
+               <div class="swiper-slide"> <img src="./assets/images/anuncio.png" alt=""></div>
+               <div class="swiper-slide"> <img src="./assets/images/anuncio.png" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/images/anuncio.png" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/images/anuncio.png" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
             </section>
 
             <section class="products-container">
@@ -70,3 +81,22 @@
         </div>
     </div>
 </div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    cssMode: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    mousewheel: true,
+    keyboard: true,
+  });
+</script>
