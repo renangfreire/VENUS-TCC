@@ -1,33 +1,46 @@
-const mercadoPago = require('mercadopago')
+const prisma = require('../prisma')
+const CorreiosFreteService = require('../service/CorreiosFreteService')
+const FindProductService = require('../service/FindProductService')
 
-mercadoPago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP);
+class PaymentService {
+    async execute({userId, productArray}){
 
-class PaymentService{
-    async execute(){
-    
-        var preference = {
-            items: [
-              {
-                id: '26972801',
-                title: "Moletom Nezuko",
-                description: "Moletom Nezuko",
-                quantity: 1,
-                currency_id: 'BRL',
-                unit_price: 79.99
+        const correiosFreteService = new CorreiosFreteService()
+        const findProductService = new FindProductService()
+        let freteData
+
+        const [ activeAddress ] = await prisma.userAddresses.findMany({where: { userId, padrao: true }})
+        const user = await prisma.user.findUnique({where: {id: userId}, select: {name: true, cpf: true, email: true}})
+        
+        // Por algum motivo quando eu dou refresh na pagina, apos a inserção os dados não são inseridos na pagina, mesmo retornando, com esse timeout funciona.
+        setTimeout(() => {}, 100)
+
+        let products = await findProductService.execute({productArray})
+
+        for(let cookieProduct of productArray){
+            products.map((el, i) => {
+              if(Object.values(el).includes(cookieProduct.id)){
+                  if(el.color[0].color == cookieProduct.color && el.size[0].size == cookieProduct.size){
+                      el.quantity = cookieProduct.quantity
+                  }
               }
-            ],
-            payer : {
-              email: 'teste@teste.com'
-            },
-            auto_return : "all",
-            external_reference : "26972801",
+            })
           }
-          
-          const mp = mercadoPago.payment.create(preference)
-          console.log(mp)
 
-        return
+        
+        if(activeAddress){
+            delete activeAddress.id
+            delete activeAddress.userId
+
+            freteData = await correiosFreteService.calcFrete(activeAddress.cep)
+        }
+        return { activeAddress, freteData, products, user}
     }
 }
 
-module.exports = PaymentService;
+module.exports = PaymentService
+
+
+
+
+

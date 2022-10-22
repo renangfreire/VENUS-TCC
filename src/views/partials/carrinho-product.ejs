@@ -7,7 +7,7 @@
         <img
           src="/assets/images/products/<%= element.images[0]%>.png"
           class="product-image"
-          alt="item"
+          alt="<%- element.name %>"
         />
       </div>
       <div id="description">
@@ -38,7 +38,7 @@
                 <p class="about">Quantidade</p>
                 <div class="qtdButton">
                   <button class="button-sum amountSubtraction">-</button>
-                  <input type="number" id="input-sum" class="inputAmount" placeholder=""value="1" disabled />
+                  <input type="number" id="input-sum" class="inputAmount" placeholder="" value="<%-element.quantity%>" />
                   <button class="button-sum amountAddition">+</button>
                 </div>
               </div>
@@ -50,7 +50,10 @@
                 </div>
               </div>
               <div>
-                <button class="removeItem">trash</button>
+                <button class="removeItem">
+                  <span class="material-symbols-outlined trash">
+                    remove
+                    </span></button>
               </div>
             </div>
             <% }) %>
@@ -72,9 +75,17 @@
             <button class="button-search">OK</button>
           </div>
         </div>
+
         <div class="line"></div>
 
-        <div class="freteBox"></div>
+        <div class="freteBox">
+          <div class="frete-item">
+            
+          </div>
+          <div class="loading">
+            <div class="spin"></div>
+          </div>
+        </div>
     </div>
     <div class="boxes" id="box-request">
       <form action="/pagamento" method="get">
@@ -93,16 +104,8 @@
         <div class="line"></div>
         <p>Frete</p>
         <span>
-          <input
-            name="frete"
-            type="number"
-            class="input-request"
-            id="freight"
-            value="0"
-            hidden
-            disabled
-          />
-          R$ 0.00
+          R$
+          <span class="request-values" id="freight">0,00</span>
         </span>
 
         <br />

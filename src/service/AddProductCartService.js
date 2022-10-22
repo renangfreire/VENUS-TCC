@@ -1,11 +1,12 @@
 
 
 class AddProductCartService{
-    async execute({res, id, color, size, cookie}){
+    async execute({res, id, color, size, quantity, cookie}){
         const newDate = {
             id,
             color,
             size,
+            quantity
         }
 
         const cartCookie = cookie || []

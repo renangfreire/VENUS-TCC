@@ -1,4 +1,3 @@
-
 /* COLORS */
 :root{
     --background: #FBFCFF;
@@ -62,9 +61,12 @@ a{
     text-decoration: none;
 }
 a:active, a:visited{
-    color: var(--white);
+    color: var(--black);
 }
 
+.a-white:active, .a-white:visited{
+    color: var(--white)
+}
 
 /* Buttons && titles*/
 .btn-outlined{
@@ -107,7 +109,7 @@ a:active, a:visited{
 
 /* ----- header */
 
-header {
+.headerTop {
     width: 100%;
     background: var(--background);
     /* position: fixed;  */
@@ -307,6 +309,9 @@ footer p{
     }
     img {
         width: 100%;
+    }
+    .method-card img {
+        width: auto;
     }
     .bottom-header {
         width: 80rem;

@@ -1,9 +1,7 @@
-const FindProductService = require('../service/FindProductService')
+const CartService = require('../service/CartService')
 
 module.exports = {
     async handle(req, res){
-        let products
-        
         if(req.cookies.cart != null){
         const arrayList = JSON.parse(req.cookies.cart).products;
 
@@ -13,18 +11,19 @@ module.exports = {
 
         const productArray = []
     
-        arrayList.map(function(product){
+        const cartService = new CartService()
 
+        arrayList.map(function(product){
             productArray.push({
                 id: product.id,
                 color: product.color.toUpperCase(),
-                size: product.size.toUpperCase()
+                size: product.size.toUpperCase(),
+                quantity: product.quantity
             })
         });
         
-        const findProductService = new FindProductService();
+        const products = await cartService.execute({productArray})
 
-        products = await findProductService.execute({productArray})
 
     return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products, err: undefined});
     }

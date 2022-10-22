@@ -7,16 +7,16 @@ const AuthenticateUserController = require('./controller/AuthenticateUserControl
 const UserLogoutController = require('./controller/UserLogoutController')
 const AddProductCartController = require('./controller/AddProductCartController')
 const RemoveProductCartController = require('./controller/RemoveProductCartController')
+const MercadoPagoPaymentController = require('./controller/MercadoPagoPaymentController')
 const PaymentController = require('./controller/PaymentController')
-
-
-const calcFrete = require('./utils/calcFrete')
-
+const NewAddressController = require('./controller/NewUserAddressController')
+const CorreiosFreteController = require('./controller/CorreiosFreteController')
+const CartController = require('./controller/CartController')
+const OrderController = require('./controller/OrderController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
 const getUserName = require('./middlewares/getUserName')
-const CartController = require('./controller/CartController')
 
 const router = express.Router()
 const err = undefined
@@ -32,7 +32,7 @@ router.get('/home', getUserName, (req, res) => {
 router.get('/carrinho', getUserName, CartController.handle)
 
 router.get('/cadastro', getUserName, (req, res) => {
-    res.render("index", {page: "cadastro", styles: ["login"], username: req.user_name, err});
+    res.render("index", {page: "cadastro", styles: ["login"],libs: ['cadastro'], username: req.user_name, err});
 })
 
 router.get('/product/', (req, res) => {
@@ -56,11 +56,20 @@ router.get('/pesquisa', getUserName, (req, res) => {
 
 router.get('/user/logout', UserLogoutController.handle)
 
-router.get('/calcFrete/:cepUser', calcFrete)
+router.get('/calcFrete/:cepUser', CorreiosFreteController.handle)
+router.get('/searchCep/:cepUser', CorreiosFreteController.handle)
 
-router.get('/pagamento', ensureAuthenticate, (req, res) => {
-    res.render('index', {page: "pagamento", styles: ["pagamento"], libs: ['pagamento'], username: req.user_name, err})
+router.get('/pagamento', ensureAuthenticate, getUserName, PaymentController.handle)
+
+router.get('/finalizarPedido', getUserName, (req, res) => {
+  res.render('index', {
+    page: 'finalizarPedido',
+    styles: ['finalizarPedido'],
+    username: req.user_name
+  })
 })
+
+router.get('/logout', UserLogoutController.handle)
 
 router.get('*', getUserName, (req, res) => {
     res.render('index', {page: 'error404', styles: ['error404'], username: req.user_name, err})
@@ -79,6 +88,10 @@ router.post('/precarrinho', AddProductCartController.handle)
 
 router.post('/removeProduct', RemoveProductCartController.handle)
 
-router.post('/pagamento', PaymentController.handle)
+router.post('/pagamento', ensureAuthenticate, MercadoPagoPaymentController.handle)
 
-module.exports = router 
+router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
+
+router.post('/criarPedido', OrderController.handle)
+
+module.exports = router
