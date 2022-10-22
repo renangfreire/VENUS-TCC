@@ -32,7 +32,7 @@ router.get('/home', getUserName, (req, res) => {
 router.get('/carrinho', getUserName, CartController.handle)
 
 router.get('/cadastro', getUserName, (req, res) => {
-    res.render("index", {page: "cadastro", styles: ["login"], username: req.user_name, err});
+    res.render("index", {page: "cadastro", styles: ["login"],libs: ['cadastro'], username: req.user_name, err});
 })
 
 router.get('/product/', (req, res) => {

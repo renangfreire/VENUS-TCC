@@ -310,6 +310,9 @@ footer p{
     img {
         width: 100%;
     }
+    .method-card img {
+        width: auto;
+    }
     .bottom-header {
         width: 80rem;
         margin-right: auto;

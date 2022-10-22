@@ -25,7 +25,7 @@ module.exports = {
 
         const paymentService = new PaymentService()
 
-        const { activeAddress, freteData, products } = await paymentService.execute({userId, productArray})
+        const { activeAddress, freteData, products, user } = await paymentService.execute({userId, productArray})
         
         res.render('index', {
         page: "pagamento", 
@@ -35,7 +35,8 @@ module.exports = {
         username: req.user_name,
         activeAddress,
         freteData,
-        products
+        products,
+        user
         })
     }
     }

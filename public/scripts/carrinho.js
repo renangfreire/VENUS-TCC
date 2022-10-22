@@ -179,3 +179,9 @@ btnSub.forEach((btn, index) => {
 btnTrash.forEach((btn, index) => {
   btn.addEventListener('click', removeProduct.bind(btn, index))
 })
+
+inputFrete.addEventListener('keypress', function(){
+  if(this.value.length == 5){
+    this.value += '-'
+  }
+})

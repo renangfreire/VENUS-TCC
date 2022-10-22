@@ -7,8 +7,6 @@ module.exports = {
       const  {formData, orderData } = req.body
       const userId = req.user_id
 
-      console.log(formData)
-
       orderData.userId = userId      
 
         const paymentService = new PaymentService()
