@@ -2,7 +2,7 @@ body {
   background: linear-gradient(#ffffff, var(--light-gray));
 }
 
-.popup {
+.popup-password {
   margin-left: auto;
 margin-right: auto;
 margin-top: 5rem;
@@ -75,7 +75,7 @@ border-radius: 10px;
           transform: rotate(-45deg);
         }
 
-          .popup {
+          .popup-password {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -89,7 +89,7 @@ border-radius: 10px;
             padding-bottom: 20px;
           }
 
-          .popup input{
+          .popup-password input{
             border: solid 1px;
             border-radius: 3px;
             

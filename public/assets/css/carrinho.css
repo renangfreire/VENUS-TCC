@@ -1,4 +1,8 @@
 
+.bold{
+  font-weight: bold;
+}
+
 
 #cart {
   margin: 5rem;
@@ -73,6 +77,10 @@ input[type=number]::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
+.trash{
+  color: var(--light-purple)
+}
+
 .box-spg-req {
   display: flex;
   align-items: center;
@@ -96,6 +104,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .line {
   border: 1px solid #8462CA;
+  margin-top: 1rem;
 }
 
 form p {
@@ -104,7 +113,6 @@ form p {
 }
 
 form span {
-  float: right;
   margin-top: 1rem;
 }
 
@@ -114,7 +122,7 @@ form span {
   border-radius: 0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  border: solid 1px;
+  border: solid #653EB5 1px;
   background-color: #FDF7F7;
   outline: transparent;
 }
@@ -122,14 +130,15 @@ form span {
 #shipping {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: .5rem;
 }
 
-#shipping p{
-  margin-bottom: 1rem;
-  padding-right: 4rem;
+.shipping-search{
+  display: flex;
 }
 
-.button-search-shipping {
+.button-search {
   width: 3.2rem;
   height: 2.2rem;
   color: #ffffff;
@@ -181,6 +190,41 @@ form span {
   background: #fff;
 }
 
+.freteBox {
+  display: flex;
+  /* align-items: center; */
+  gap: 1rem;
+  margin-top: 1rem;
+  height: 100%;
+  position: relative;
+}
+
+.frete-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 1.6rem;
+}
+
+.box-shipping img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.box-shipping-title{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.shipping-title{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 #bus {
   display: flex;
 }
@@ -190,14 +234,48 @@ form span {
   gap: 5rem;
 }
 
+.loading{
+  position: absolute;
+  transition: .4s;
+  top: 35%;
+  left: 50%;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading.add{
+  opacity: 1;
+  visibility: visible;
+}
+
+.spin::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 8px #cfd0d1;
+  border-bottom-color: var(--light-purple);
+  border-radius: 50%;
+  content: "";
+  height: 25px;
+  width: 25px;
+  position: absolute;
+
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
 @media (max-width: 550px) {
   header {
     width: 100%;
-  }
-
-  #box-shipping img {
-    width: 2rem;
-    height: 2rem;
   }
 
   #cart {
@@ -206,7 +284,7 @@ form span {
 
   #product-cart {
     height: 100%;
-    width: 29.7rem;
+    /* width: 29.7rem; */
   }
 
   .qtd-button {
@@ -214,7 +292,6 @@ form span {
     display: flex;
   }
   
-
   #bus {
     display: block;
   }
@@ -239,4 +316,5 @@ form span {
     width: 36rem;  
     padding-left: 0;
   }
+
 }

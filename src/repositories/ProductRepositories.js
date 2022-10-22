@@ -3,6 +3,8 @@ const prisma = require('../prisma');
 class ProductRepository {
     async create({id, name, value, color, size, images}){
         
+        console.log(color)
+
        await prisma.products.create({
             data: {
                 id,

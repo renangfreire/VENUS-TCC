@@ -3,17 +3,36 @@ input, button {
   outline: none;
 }
 
+body{
+  overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+}
+
 .identification-payment-orderSummary {
   display: flex;
   height: 100%;
   margin: 3rem;
   gap: 5rem;
+  justify-content: space-around;
 }
 
 .identification-client {
-  border: 1px solid var(--light-purple);
+  border: 1px solid var(--dark-purple);
   width: 50rem;
   height: 100%;
+
+  border-radius: 8px;
 }
 
 .identification-client .client-data {
@@ -23,7 +42,7 @@ input, button {
 .identification-client .client-data div {
   width: 20rem;
   color: var(--light-purple);
-  border-bottom: 1px solid var(--dark-purple);
+  border-bottom: 1px solid var(--light-purple);
   padding-top: 1rem;
 }
 
@@ -34,8 +53,7 @@ input, button {
 }
 
 .identification-client .line {
-  border: 1px solid var(--light-purple);
-  margin-top: 3rem;
+  border: 1px solid var(--dark-purple);
 }
 
 .identification-client form a p{
@@ -44,12 +62,24 @@ input, button {
   color: var(--dark-purple);
 }
 
-.input-CEP input{
+.identification-data{
+  padding: 2rem 0 1rem 0;
+}
+
+.searchCepBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem
+}
+
+.searchCepBox input{
   width: 20rem;
   height: 4rem;
 }
 
-.input-CEP a {
+.searchCepBox a {
   color: var(--dark-blue);
 }
 
@@ -80,10 +110,22 @@ input, button {
 }
 
 .input-address {
-  margin: 2rem 3rem;
   padding-left: 1rem;
-  border: 1px solid var(--light-purple);
-  
+  border: 1px solid var(--dark-purple);
+  border-radius: 3px 0px 0px 3px
+}
+
+.input-CEP {
+  display: flex;
+  align-items: center;
+}
+
+.search-cep{
+  background-color: var(--dark-purple);
+  color: var(--white);
+  height: 4rem;
+  border-radius: 0px 3px 3px 0px;
+  width: 3.5rem;
 }
 
 .register-address {
@@ -101,41 +143,65 @@ input, button {
 .box-address {
   margin: 2rem;
   padding: 2rem;
-  background: var(--light-gray)
+  background: #F1F1F1;
+}
+
+.box-address .icon {
+  color: var(--green)
 }
 
 .box-address p {
   margin-bottom: 2rem;
 }
 
+.box-address a{
+  color: var(--black);
+  text-decoration: underline;
+}
+
 .box-address img {
   background: var(--light-gray);
 }
 
-.payment {
-  width: 50rem;
-  height: 50rem;
-  
-  border: 1px solid var(--light-purple);
+.freteInput{
+  display: flex;
+  gap: 1rem;
 }
 
-.payment h2 {
+.payment {
+  width: 50rem;
+  /* height: 60rem; */
+  
+}
+
+#paymentBrick_container{
+  border: 1px solid var(--dark-purple);
+  border-radius: 0 0 5px 5px;;
+}
+
+/* .paymentBrick-container {
+  
+} */
+
+.header-h2 {
   background: var(--dark-purple);
   color: #fff;
+  border-radius: 5px 5px 0 0;
+
+  text-align: center;
 }
 
 .payment h3 {
   margin-top: 3rem;
 }
 
-.payment h2, .payment h3 {
+.payment h3 {
   text-align: center;
 }
 
 .payment button {
   width: 44rem;
   height: 5rem;
-  margin: .5rem 3rem;
   padding: 1rem;
   text-align: start;
   color: #fff;
@@ -154,6 +220,11 @@ input, button {
   color: #fff;
 }
 
+.box-order + .box-order{
+  margin-top: 4rem
+}
+
+
 .box-order-summary {
   background: #fff;
   margin: 1rem;
@@ -163,26 +234,38 @@ input, button {
 .box-order-summary p {
   align-items: center;
   display: flex;
-  gap: 2rem;
+  gap: 0.7rem;
+}
+
+.header-boxOrder {
+  display: flex;
+  align-items: center;
+  
+  gap:2rem;
+}
+
+.header-boxOrder div p{
+  margin-top: .7rem;
 }
 
 .subtotal-order {
   color: #fff;
   padding: 1rem;
 }
-
-.subtotal-order span {
-  float: right;
+.subtotal-order p{
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--big-font-size)
 }
 
-.subtotal-order div:last-of-type{
-  font-size: 2rem;
-  color: #0ff;
+.subtotal-order p:last-of-type{
+  margin-top: 1rem;
+  font-size: 2.4rem;
+  color: #4AAE51;
 }
 
 .order-summary p:last-of-type {
   text-align: center;
-  color: #fff;
 }
 
 .order-summary p a {
@@ -206,11 +289,22 @@ input, button {
   width: 10rem;
 }
 
+.order-info{
+  display: flex;
+
+  justify-content:space-between;
+  padding: 0 .5rem;
+}
+
+.order-info p {
+  font-size: var(--medium-font-size);
+}
+
+.main-boxOrder{
+  margin-top: 1.5rem;
+}
 
 @media (max-width: 500px) {
-
- 
-
   .identification-payment-orderSummary  {
     flex-direction: column;
     
@@ -231,5 +325,111 @@ input, button {
 
   .payment, .identification-client, .order-summary{
     width: 40rem;
+  }
+
+}
+
+.address-form {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  height: 0;
+}
+
+.address-form.active{
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+}
+
+#form-checkout {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.formInputs{
+  width: 80%;
+  height: 30px;
+  display: inline-block;
+  border: 1px solid var(--dark-purple);
+  border-radius: 2px;
+  padding: 1px 2px4
+}
+
+.modalPagamento-overlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modalPagamento-overlay.active{
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+.closeModalPagamento{
+  position: relative;
+  top: 4.5rem;
+  left: 2rem;
+  z-index: 3;
+  background-color: transparent;
+  color: white;
+}
+
+.loading{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(255,255,255);
+
+  position: fixed;
+  top: 0;
+
+  transition: .2s;
+  
+}
+
+.loading.remove{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spin::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 10px #cfd0d1;
+  border-bottom-color: var(--light-purple);
+  border-radius: 50%;
+  content: "";
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 50%;
+  margin-left: -50px;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 }

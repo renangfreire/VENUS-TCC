@@ -1,0 +1,65 @@
+.modalError-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modalError-overlay.active{
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.modalError-wrapper {
+    background-color: #f0f2f5;
+    padding: 3.6rem;
+    border-radius: 1.5rem;
+}
+
+.modalError-header{
+    display: flex;
+    gap: 3.5rem;
+
+    align-items: center;
+}
+
+.modalError-header p{
+    font-size: var(--normal-font-size);
+}
+
+.modalError-close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.modalError-close span{
+}
+
+.modalError-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2.5rem;
+}
+.modalError-content button{
+    padding: 0.6rem 2.5rem;
+    
+    background: var(--light-purple);
+    color: #ffffff;
+    border-radius: 0.5rem;
+    
+    text-align: center;
+    font-size: var(---font-size);
+}

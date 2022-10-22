@@ -98,8 +98,8 @@
     font-weight: 600;   
 }
 .lista details p{
-    background-color: #bebebe;
-    color: black;
+   
+    color: var(--green);
     padding: 2%;
 }
 #subtitulo {

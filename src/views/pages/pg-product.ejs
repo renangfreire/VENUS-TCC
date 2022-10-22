@@ -1,211 +1,202 @@
-            <div class="content">
-            <section class="container-product">
-                <img src="/assets/images/products/<%= productJson.images[0] %>.png" alt="Blusa">
-                <div class="sell-info">
-                    <h1><%= productJson.name %></h1>
-                    <p><%= `R$ ${Number(productJson.value).toFixed(2).replace('.', ',')}`%></p>
-                    <div class="method-card">
-                        <span><%= `Em até 6x de R$ ${(productJson.value / 6).toFixed(2).replace('.', ',')} sem juros no cartão` %></span> <img src="/assets/images/card.svg">
-                    </div>
+<div class="content">
+  <section class="container-product">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <img
+              src="/assets/images/products/<%= productJson.images[0] %>.png"
+              alt="Blusa"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <img
+              src="/assets/images/products/<%= productJson.images[0] %>.png"
+              alt="Blusa"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <img
+              src="/assets/images/products/<%= productJson.images[0] %>.png"
+              alt="Blusa"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <img
+              src="/assets/images/products/<%= productJson.images[0] %>.png"
+              alt="Blusa"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="sell-info">
+      <h1><%= productJson.name %></h1>
+      <p>
+        <%= `R$ ${Number(productJson.value).toFixed(2).replace('.', ',')}`%>
+      </p>
+      <div class="method-card">
+        <span
+          ><%= `Em até 6x de R$ ${(productJson.value /
+          6).toFixed(2).replace('.', ',')} sem juros no cartão` %></span
+        >
+        <img src="/assets/images/card.svg" />
+      </div>
 
-                    <% if(productJson.color.length > 0) { %>
-                    <div class="select-color">
-                        <p>Cor:</p>
-                        <div class="select-buttons">
-                            <% productJson.color.forEach((element) => { %>
-                                <button class="btnSelect btnColor"><%= element.color.charAt(0) + element.color.toLowerCase().slice(1) %></button>
-                             <% })%>
-                        </div>
-                        <input type="hidden" name="color" class="currentColor" value="">
-                    </div>
-                    <% } %>
+      <% if(productJson.color.length > 0) { %>
+      <div class="select-color">
+        <p>Cor:</p>
+        <div class="select-buttons">
+          <% productJson.color.forEach((element) => { %>
+          <button class="btnSelect btnColor">
+            <%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
+            %>
+          </button>
+          <% })%>
+        </div>
+        <input type="hidden" name="color" class="currentColor" value="" />
+      </div>
+      <% } %> <% if(productJson.color.length > 0){ %>
+      <div class="select-size">
+        <p>Tamanho:</p>
+        <div class="select-buttons">
+          <% productJson.size.forEach((element) => { %> <%
+          if(element.size.length > 2) { %>
+          <button class="btnSelect btnSize">
+            <%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %>
+          </button>
+          <% } else {%>
+          <button class="btnSelect btnSize"><%= element.size %></button>
+          <% } %> <% })%>
+        </div>
+        <input type="hidden" class="currentSize" name="" />
+      </div>
+      <% } %>
+      <div class="stock-box">
+        <p>Em estoque!</p>
+      </div>
+      <div class="shop-infos">
+        <p class="delivery">
+          <img src="/assets/images/truck.svg" alt="" /><span>
+            Entregamos no Brasil inteiro
+          </span>
+        </p>
+        <p>✢<span>Frete Grátis</span>✢</p>
+        <p>✢<span>30 Dias de garantia</span>✢</p>
+        <p>✢<span>7 Dias para troca e devolução</span>✢</p>
+      </div>
+      <!-- de um site que vi, eles colocavam somente o input em um form com um input:hidden, contendo o todas as informações da compra em valor numérico.  -->
+      <input
+        type="hidden"
+        name="id"
+        class="idProduct"
+        value="<%= productJson.id %>"
+      />
 
-                   <% if(productJson.color.length > 0){ %>
-                    <div class="select-size">
-                        <p>Tamanho:</p>
-                        <div class="select-buttons">
-                            <% productJson.size.forEach((element) => { %>
-                                
-                                    <% if(element.size.length > 2) { %>
-                                        <button class="btnSelect btnSize"><%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %></button>
-                                     <% } else {%>
-                                        <button class="btnSelect btnSize"><%= element.size %></button>
-                                      <% } %>
-                             <% })%>
-                        </div>
-                        <input type="hidden" class="currentSize" name="">
-                    </div>
-                    <% } %>
-                    <div class="stock-box">   
-                        <p>Em estoque!</p>       
-                    </div>
-                    <div class="shop-infos">
-                        <p class="delivery"><img src="/assets/images/truck.svg" alt=""><span> Entregamos no Brasil inteiro </span></p>
-                        <p>✢<span>Frete Grátis</span>✢</p>
-                        <p>✢<span>30 Dias de garantia</span>✢</p>
-                        <p>✢<span>7 Dias para troca e devolução</span>✢</p>
-                    </div>
-                    <!-- de um site que vi, eles colocavam somente o input em um form com um input:hidden, contendo o todas as informações da compra em valor numérico.  -->
-                       <input type="hidden" name="id" class="idProduct"value="<%= productJson.id %>">
+      <div class="send-button">
+        <button id="addCartButton">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+  <section class="container-description">
+    <div class="mozaico-product">
+      <img
+        src="/assets/images/products/<%= productJson.images[0] %>.png"
+        alt=""
+      />
+      <img
+        src="/assets/images/products/<%= productJson.images[0] %>.png"
+        alt=""
+      />
+      <img
+        src="/assets/images/products/<%= productJson.images[0] %>.png"
+        alt=""
+      />
+      <img
+        src="/assets/images/products/<%= productJson.images[0] %>.png"
+        alt=""
+      />
+    </div>
+    <div class="product-info">
+      <div class="infosize-images">
+        <img src="/assets/images/medirtamanho.png" alt="" />
+        <img src="/assets/images/tamanho.png" alt="" />
+      </div>
+    </div>
+  </section>
 
-                    <div class="send-button">
-                        <button id="addCartButton">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-            </section>
-            <section class="container-description">
-                <div class="mozaico-product">
-                    <img src="/assets/images/products/<%= productJson.images[0] %>.png" alt="">
-                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
-                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
-                    <img src="/assets/images/products/<%= productJson.images[0] %>.png"" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Descrição</h3>
-                    <div class="product-description">
-                        <p>✦ <span>Material: Algodão</span></p>
-                        <p>✦ <span>Estilo: Casual</span></p>
-                        <p>✦ <span>Gênero: Unissex</span></p>
-                        <p>✦ <span>Tipo de Padrão: Anime</span></p>
-                        <p>✦ <span>Tipo de item: Moletom</span></p>
-                        <p>✦ <span>Encapuzado: Sim</span></p>
+  <section class="more-products">
+    <h3 class="section-title">Outros produtos</h3>
+    <div class="products-container">
+      <div class="product-box">
+        <div class="imgBx">
+          <img src="/assets/images/products/product-action.png" alt="" />
+        </div>
+        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
+        <p>R$ 79.99</p>
 
-                        <div class="infosize-images">
-                            <img src="/assets/images/medirtamanho.png" alt="">
-                            <img src="/assets/images/tamanho.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <button class="buy">Compre</button>
+      </div>
+      <div class="product-box">
+        <div class="imgBx">
+          <img src="/assets/images/products/product-action.png" alt="" />
+        </div>
 
-            <section class="rating-container">
-                <div class="rating-title">
-                    <img src="/assets/images/star.svg" alt="">
-                    <h3 class="section-title">Avaliações</h3>
-                </div>
-                <div class="rating-box">
-                    <div class="rating-header">
-                            <h4>Blusa Linda
-                            <span class="rate-info">
-                            <span>(13/03/2022)</span> 
-                             Cor: <span>Preta</span>
-                             |
-                             Tamanho: <span>G</span>
-                             </span>
-                            </h4>
-                            <div class="star-rate">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
-                        </div>             
-                    </div>
-                    <p>Roger</p> 
-                    
-                    <div class="rating-description">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        </p>
-                    </div>
-                </div>
-                <div class="rating-box">
-                    <div class="rating-header">
-                            <h4>Blusa Linda
-                            <span class="rate-info">
-                            <span>(13/03/2022)</span> 
-                             Cor: <span>Preta</span>
-                             |
-                             Tamanho: <span>G</span>
-                             </span>
-                            </h4>
-                            <div class="star-rate">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
-                        </div>             
-                    </div>
-                    <p>Roger</p> 
-                    
-                    <div class="rating-description">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        </p>
-                    </div>
-                </div>
-                <div class="rating-box">
+        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
+        <p>R$ 79.99</p>
 
-                    <div class="rating-header">
-                            <h4>Blusa Linda
-                            <span class="rate-info">
-                            <span>(13/03/2022)</span> 
-                             Cor: <span>Preta</span>
-                             |
-                             Tamanho: <span>G</span>
-                             </span>
-                            </h4>
-                            <div class="star-rate">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt="">
-                                <img src="/assets/images/star.svg" width="20px" height='20px'alt=""> 
-                        </div>             
-                    </div>
-                    <p>Roger</p> 
-                    
-                    <div class="rating-description">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam et sit? Fuga, placeat beatae sequi impedit earum sed, debitis ab animi voluptatem dignissimos amet dicta cumque minima dolore nostrum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non quisquam sunt enim rerum quidem voluptatibus unde et odio voluptas tenetur saepe ullam impedit, officiis laboriosam eum numquam incidunt nihil?
-                        </p>
-                    </div>
-                </div>
-                <div class="rate-btn">
-                    <button class="btn-outlined more-rate">
-                        Mostrar mais Avaliações
-                    </button>
-                </div>
-            </section>
+        <button class="buy">Compre</button>
+      </div>
+      <div class="product-box">
+        <div class="imgBx">
+          <img src="/assets/images/products/product-action.png" alt="" />
+        </div>
+        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
+        <p>R$ 79.99</p>
 
-            <section class="more-products">
-                <h3 class='section-title'>Mais vendidos</h3>
-                <div class="products-container">
-                <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
+        <button class="buy">Compre</button>
+      </div>
+      <div class="product-box">
+        <div class="imgBx">
+          <img src="/assets/images/products/product-action.png" alt="" />
+        </div>
+        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
+        <p>R$ 79.99</p>
+        <button class="buy">Compre</button>
+      </div>
+    </div>
 
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
-                    
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
+    <div class="btn-all">
+      <button>Ver Tudo</button>
+    </div>
+  </section>
+</div>
 
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="/assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-                    <button class="buy">Compre</button>
-                </div>   
-            </div>
-                
-            <div class="btn-all">
-                <button>Ver Tudo
-            </div>
-            </section>
+<script>
+  var swiper = new Swiper('.mySwiper', {
+    cssMode: true,
+    zoom: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    mousewheel: true,
+    keyboard: true
+  })
+</script>
