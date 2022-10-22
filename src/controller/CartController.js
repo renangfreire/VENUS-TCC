@@ -24,6 +24,7 @@ module.exports = {
         
         const products = await cartService.execute({productArray})
 
+
     return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products, err: undefined});
     }
 
