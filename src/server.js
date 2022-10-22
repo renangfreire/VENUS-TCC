@@ -6,6 +6,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const flush = require('connect-flash')
+const cors = require('cors')
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 app.use(express.json()) // SOMENTE PARA USO DO INSOMNIA, DESABILITAR PRA USAR NORMAL
 
 app.use(session({   
@@ -38,6 +40,6 @@ app.use((err, req, res, next) => {
         "message": "Internal Server Error"})
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3333, () => {
     console.log('listening on port 3000');
 })
