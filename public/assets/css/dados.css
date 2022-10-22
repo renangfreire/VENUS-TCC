@@ -204,9 +204,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media (max-width: 500px) {
+  header {
+    width: 60rem;
+  }
+
+  .top-header {
+    width: 55rem;
+  }
+
   .global-section {
-    padding: 0;
-    margin-left: 20rem;
     
   }
   .global-section .data-section {
@@ -223,5 +229,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .address-btn, .save-button  {
     justify-content: center;
+  }
+
+  footer {
+    width: 60rem;
+  }
+}
+
+@media (max-width: 330px) {
+  header {
+    width: 50rem;
+  }
+
+  .top-header {
+    width: 45rem;
+  }
+
+  .global-section {
+    padding: 0;
+    
+    
+  }
+  
+
+  
+
+  
+
+  footer {
+    width: 50rem;
   }
 }

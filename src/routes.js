@@ -61,6 +61,15 @@ router.get('/searchCep/:cepUser', CorreiosFreteController.handle)
 
 router.get('/pagamento', ensureAuthenticate, getUserName, PaymentController.handle)
 
+router.get('/finalizarPedido', getUserName, (req, res) => {
+  res.render('index', {
+    page: 'finalizarPedido',
+    styles: ['finalizarPedido'],
+    username: req.user_name
+  })
+})
+
+router.get('/logout', UserLogoutController.handle)
 
 router.get('*', getUserName, (req, res) => {
     res.render('index', {page: 'error404', styles: ['error404'], username: req.user_name, err})
@@ -85,4 +94,4 @@ router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
 
 router.post('/criarPedido', OrderController.handle)
 
-module.exports = router 
+module.exports = router

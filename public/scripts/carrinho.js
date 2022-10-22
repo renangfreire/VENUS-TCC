@@ -17,9 +17,9 @@ const loadingDiv = document.querySelector('.loading')
 
 const subTotal = document.querySelector('#sub')
 
-const btnTrash = document.querySelectorAll(".removeItem")
+const btnTrash = document.querySelectorAll('.removeItem')
 
-const spanTotalValue = document.querySelector('.totalValue')
+const totalValue = document.querySelector('.totalValue')
 
 // JS VARIABLES
 const originalProductValues = []
