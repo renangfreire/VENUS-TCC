@@ -33,9 +33,12 @@
     }
 
     async function postCart(cName, cValue){
-    const color = document.querySelector('.currentColor').value
-    const size = document.querySelector('.currentSize').value
-    const id = document.querySelector('.idProduct').value
+
+        const color = document.querySelector('.currentColor').value
+        const size = document.querySelector('.currentSize').value
+        const id = document.querySelector('.idProduct').value
+        
+        console.log(color)
 
         if(!color || !size || !id){
             alert("Please select a color or size") // trocar por toasty

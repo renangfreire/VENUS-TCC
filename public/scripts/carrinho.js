@@ -58,6 +58,8 @@ function addQuantity(index) {
   newProductValues[index] += originalProductValues[index]
 
   attSubTotalValue()
+
+  refreshCart(index)
 }
 
 function removeQuantity(index){
@@ -70,6 +72,8 @@ function removeQuantity(index){
     newProductValues[index] -= originalProductValues[index]
 
     attSubTotalValue()
+
+    refreshCart(index)
   }
 }
 
@@ -123,6 +127,23 @@ function addFrete(){
   freight.innerHTML = `${displayValue}`
 
   attTotalValue()
+}
+
+function refreshCart(index){
+  const getCookies = document.cookie.split(';')
+  const quantity = productAmount[index].value
+  let cookie
+  getCookies.map(el => {
+    if(el.includes('cart')){
+      cookie = JSON.parse(decodeURIComponent(el).split('=')[1])
+    }
+  })
+
+  cookie.products[index].quantity = Number(quantity)
+
+  const setCookie = JSON.stringify(cookie)
+
+  document.cookie = `cart=${setCookie}; path=/; max-age=` + 14 * 24 * 60 * 60 * 1000
 }
 
 async function calcFrete(){
@@ -185,3 +206,7 @@ inputFrete.addEventListener('keypress', function(){
     this.value += '-'
   }
 })
+
+
+
+refreshCart()

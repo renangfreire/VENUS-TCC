@@ -121,7 +121,7 @@
         </div>  
       </div>
       <div class="main-boxOrder">
-        <p>Quantidade: <span><%- element.quantity %></span></p>
+        <p>Quantidade: <span class="productQuantity"><%- element.quantity %></span></p>
         <p>R$ <span class="productTotalValue"><%= String((Number(element.value) * Number(element.quantity)).toFixed(2)).replace('.',',') %></span></p>
       </div>
       </div>

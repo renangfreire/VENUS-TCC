@@ -1,7 +1,3 @@
-.finalize-order section {
-  border: 1px solid var(--dark-purple);
-}
-
 .finalize-order {
   display: flex;
   flex-direction: column;
@@ -33,6 +29,10 @@
   background: var(--dark-purple);
 }
 
+.finalize {
+   border: 1px solid var(--dark-purple);
+}
+
 .finalizing-order .finalize {
   display: flex;
   align-items: center;
@@ -59,11 +59,6 @@
   
 }
 
-.payment-information {
-  
-  
-}
-
 .description-box {
   display: flex;
   justify-content: center;
@@ -71,17 +66,41 @@
   color: var(--white);
 }
 
-.payment-information div:first-of-type {
+.payment-information > div:first-of-type {
   padding: 2rem;
+
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  border: 1px solid var(--dark-purple);
+
+  height: 25rem;
 }
 
 .payment-information h3 {
   color: var(--dark-blue);
 }
 
+.payment-information .paymentValue {
+  display: flex;
+  gap: 2rem;
+
+  align-items: center;
+}
+.payment-information .paymentValue > span{
+  font-size: 4rem;
+}
+
+.installments{
+  padding-left: 5rem;
+}
+
 .delivery-address {
   padding: 2rem;
 
+  border: 1px solid var(--dark-purple);
+  height: 25rem;
 }
 
 .delivery-address div:last-of-type {
@@ -99,10 +118,6 @@
   gap: 1rem;
 }
 
-.orderSummary-box:first-child {
-
-}
-
 .orderSummary-box .aling{
   display: flex;
   justify-content: space-between;
@@ -110,4 +125,81 @@
 
 .line {
   border: 1px solid var(--dark-purple);
+}
+
+.order-summary {
+border: 1px solid var(--dark-purple);
+}
+
+.box-order + .box-order{
+  margin-top: 4rem
+}
+
+
+.box-order-summary {
+  background: #fff;
+  margin: 1rem;
+  padding: 3rem;
+}
+
+.box-order-summary p {
+  align-items: center;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.header-boxOrder {
+  display: flex;
+  align-items: center;
+  
+  gap:2rem;
+}
+
+.header-boxOrder div p{
+  margin-top: .7rem;
+}
+
+.orderSummary-box img {
+  width: 10rem;
+}
+
+.order-info{
+  display: flex;
+
+  flex-direction: column;
+  /* padding: 0 .5rem; */
+}
+
+.order-info > div{
+  display: flex;
+  justify-content:space-between;
+
+  gap: 2rem;
+}
+
+.order-info p {
+  font-size: var(--medium-font-size);
+}
+
+.main-boxOrder{
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.total-order{
+  width: 100%;
+  padding: 1rem;
+}
+
+.totalLine{
+  display: flex;
+  justify-content: space-between;
+
+  padding: .7rem;
+}
+.totalLine:last-of-type{
+  font-size: var(--big-font-size);
+
+  color: var(--green)
 }

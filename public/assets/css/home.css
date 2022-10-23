@@ -185,8 +185,6 @@ main .ad-container img{
     color: var(--black);
 }
 
-
-
 @media (max-width: 750px) {
     .top-header {
         width: 90rem;

@@ -17,6 +17,7 @@ const OrderController = require('./controller/OrderController')
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
 const getUserName = require('./middlewares/getUserName')
+const FinalizarPedidoController = require('./controller/FinalizarPedidoController')
 
 const router = express.Router()
 const err = undefined
@@ -25,7 +26,8 @@ const err = undefined
 router.get('/', getUserName, (req, res) => {
   res.render('index', {
     page: 'home',
-    styles: ['home'],
+    styles: ['home', 'swipper'],
+    libs: ['homeSwipper'],
     username: req.user_name,
     err
   })
@@ -103,13 +105,7 @@ router.get(
   PaymentController.handle
 )
 
-router.get('/finalizarPedido', getUserName, (req, res) => {
-  res.render('index', {
-    page: 'finalizarPedido',
-    styles: ['finalizarPedido'],
-    username: req.user_name
-  })
-})
+router.get('/pagamento/pedidofinalizado', getUserName, FinalizarPedidoController.handle)
 
 router.get('/logout', UserLogoutController.handle)
 

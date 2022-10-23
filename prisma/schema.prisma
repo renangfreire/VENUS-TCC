@@ -16,9 +16,10 @@ model User {
   name     String
   password String
   cpf      String
-  email    String  @unique
+  email    String    @unique
   sexo     String?
   tel      String?
+  admin    AdminRole @default(USER)
 
   orders  Orders[]
   address UserAddresses[]
@@ -64,9 +65,6 @@ model Orders {
 
   products ProductsOnOrder[]
 
-  color ColorsOnOrder[]
-  size  SizesOnOrder[]
-
   shippingAddress UserAddresses @relation(fields: [userAddressesId], references: [id])
 
   User User @relation(fields: [userId], references: [id])
@@ -77,10 +75,13 @@ model Orders {
 model Payment_details {
   id String @id @default(uuid())
 
-  amount    Decimal
-  statusPag StatusPag
-  createdAt DateTime  @default(now())
-  orderId   String    @unique
+  amount             Decimal
+  statusPag          StatusPag
+  createdAt          DateTime  @default(now())
+  orderId            String    @unique
+  installments       Int?
+  installment_amount Float?
+  methodPayment      String
 
   orders Orders @relation(fields: [orderId], references: [id])
 }
@@ -107,9 +108,14 @@ model ProductsOnOrder {
 
   ordersId   String
   productsId String
+  colorsId   String
+  sizesId    String
+  quantity   Int
 
-  Products Products @relation(fields: [productsId], references: [id])
-  Orders   Orders   @relation(fields: [ordersId], references: [id])
+  Products Products      @relation(fields: [productsId], references: [id])
+  Orders   Orders        @relation(fields: [ordersId], references: [id])
+  Colors   ProductColors @relation(fields: [colorsId], references: [id])
+  Sizes    ProductSizes  @relation(fields: [sizesId], references: [id])
 }
 
 model ProductColors {
@@ -118,22 +124,11 @@ model ProductColors {
   id_product String
   color      Color
 
-  Orders ColorsOnOrder[]
-
-  product Products @relation(fields: [id_product], references: [id])
-  Stock   Stock[]
+  product         Products          @relation(fields: [id_product], references: [id])
+  Stock           Stock[]
+  ProductsOnOrder ProductsOnOrder[]
 
   @@map("productColors")
-}
-
-model ColorsOnOrder {
-  id String @id @default(uuid())
-
-  ordersId        String?
-  productColorsId String?
-
-  Orders        Orders?        @relation(fields: [ordersId], references: [id])
-  ProductColors ProductColors? @relation(fields: [productColorsId], references: [id])
 }
 
 model ProductSizes {
@@ -143,21 +138,10 @@ model ProductSizes {
   size       Size
   Stock      Stock?
 
-  Orders SizesOnOrder[]
-
-  product Products @relation(fields: [id_product], references: [id])
+  product         Products          @relation(fields: [id_product], references: [id])
+  ProductsOnOrder ProductsOnOrder[]
 
   @@map("productSizes")
-}
-
-model SizesOnOrder {
-  id String @id @default(uuid())
-
-  ordersId       String
-  productSizesId String
-
-  Orders       Orders       @relation(fields: [ordersId], references: [id])
-  ProductSizes ProductSizes @relation(fields: [productSizesId], references: [id])
 }
 
 model CategoriesOnProducts {
@@ -229,4 +213,9 @@ enum StatusPag {
   REJECTED
   CANCELED
   APPROVED
+}
+
+enum AdminRole {
+  ADMIN
+  USER
 }
