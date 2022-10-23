@@ -83,8 +83,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .box-spg-req {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #box-shipping {
@@ -159,12 +158,16 @@ form span {
 }
 
 .button-links {
-  float: right;
+  display: flex;
+  justify-content: center;
 }
 
 .button-links button {
   height: 3rem;
   width: 20rem;
+  margin-bottom: 1rem;
+  
+  
 }
 
 .button-payment button{
@@ -180,6 +183,7 @@ form span {
   color: #8462CA;
   border: 1px solid #653EB5;
   border-radius: 4px;
+  
 }
 
 #input-value {
@@ -278,13 +282,22 @@ form span {
     width: 100%;
   }
 
+  .headerTop {
+    width: 55rem;
+
+  }
+
+  .top-header {
+    width: 50rem;
+  }
+
   #cart {
-    margin-top: 15rem;
+    margin: .5rem;
   }
 
   #product-cart {
     height: 100%;
-    /* width: 29.7rem; */
+     width: 54rem; 
   }
 
   .qtd-button {
@@ -307,7 +320,9 @@ form span {
   }
 
   .box-spg-req  {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7rem;
   }
 }
 
@@ -316,5 +331,5 @@ form span {
     width: 36rem;  
     padding-left: 0;
   }
-
 }
+

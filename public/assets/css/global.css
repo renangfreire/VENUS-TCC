@@ -343,11 +343,11 @@ footer p{
     
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     
 
     .headerTop {
-        width: 50rem;
+        width: 48rem;
         height: 15rem;
         padding: 0;
     }
@@ -357,7 +357,7 @@ footer p{
     }
 
     .top-header {
-        width: 40rem;
+        width: 45rem;
         margin-right: auto;
         padding-left: 2rem;
         gap: .5rem;
@@ -366,7 +366,7 @@ footer p{
     }
 
     .bottom-header {
-        width: 32.5rem;
+        
         display: none;
     }
     
@@ -406,7 +406,7 @@ footer p{
     }
 
       footer {
-        width: 45rem;
+        width: 55rem;
       }
     
 }
