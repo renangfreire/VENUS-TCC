@@ -2,14 +2,21 @@ export default function Modal() {
 
   const modalWrapper = document.querySelector('.popup-wrapper')
   const buttonClose = document.querySelector('.popup-close')
+  
+  const swiper = document.querySelector('.swiper')
+  const swiperWrapper = document.querySelector('.swiper-wrapper')
 
   buttonClose.addEventListener('click', close)
 
   function open() {
     modalWrapper.classList.add('active')
+    swiper.style.zIndex = '0'
+    swiperWrapper.style.zIndex = '0'
   }
   function close() {
     modalWrapper.classList.remove('active')
+    swiper.style.zIndex = '1'
+    swiperWrapper.style.zIndex = '1'
 
     //     const classNameOfClickedElement = event.target.classList[0]
     //     const classNames = ['popup-close', 'popup-wrapper', 'popup-link']

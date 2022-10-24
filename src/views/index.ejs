@@ -9,6 +9,9 @@
 
     
     <!-- CSS  -->
+
+    <!-- Link Swiper's CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     
     <!-- INCLUDE IN ALL PAGES -->
     <link rel="stylesheet" href="/assets/css/global.css">
@@ -31,9 +34,6 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-
-   <!-- Link Swiper's CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
     <!-- ICON -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
@@ -65,6 +65,15 @@
             <script src="https://sdk.mercadopago.com/js/v2"></script>
         <% } %>
      <% } %> 
+
+     <%if(typeof libs !== 'undefined') {%>
+        <% for(lib of libs){%>
+            <%if(lib.includes('Swipper')){%>
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+            <% } %>
+        <% }%>
+     <% } %> 
+     
 
     <!-- INCLUDE IN SPECIFIC PAGES -->
     <% if(typeof libs !== 'undefined'){%>

@@ -304,6 +304,13 @@ input[type=number]::-webkit-inner-spin-button {
   margin-top: 1.5rem;
 }
 
+.address-inputBox{
+  padding: 0 3rem 3rem 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 @media (max-width: 500px) {
   .identification-payment-orderSummary  {
     flex-direction: column;

@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 class UserRepositories{
     async create({name, email, password, cpf, sexo, tel}){              
-        await prisma.user.create({
+        const response = await prisma.user.create({
             data: {
             name,
             email,
@@ -16,7 +16,8 @@ class UserRepositories{
             }
         }
         )      
-}
+        return response
+    }
 }
 
 module.exports = UserRepositories

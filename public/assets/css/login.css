@@ -67,7 +67,7 @@ body {
 .divsexo {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
 .divsexo input[type="radio"]{
@@ -90,8 +90,8 @@ body {
 
 .divsexo input[type="radio"]::before {
   content: "";
-  width: .70em;
-  height: .70em;
+  width: .6em;
+  height: .6em;
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;

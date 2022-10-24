@@ -35,7 +35,8 @@
               <input type="number" name="" id="numeroAddress" placeholder="Numero *" required/>
               <input type="text" id="complementoAddress" placeholder="Complemento"/>
             </div>
-            <input
+            <div class="address-inputBox">
+              <input
               class="input-address inputs-identification"
               type="text"
               id="identificationAddress"
@@ -49,6 +50,8 @@
               placeholder="Desinatário *"
               required
             />
+            </div>
+            
             <div class="register-address"><button class="register-new-address">Cadastrar Endereço</button></div>
           </div>
         </form>
@@ -121,7 +124,7 @@
         </div>  
       </div>
       <div class="main-boxOrder">
-        <p>Quantidade: <span><%- element.quantity %></span></p>
+        <p>Quantidade: <span class="productQuantity"><%- element.quantity %></span></p>
         <p>R$ <span class="productTotalValue"><%= String((Number(element.value) * Number(element.quantity)).toFixed(2)).replace('.',',') %></span></p>
       </div>
       </div>

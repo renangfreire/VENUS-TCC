@@ -8,7 +8,6 @@
      
         <div class="search-box">
         <div class="filters">
-        
 
         <span>Filtrar:</span>
         <select class="button-filters">
@@ -31,9 +30,7 @@
             <option>Tipo de produto</option>
             <option></option>
         </select>
-    
     </div>
-        
        <div class="orderby">
         <span>Organizar por:</span>
             <select class="button-filters">
@@ -44,68 +41,40 @@
         <span id="result-search">35 Resultados</span>
         </div>
     </div>
+    <% if(products.length > 0){%>
     <section class="products-container">
-                
-        <div class="product-box">
-            <div class="imgBx">
-                <img src="/assets/images/products/product-moleton.png" alt="">
-            </div>
-            <h3>Moletom Nezuko Demon Slayer Kimetsu No Yaiba</h3>
-            <p>R$ 79.99</p>
+            <% products.forEach(el => { %>
 
-            <button class="buy"><a href="/product/60906868">Compre</a></button>
+                <div class="product-box">
+                    <div class="imgBx">
+                        <img src="/assets/images/products/<%- el.images[0] %>.png" alt="">
+                    </div>
+                    <h3><%- el.name %></h3>
+                    <p>R$ <%- String(el.value.toFixed(2)).replace('.', ',') %></p>
+                    <button class="buy"><a class="a-white" href="/product/<%- el.id %>">Compre</a></button>
+                </div>
+            <% }) %>
+
+            
+        </section> 
+        <div class="switch-page">
+            <div>
+                <a class="switch-link" href="/pesquisa/?search=<%- searchParam %>&page=1">1</a>
+                <a class="switch-link"href="/pesquisa/?search=<%- searchParam %>&page=2">2</a>
+                <a class="switch-link"href="/pesquisa/?search=<%- searchParam %>&page=3"%>>3</a>
+                <a class="switch-link"href="/pesquisa/?search=<%- searchParam %>&page=4">4</a>
+                <span>...</span>
+                <a class="switch-link"href="/pesquisa/?search=<%- searchParam %>&page=8">8</a>
+                <a href="#" class='arrow nextPage'>Próxima
+                <img src="/assets/images/arrow.svg" alt="Seta">
+                </a></div>
         </div>
-    
-    
-    <div class="product-box">
-        <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
+        <% } else { %>
 
-        <button class="buy"><a href="/product/75852980">Compre</a></button>
-    </div>
-    <div class="product-box">
-        <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-    </div>
-    <div class="product-box">
-        <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-    </div>
-    <div class="product-box">
-        <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-    </div>
-    <div class="product-box">
-        <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-    </div>
-</section> 
-        
-
-
-            <div class="switch-page">
-                <div>
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span>...</span>
-                    <a href="#">8</a>
-                    <a href="#" class='arrow'>Próxima
-                    <img src="./assets/images/arrow.svg" alt="Seta">
-                    </a></div>
+            <div class="not-products">
+                <h3>Lamentamos, nenhum produto encontrado com esse critério de pesquisa.</h3>
+                <p>Tente novamente com outro termo para busca...</p>
             </div>
+
+        <% } %>
         </div>

@@ -17,7 +17,7 @@ module.exports = {
             }
         }
 
-        return res.render('index', { page: 'pg-product' , productJson , libs: ["pg-product"], styles: ["pg-product"], username: req.user_name, err: undefined})
+        return res.render('index', { page: 'pg-product' , productJson , libs: ["pg-product", "productSwipper"], styles: ["pg-product", "swipper"], username: req.user_name, err: undefined})
          
     }
 }

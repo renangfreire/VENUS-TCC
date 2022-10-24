@@ -1,6 +1,7 @@
 const prisma = require('../prisma')
 const PrismaUserRepository = require('../repositories/UserRepositories')
 const { hash } = require('bcrypt')
+const { sign } = require('jsonwebtoken')
 
 class CreateUserService {
     async execute({name, password, email, cpf, sexo, tel}){
@@ -18,8 +19,11 @@ class CreateUserService {
 
         const passwordHash = await hash(password, 8)
         
-        
-        await userRepository.create({name, password: passwordHash, email, cpf, sexo, tel})
+        const user = await userRepository.create({name, password: passwordHash, email, cpf, sexo, tel})
+
+        const token = await sign({email: user.email}, process.env.JWT_SECRET, {subject: user.id, expiresIn: "1d"})
+
+        return token
         
     }
 } 

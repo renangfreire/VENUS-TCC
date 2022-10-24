@@ -2,12 +2,10 @@ const OrderRepository = require('../repositories/OrderRepositories')
 const prisma = require('../prisma')
 
 class CreateOrderService{
-    async execute({ payment_data, statusPag, orderData}){
-        const idArray = []
-        const idColors = []
-        const idSizes = []
+    async execute({ payment_data, statusPag, orderData, installment_amount}){
 
-        console.log(payment_data)
+        const idArray = []
+        const products = []
 
         const { freteValue, productsArray, userId } = orderData
 
@@ -57,34 +55,25 @@ class CreateOrderService{
                         const colors = color.find(elColor => elColor.color == cookieProduct.color)
                         const sizes = size.find(elSize => elSize.size == cookieProduct.size)
 
-                        idColors.push({productColorsId: colors.id})
-                        idSizes.push({productSizesId: sizes.id})
+                        products.push({
+                            productsId: id,
+                            colorsId: colors.id,
+                            sizesId: sizes.id,
+                            quantity: Number(cookieProduct.quantity)
+                        })
                 }})
             })
-
-            if(idColors.length == 0){
-                throw new Error("Falta cor")
-            }
-            if(idSizes.length == 0){
-                throw new Error("Falta tamanho")
-            }
-            if(idColors.length == 0){
-throw new Error("Falta cor")
-            }
-
-            const arrayProducts = []
-
-            idArray.forEach(el => arrayProducts.push({productsId: el}))
 
         await orderRepository.create({
             valorTotal: payment_data.transaction_amount, 
             valorFrete: freteValue, 
-            productsId: arrayProducts,
             userId,
+            products,
             userAddressId,
-            productColorsId: idColors, 
-            productSizesId: idSizes,
-            statusPag: statusPag
+            statusPag: statusPag,
+            installments: payment_data.installments,
+            methodPayment: payment_data.payment_method_id,
+            installment_amount
         })
 
         return

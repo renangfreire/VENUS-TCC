@@ -47,7 +47,7 @@ CREATE TABLE `payment_details` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `ProductsOnOrder` (
+CREATE TABLE `productsOnOrder` (
     `id` VARCHAR(191) NOT NULL,
     `ordersId` VARCHAR(191) NOT NULL,
     `productsId` VARCHAR(191) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `ProductsOnOrder` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `ColorsOnOrder` (
+CREATE TABLE `colorsOnOrder` (
     `id` VARCHAR(191) NOT NULL,
     `ordersId` VARCHAR(191) NULL,
     `productColorsId` VARCHAR(191) NULL,
@@ -65,7 +65,7 @@ CREATE TABLE `ColorsOnOrder` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `SizesOnOrder` (
+CREATE TABLE `sizesOnOrder` (
     `id` VARCHAR(191) NOT NULL,
     `ordersId` VARCHAR(191) NOT NULL,
     `productSizesId` VARCHAR(191) NOT NULL,
@@ -77,19 +77,19 @@ CREATE TABLE `SizesOnOrder` (
 ALTER TABLE `payment_details` ADD CONSTRAINT `payment_details_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `ProductsOnOrder` ADD CONSTRAINT `ProductsOnOrder_productsId_fkey` FOREIGN KEY (`productsId`) REFERENCES `products`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `productsOnOrder` ADD CONSTRAINT `ProductsOnOrder_productsId_fkey` FOREIGN KEY (`productsId`) REFERENCES `products`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `ProductsOnOrder` ADD CONSTRAINT `ProductsOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `productsOnOrder` ADD CONSTRAINT `ProductsOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `ColorsOnOrder` ADD CONSTRAINT `ColorsOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `colorsOnOrder` ADD CONSTRAINT `ColorsOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `ColorsOnOrder` ADD CONSTRAINT `ColorsOnOrder_productColorsId_fkey` FOREIGN KEY (`productColorsId`) REFERENCES `productColors`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `colorsOnOrder` ADD CONSTRAINT `ColorsOnOrder_productColorsId_fkey` FOREIGN KEY (`productColorsId`) REFERENCES `productColors`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `SizesOnOrder` ADD CONSTRAINT `SizesOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `sizesOnOrder` ADD CONSTRAINT `SizesOnOrder_ordersId_fkey` FOREIGN KEY (`ordersId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `SizesOnOrder` ADD CONSTRAINT `SizesOnOrder_productSizesId_fkey` FOREIGN KEY (`productSizesId`) REFERENCES `productSizes`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `sizesOnOrder` ADD CONSTRAINT `SizesOnOrder_productSizesId_fkey` FOREIGN KEY (`productSizesId`) REFERENCES `productSizes`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

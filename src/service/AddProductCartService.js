@@ -23,13 +23,12 @@ class AddProductCartService{
         }
 
         if(alreadyExistsId){
-            console.log("teste")
             return
         }
 
         cartCookie.push(newDate)
 
-        return res.status(201).cookie('cart', JSON.stringify({products: cartCookie}) , {expires: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), httpOnly: true})
+        return res.status(201).cookie('cart', JSON.stringify({products: cartCookie}) , {expires: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)})
     }
 }
 

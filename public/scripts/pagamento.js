@@ -16,6 +16,7 @@ const totalDisplayed = document.querySelector('.totalDisplayed')
 const productIds = document.querySelectorAll('.productId')
 const productSizes = document.querySelectorAll('.productSize')
 const productColors = document.querySelectorAll('.productColor')
+const productsQuantities = document.querySelectorAll('.productQuantity')
 
 let freteValue = 0
 
@@ -30,7 +31,8 @@ productIds.forEach((element, i) => {
   productsArray.push({
     id: element.value,
     size: productSizes[i].innerHTML.toUpperCase(),
-    color: productColors[i].innerHTML.toUpperCase()
+    color: productColors[i].innerHTML.toUpperCase(),
+    quantity: productsQuantities[i].innerHTML
   })
 })
 
@@ -61,7 +63,7 @@ totalDisplayed.innerHTML = String(totalValue.toFixed(2)).replace('.', ',')
 const renderPaymentBrick = async (bricksBuilder) => {
   const settings = {
     initialization: {
-      amount: totalValue, // valor total a ser pago
+      amount: Math.round(totalValue * 100) / 100, // valor total a ser pago
     },
     
     customization: {
@@ -212,9 +214,7 @@ const renderPaymentBrick = async (bricksBuilder) => {
     })     
   }
 
-  await fetch('/new-address', fetchData).then(response => {
-    window.location.reload()
-  })
+  await fetch('/new-address', fetchData)
 }
 
 closeModalButton.addEventListener('click',function() {
@@ -224,7 +224,7 @@ closeModalButton.addEventListener('click',function() {
   if(statusPag == 'rejected'){
     window.location.reload()
   } else{
-    window.location.href = '/finalizarPedido'
+    window.location.href = '/pagamento/pedidofinalizado'
   }
 })
 
