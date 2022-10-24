@@ -26,6 +26,6 @@ module.exports = {
     return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products, err: undefined});
     }
 
-    return res.render("index", {page: "carrinho", libs:['carrinho'], styles: ["carrinho"], username: req.user_name, products: undefined, err: undefined});
+    return res.render("index", {page: "carrinho", libs:['carrinho'], styles: [ "carrinho-vazio"], username: req.user_name, products: undefined, err: undefined});
   }
 }

@@ -13,34 +13,21 @@ const NewAddressController = require('./controller/NewUserAddressController')
 const CorreiosFreteController = require('./controller/CorreiosFreteController')
 const CartController = require('./controller/CartController')
 const OrderController = require('./controller/OrderController')
+const HomeController = require('./controller/HomeController')
+const FinalizarPedidoController = require('./controller/FinalizarPedidoController')
+const PesquisarController = require("./controller/PesquisarController")
+const GetUserDataController = require('./controller/GetUserDataController')
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
 const getUserName = require('./middlewares/getUserName')
-const FinalizarPedidoController = require('./controller/FinalizarPedidoController')
 
 const router = express.Router()
 const err = undefined
 
 // Routes GET
-router.get('/', getUserName, (req, res) => {
-  res.render('index', {
-    page: 'home',
-    styles: ['home', 'swipper'],
-    libs: ['homeSwipper'],
-    username: req.user_name,
-    err
-  })
-})
-router.get('/home', getUserName, (req, res) => {
-  res.render('index', {
-    page: 'home',
-    styles: ['home'],
-    libs: ['home'],
-    username: req.user_name,
-    err
-  })
-})
+router.get('/', getUserName, HomeController.handle)
+router.get('/home', getUserName, HomeController.handle)
 
 router.get('/carrinho', getUserName, CartController.handle)
 
@@ -60,14 +47,8 @@ router.get('/product/', (req, res) => {
 
 router.get('/product/:id_product', getUserName, RenderProductController.handle)
 
-router.get('/dados', ensureAuthenticate, getUserName, (req, res) => {
-  res.render('index', {
-    page: 'dados',
-    styles: ['dados'],
-    username: req.user_name,
-    err
-  })
-})
+router.get('/dados', ensureAuthenticate, getUserName, GetUserDataController.handle)
+
 router.get('/login', getUserName, (req, res) => {
   res.render('index', {
     page: 'login',
@@ -84,14 +65,8 @@ router.get('/popup', getUserName, (req, res) => {
     err
   })
 })
-router.get('/pesquisa', getUserName, (req, res) => {
-  res.render('index', {
-    page: 'pesquisa',
-    styles: ['pesquisa'],
-    username: req.user_name,
-    err
-  })
-})
+
+router.get('/pesquisa', getUserName, PesquisarController.handle)
 
 router.get('/user/logout', UserLogoutController.handle)
 
@@ -140,5 +115,7 @@ router.post(
 router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
 
 router.post('/criarPedido', OrderController.handle)
+
+router.post('/new-category')
 
 module.exports = router

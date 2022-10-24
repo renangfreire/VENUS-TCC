@@ -15,52 +15,22 @@
 
             <section class="products-container">
                 
-                    <div class="product-box">
-                        <div class="imgBx">
-                            <img src="/assets/images/products/product-moleton.png" alt="">
+                <% if(typeof products != 'undefined') {%>
+                    <% products.forEach(el => { %>
+
+                        <div class="product-box">
+                            <div class="imgBx">
+                                <img src="/assets/images/products/<%- el.images[0] %>.png" alt="">
+                            </div>
+                            <h3><%- el.name %></h3>
+                            <p>R$ <%- String(el.value.toFixed(2)).replace('.', ',') %></p>
+                            <button class="buy"><a class="a-white" href="/product/<%- el.id %>">Compre</a></button>
                         </div>
-                        <h3>Moletom Nezuko Demon Slayer Kimetsu No Yaiba</h3>
-                        <p>R$ 79.99</p>
-                        <button class="buy"><a class="a-white" href="/product/40719171">Compre</a></button>
-                    </div>
-                
-                
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-                    <button class="buy"><a class="a-white"href="/product/07158988">Compre</a></button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
+                    <% }) %>
+                <% } %>
 
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
             </section>
-            <div class="switch-page">
+            <!-- <div class="switch-page">
                 <div>
                     <a href="#">1</a>
                     <a href="#">2</a>
@@ -71,7 +41,7 @@
                     <a href="#" class='arrow'>Próxima
                     <img src="./assets/images/arrow.svg" alt="Seta">
                     </a></div>
-            </div>
+            </div> -->
         </div>
         </main>
         </div>
