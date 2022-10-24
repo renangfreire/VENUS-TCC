@@ -11,7 +11,7 @@ ALTER TABLE `payment_details` DROP FOREIGN KEY `payment_details_orderId_fkey`;
 DROP TABLE `payment_details`;
 
 -- CreateTable
-CREATE TABLE `Payment_details` (
+CREATE TABLE `payment_details` (
     `id` VARCHAR(191) NOT NULL,
     `amount` DECIMAL(65, 30) NOT NULL,
     `statusPag` ENUM('PENDING', 'INPROCESS', 'REJECTED', 'CANCELED', 'APPROVED') NOT NULL,
@@ -23,4 +23,4 @@ CREATE TABLE `Payment_details` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Payment_details` ADD CONSTRAINT `Payment_details_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `payment_details` ADD CONSTRAINT `Payment_details_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
