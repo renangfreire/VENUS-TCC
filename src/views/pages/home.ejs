@@ -14,7 +14,6 @@
             </section>
 
             <section class="products-container">
-                
                 <% if(typeof products != 'undefined') {%>
                     <% products.forEach(el => { %>
 
@@ -24,7 +23,7 @@
                             </div>
                             <h3><%- el.name %></h3>
                             <p>R$ <%- String(el.value.toFixed(2)).replace('.', ',') %></p>
-                            <button class="buy"><a class="a-white" href="/product/<%- el.id %>">Compre</a></button>
+                            <a class="a-white" href="/product/<%- el.id %>"><button class="buy">Compre</button></a>
                         </div>
                     <% }) %>
                 <% } %>

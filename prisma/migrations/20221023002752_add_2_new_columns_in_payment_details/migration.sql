@@ -1,8 +1,8 @@
 /*
   Warnings:
 
-  - Added the required column `installments` to the `Payment_details` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `methodPayment` to the `Payment_details` table without a default value. This is not possible if the table is not empty.
+  - Added the required column `installments` to the `payment_details` table without a default value. This is not possible if the table is not empty.
+  - Added the required column `methodPayment` to the `payment_details` table without a default value. This is not possible if the table is not empty.
 
 */
 -- AlterTable
