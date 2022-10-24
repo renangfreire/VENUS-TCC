@@ -1,11 +1,9 @@
             <div class="content"> 
             <section class='ad-container'>
                 <div class="swiper mySwiper" >
-                <div class="swiper-wrapper">
-                <!-- JAVASCRIPT AQUI -->
-                
+                <div class="swiper-wrapper">            
                <div class="swiper-slide"> <img src="./assets/images/anuncio.png" alt=""></div>
-               <div class="swiper-slide"> <img src="./assets/images/anuncio.png" alt=""></div>
+                <div class="swiper-slide"> <img src="./assets/images/anuncio.png" alt=""></div>
                 <div class="swiper-slide"><img src="./assets/images/anuncio.png" alt=""></div>
                 <div class="swiper-slide"><img src="./assets/images/anuncio.png" alt=""></div>
             </div>
@@ -17,52 +15,22 @@
 
             <section class="products-container">
                 
-                    <div class="product-box">
-                        <div class="imgBx">
-                            <img src="/assets/images/products/product-moleton.png" alt="">
+                <% if(typeof products != 'undefined') {%>
+                    <% products.forEach(el => { %>
+
+                        <div class="product-box">
+                            <div class="imgBx">
+                                <img src="/assets/images/products/<%- el.images[0] %>.png" alt="">
+                            </div>
+                            <h3><%- el.name %></h3>
+                            <p>R$ <%- String(el.value.toFixed(2)).replace('.', ',') %></p>
+                            <button class="buy"><a class="a-white" href="/product/<%- el.id %>">Compre</a></button>
                         </div>
-                        <h3>Moletom Nezuko Demon Slayer Kimetsu No Yaiba</h3>
-                        <p>R$ 79.99</p>
-                        <button class="buy"><a class="a-white" href="/product/03408245">Compre</a></button>
-                    </div>
-                
-                
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-                    <button class="buy"><a class="a-white"href="/product/44841337">Compre</a></button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
+                    <% }) %>
+                <% } %>
 
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
-                <div class="product-box">
-                    <div class="imgBx"><img src="assets/images/products/product-action.png" alt=""></div>
-                    <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-                    <p>R$ 79.99</p>
-
-                    <button class="buy">Compre</button>
-                </div>
             </section>
-            <div class="switch-page">
+            <!-- <div class="switch-page">
                 <div>
                     <a href="#">1</a>
                     <a href="#">2</a>
@@ -73,33 +41,9 @@
                     <a href="#" class='arrow'>Próxima
                     <img src="./assets/images/arrow.svg" alt="Seta">
                     </a></div>
-            </div>
+            </div> -->
         </div>
         </main>
         </div>
     </div>
 </div>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    cssMode: true,
-    loop: true,
-    autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    mousewheel: true,
-    keyboard: true,
-  });
-</script>

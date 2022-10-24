@@ -2,7 +2,8 @@
 
 .container-product{
     margin-top: 5.1rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
 }
 .container-product > img{
@@ -11,7 +12,7 @@
 }
 .container-product .sell-info{
     border: 0.1rem solid var(--dark-purple);
-    padding: 3.5rem;
+    padding: 2rem;
 }
 .sell-info h1{
     font-weight: 400;
@@ -186,11 +187,10 @@
 .infosize-images{
     height: 100%;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 8rem;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 /* --------- More products */
 
@@ -297,4 +297,8 @@ opacity: 1;
 }
 .btn-all button:hover{
     filter:contrast(150%);
+}
+
+.swiper-zoom-container{
+    width: auto;
 }

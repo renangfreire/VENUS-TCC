@@ -2,7 +2,7 @@
   <section class="finalizing-order">
     <div class="request-number">
       <p>Número de pedido</p>
-      <div>GRYEAG-48390-09324</div>
+      <div>VENUS-<%- orderData.orderId.toUpperCase() %></div>
     </div>
     <div class="finalize">
       <span class="material-symbols-outlined done"> done </span>
@@ -19,56 +19,88 @@
     <section class="payment-information">
       <h2 class="description-box">Informações de pagamento</h2>
       <div>
-        <h3>Cartão de crédito MasterCard</h3>
+       <% if(orderData.paymentDetails.methodPayment == 'pix') {%>
+        <h3>Pix</h3>
+        <% } else if(orderData.paymentDetails.methodPayment == 'bolbradesco') {%>
+          <h3>Boleto</h3>
+        <% } else {%>
+          <h3>Cartão de Credito <%- orderData.paymentDetails.methodPayment.charAt(0).toUpperCase() + orderData.paymentDetails.methodPayment.toLowerCase().slice(1)%></h3>
+
+          <% } %>
         <div>
-          <p><b>Total R$ 150,00</b></p>
-          <p>em 3x de R$ 50,00</p>
+          <div class="paymentValue">
+            <span class="material-symbols-outlined">
+              paid
+              </span>
+          <p>Total <span class="bold">R$ <%-String(orderData.valorTotal.toFixed(2)).replace('.', ',') %></span></p>
         </div>
-        <p><b>Fique Atento!</b></p>
-        <p>Você receberá um e-mail informando se o seu pedido foi aprovado.</p>
+          <% if(orderData.paymentDetails.installments && orderData.paymentDetails.installments != 1) { %>
+            <p class="installments">em <%- orderData.paymentDetails.installments%>x de R$ <%- String(orderData.paymentDetails.installment_amount.toFixed(2)).replace('.',',') %></p>
+          <% } %>
+        </div>
+        <div>
+          <p><b>Fique Atento!</b></p>
+          <p>Você receberá um e-mail informando se o seu pedido foi aprovado.</p>
+        </div>
+       
       </div>
     </section>
     <section>
       <h2 class="description-box">Endereço de entrega</h2>
       <div class="delivery-address">
-        <h3>Renan Gomes Freire</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <h3><%- orderData.User.name %></h3>
+        <p><%- `${orderData.User.address[0].rua}, ${orderData.User.address[0].identificacao}, CEP ${orderData.User.address[0].cep}, ` %>
+           <% if(orderData.User.address[0].complemento) {%>
+         <%- orderData.User.address[0].complemento %>,
+       <% } %>
+       <%- `${orderData.User.address[0].bairro}, ${orderData.User.address[0].cidade}-${orderData.User.address[0].estado}` %></p>
         <div>
           <h3>Entrega</h3>
-          <p><b>Correios - Sedex - R$ 22,50</b></p>
+          <p><b>Sedex - R$ <%- String(orderData.valorFrete.toFixed(2)).replace(".", ",") %></b></p>
           <p>
-            O prazo de entrega é de b8 dias úteis após postagem da encomenda
+            O prazo de entrega é de 8 dias úteis após postagem da encomenda
           </p>
         </div>
       </div>
     </section>
-    <section>
+    <section class="order-summary">
       <h2 class="description-box">Resumo do pedido</h2>
       <div class="orderSummary-box">
-        <div>
-          <img src="" alt="" />
-          <p><b>Moletom Nezuko</b></p>
-          <p>Cor: Preta</p>
-          <p>R$ 119,99</p>
-          <div class="aling">
-            <p>Quantidade: 1</p>
-            <p><b>R$ 119,99</b></p>
+          <% orderData.products.forEach((element) => { %>
+            <div class="box-order">
+              <div class="header-boxOrder">
+                <img src="/assets/images/products/<%= element.Products.images[0]%>.png" alt="<%- element.Products.name %>" />
+                <div>
+                  <span class="bold"><%= element.Products.name %></span>
+                  <div class="order-info">
+                    <div><p>
+                      Cor:
+                      <span class="productColor"><%= element.Colors.color.charAt(0) + element.Colors.color.toLowerCase().slice(1)%></span>
+                    </p>
+                      <p>Tamanho: 
+                        <% if(element.Sizes.size.length > 2) { %>
+                          <span class="productSize"><%= element.Sizes.size.charAt(0) + element.Sizes.size.toLowerCase().slice(1) %></span>
+                       <% } else {%>
+                          <span class="productSize"><%= element.Sizes.size %></span>
+                        <% } %>
+                      </p></div>
+                      <p>R$ <span ><%= String(element.Products.value.toFixed(2)).replace('.', ',') %></span></p>
+                  </div>
+
+                    </div>
+              </div>  
+              <div class="main-boxOrder">            
+                <p>Quantidade: <span class="bold"><%= element.quantity %></span></p>
+                <p>R$ <span class="productTotalValue bold"><%= String((element.Products.value * element.quantity).toFixed(2)).replace('.', ',')  %></span></p>
+              </div>
+            </div>
+            <% }) %>
           </div>
-        </div>
-        <div class="line"></div>
-        <div class="aling">
-          <p>Total dos Itens</p>
-          <p><b>R$ 119,99</b></p>
-        </div>
-        <div class="aling">
-          <p>Frete</p>
-          <p><b>R$ 22,50</b></p>
-        </div>
-        <div class="aling">
-          <p><b>Total do Pedido</b></p>
-          <p><b>R$ 142,49</b></p>
-        </div>
-      </div>
+            <div class="total-order">
+              <p class="totalLine">subtotal <span>R$ <span class="subTotal bold">0,00</span></span></p>
+              <p class="totalLine">Frete <span>R$ <span class="freteDisplayed bold"><%- String(orderData.valorFrete.toFixed(2)).replace('.', ',')%></span></span></p>
+              <p class="totalLine">Total <span>R$ <span class="totalDisplayed bold">0,00</span></span></p>
+            </div>
     </section>
   </div>
 </div>

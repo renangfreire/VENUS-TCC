@@ -44,23 +44,14 @@
       <p>
         <%= `R$ ${Number(productJson.value).toFixed(2).replace('.', ',')}`%>
       </p>
-      <div class="method-card">
-        <span
-          ><%= `Em até 6x de R$ ${(productJson.value /
-          6).toFixed(2).replace('.', ',')} sem juros no cartão` %></span
-        >
-        <img src="/assets/images/card.svg" />
-      </div>
+      
 
       <% if(productJson.color.length > 0) { %>
       <div class="select-color">
         <p>Cor:</p>
         <div class="select-buttons">
           <% productJson.color.forEach((element) => { %>
-          <button class="btnSelect btnColor">
-            <%= element.color.charAt(0) + element.color.toLowerCase().slice(1)
-            %>
-          </button>
+          <button class="btnSelect btnColor"><%=element.color.charAt(0) + element.color.toLowerCase().slice(1)%></button>
           <% })%>
         </div>
         <input type="hidden" name="color" class="currentColor" value="" />
@@ -71,9 +62,7 @@
         <div class="select-buttons">
           <% productJson.size.forEach((element) => { %> <%
           if(element.size.length > 2) { %>
-          <button class="btnSelect btnSize">
-            <%= element.size.charAt(0) + element.size.toLowerCase().slice(1) %>
-          </button>
+          <button class="btnSelect btnSize"><%=element.size.charAt(0) + element.size.toLowerCase().slice(1)%></button>
           <% } else {%>
           <button class="btnSelect btnSize"><%= element.size %></button>
           <% } %> <% })%>
@@ -90,9 +79,7 @@
             Entregamos no Brasil inteiro
           </span>
         </p>
-        <p>✢<span>Frete Grátis</span>✢</p>
-        <p>✢<span>30 Dias de garantia</span>✢</p>
-        <p>✢<span>7 Dias para troca e devolução</span>✢</p>
+        
       </div>
       <!-- de um site que vi, eles colocavam somente o input em um form com um input:hidden, contendo o todas as informações da compra em valor numérico.  -->
       <input
@@ -107,31 +94,10 @@
       </div>
     </div>
   </section>
-  <section class="container-description">
-    <div class="mozaico-product">
-      <img
-        src="/assets/images/products/<%= productJson.images[0] %>.png"
-        alt=""
-      />
-      <img
-        src="/assets/images/products/<%= productJson.images[0] %>.png"
-        alt=""
-      />
-      <img
-        src="/assets/images/products/<%= productJson.images[0] %>.png"
-        alt=""
-      />
-      <img
-        src="/assets/images/products/<%= productJson.images[0] %>.png"
-        alt=""
-      />
-    </div>
-    <div class="product-info">
       <div class="infosize-images">
         <img src="/assets/images/medirtamanho.png" alt="" />
         <img src="/assets/images/tamanho.png" alt="" />
       </div>
-    </div>
   </section>
 
   <section class="more-products">
@@ -176,27 +142,8 @@
     </div>
 
     <div class="btn-all">
-      <button>Ver Tudo</button>
+      <a href="/pesquisa"><button>Ver Tudo</button></a>
     </div>
   </section>
 </div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<script>
-  var swiper = new Swiper('.mySwiper', {
-    cssMode: true,
-    zoom: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    mousewheel: true,
-    keyboard: true
-  })
-</script>

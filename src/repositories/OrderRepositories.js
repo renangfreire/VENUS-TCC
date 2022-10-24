@@ -4,13 +4,14 @@ class OrderRepository{
         valorTotal, 
         valorFrete, 
         rastreio, 
-        productsId,
         statusOrder,
         userId,
         userAddressId,
-        productColorsId, 
-        productSizesId,
-        statusPag
+        products, 
+        statusPag,
+        installments,
+        methodPayment,
+        installment_amount
     }){
         await prisma.orders.create({
         data: {
@@ -26,19 +27,16 @@ class OrderRepository{
                     id: userAddressId
                 }
             },
-            color: {
-                create: productColorsId
-            },
-            size: {
-                create: productSizesId
-            },
             products: {
-                create: productsId
+                create: products
             },
             paymentDetails: {
                 create: {
                     amount: valorTotal,
-                    statusPag
+                    statusPag,
+                    methodPayment,
+                    installments,
+                    installment_amount
                 }
             }
         }})

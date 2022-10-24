@@ -52,7 +52,6 @@ class FindProductService{
                     throw new Error('Product not exits') 
                 }
                 products = product
-                console.log(product)
             }
         })
             // se for Array
@@ -63,7 +62,6 @@ class FindProductService{
                 getProducts.find(el => {
                     if(el.id == cookieProduct.id){
                         const newObj = Object.assign({}, el)
-
                         newObj.color = [{color: cookieProduct.color}]
                         newObj.size = [{size: cookieProduct.size}]
 
