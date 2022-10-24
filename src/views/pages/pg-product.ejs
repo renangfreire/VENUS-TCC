@@ -108,43 +108,18 @@
   <section class="more-products">
     <h3 class="section-title">Outros produtos</h3>
     <div class="products-container">
-      <div class="product-box">
-        <div class="imgBx">
-          <img src="/assets/images/products/product-action.png" alt="" />
+        <% moreProducts.forEach(el => { %>
+        <div class="product-box">
+          <div class="imgBx">
+            <img src="/assets/images/products/<%- el.images[0] %>.png" alt="" />
+          </div>
+          <h3><%- el.name %></h3>
+          <p>R$ <%- String(el.value.toFixed(2)).replace('.', ',')%></p>
+  
+          <a href="/product/<%- el.id %>"><button class="buy">Compre</button></a>
         </div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
+        <% }) %>
       </div>
-      <div class="product-box">
-        <div class="imgBx">
-          <img src="/assets/images/products/product-action.png" alt="" />
-        </div>
-
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-      </div>
-      <div class="product-box">
-        <div class="imgBx">
-          <img src="/assets/images/products/product-action.png" alt="" />
-        </div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-
-        <button class="buy">Compre</button>
-      </div>
-      <div class="product-box">
-        <div class="imgBx">
-          <img src="/assets/images/products/product-action.png" alt="" />
-        </div>
-        <h3>2 ACTION FIGURE: NEZUKO + TANJIRO</h3>
-        <p>R$ 79.99</p>
-        <button class="buy">Compre</button>
-      </div>
-    </div>
 
     <div class="btn-all">
       <a href="/pesquisa"><button>Ver Tudo</button></a>

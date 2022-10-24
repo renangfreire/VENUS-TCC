@@ -46,6 +46,7 @@ main .ad-container img{
 }
 .products-container .product-box .imgBx img {
     max-width: 90%;
+    max-width: 25rem;
     transition: .5s;
 }
 .product-box:hover .imgBx img {

@@ -2,7 +2,6 @@ const prisma = require('../prisma')
 
 class GetUserDataService{
     async execute({userId}){
-
         const userData = await prisma.user.findUnique({
                 where: {
                     id: userId
