@@ -20,17 +20,28 @@
 }
 
 .popup-wrapper{
-    display: none;
-    background: rgba(0,0,0, .5);
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
 }
 .popup-wrapper.active{
-    display: inherit;
+    opacity: 1;
+    visibility: visible;
    
+}
+
+.popup{
+    z-index: 0;
 }
 
 .popup .form-button{
@@ -100,7 +111,7 @@
 }
 .lista details p{
    
-    color: var(--green);
+    color: var(--dark-gray);
     padding: 2%;
 }
 #subtitulo {

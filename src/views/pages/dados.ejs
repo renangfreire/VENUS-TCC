@@ -6,9 +6,9 @@
         <h3>Dados básicos:</h3>
         <button class="btn-outlined alter-password">Alterar Senha</button>
       </div>
-      <form action="">
+      <form action="/dados" method="POST">
         <label for="name">Nome*</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" value="<%- userData.name %>" />
         <div class="input-locked">
           <label for="email">Email*</label>
           <input
@@ -16,7 +16,7 @@
             disabled
             name="email"
             id="email"
-            value="texugo@brasil.com"
+            value="<%- userData.email%>"
           />
           <span class="material-symbols-outlined dark-gray"> lock </span>
         </div>
@@ -28,7 +28,8 @@
             name="cpf"
             id="cpf"
             disabled
-            value="398.880.000-00"
+            placeholder="398.880.000-00"
+            value="<%- `${userData.cpf.slice(0,3)}.${userData.cpf.slice(3,6)}.${userData.cpf.slice(6,9)}-${userData.cpf.slice(9,11)}` %>"
           />
           <span class="material-symbols-outlined dark-gray"> lock </span>
         </div>
@@ -36,12 +37,12 @@
         <p>Sexo*</p>
         <div class="divsexo">
           <label class="input_block" for="sex_mas">
-            <input type="radio" name="sexo" id="sex_mas" value="masculino" />
+            <input type="radio" <% if(userData.sexo == 'masculino') { %>  <%- "checked" %>  <% }%> name="sexo" id="sex_mas" value="masculino" />
             Masculino
           </label>
 
           <label class="input_block" for="sex_fem">
-            <input type="radio" name="sexo" id="sex_fem" value="feminino" />
+            <input type="radio" <% if(userData.sexo == 'feminino') { %>  <%- "checked" %>  <% }%> name="sexo" id="sex_fem" value="feminino" />
             Feminino
           </label>
 
@@ -51,25 +52,14 @@
               name="sexo"
               id="sex_nao_inf"
               value="nao-informar"
+              <% if(userData.sexo == 'nao-informar') { %>  <%- "checked" %>  <% }%>
             />
             Prefiro não informar
           </label>
         </div>
 
-        <div class="input-locked">
-          <label for="born">Data de Nascimento</label>
-          <input
-            type="date"
-            name="born"
-            disabled
-            value="1983-12-02"
-            id="born"
-          />
-          <span class="material-symbols-outlined dark-gray"> lock </span>
-        </div>
-
-        <label for="phone">Telefone*</label>
-        <input type="text" name="phone" id="phone" />
+        <label for="phone">Telefone</label>
+        <input type="text" name="tel" id="phone" placeholder="(11) 99999-9999" value="<% if(typeof userData.tel != 'object'){%><%-`(${userData.tel.split('-')[0]}) ${userData.tel.split('-')[1]}-${userData.tel.split('-')[2]}` %><% }%>"/>
         <div class="save-button">
           <button class="btn">Salvar</button>
         </div>
@@ -77,27 +67,16 @@
     </div>
 
     <div class="address-container">
-      <h2>Endereço</h2>
-      <div class="address-box active">
-        <h3>Casa</h3>
-        <p>Rua Maria</p>
-        <p>Numero: 299</p>
-        <p>CEP 07390930 - Barueri, SP</p>
-      </div>
+      <h2>Endereço/s</h2>
+      <% userData.address.forEach(el => { %>
 
-      <div class="address-box">
-        <h3>Casa</h3>
-        <p>Rua José</p>
-        <p>Numero: 039</p>
-        <p>CEP 06497930 - Ibiúna, SP</p>
-      </div>
-      <div class="address-box">
-        <h3>Trabalho</h3>
-        <p>Torre Maqueico</p>
-        <p>Numero: 029</p>
-        <p>CEP 08774200 - Ibiúna, SP</p>
-      </div>
-
+        <div class="address-box active">
+          <h3><%- el.idenEndereco %></h3>
+          <p><%- el.rua %></p>
+          <p>Numero: <%- el.identificacao %></p>
+          <p>CEP <%- el.cep %>, <%- el.bairro %> - <%- el.cidade %>,<%- el.estado%></p>
+        </div>
+      <% }) %>
       <div class="address-btn">
         <button class="btn">
           <span class="material-symbols-outlined"> add_circle </span>
