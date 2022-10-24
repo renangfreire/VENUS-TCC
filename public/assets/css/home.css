@@ -191,13 +191,13 @@ main .ad-container img{
     }
 }
 
-@media (max-width: 500px) {
-    header {
-        width: 50rem;
+@media (max-width: 550px) {
+    .headerTop {
+        width: 52rem;
     }
 
     .top-header {
-        width: 45rem;
+        width: 50rem;
     }
 
     .content {
@@ -225,6 +225,9 @@ main .ad-container img{
         width: 35rem;
         height: 20rem;
     }
+    footer {
+        width: 52rem;
+    }
     }
 
     @media (max-width: 330px) {
@@ -238,6 +241,10 @@ main .ad-container img{
         }
 
         .content {
+            width: 45rem;
+        }
+
+        footer {
             width: 45rem;
         }
     }

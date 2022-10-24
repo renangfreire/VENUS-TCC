@@ -12,7 +12,7 @@
       </div>
       <div id="description">
         <p><%= element.name %></p>
-        <br />
+        
         <%if(element.color.length > 0){%>
         <p>
           Cor: <% element.color.forEach((element) => { %>
@@ -100,7 +100,7 @@
             disabled
           />R$ <span class="request-values" id="sub">0.00</span></span
         >
-        <br />
+        
         <div class="line"></div>
         <p>Frete</p>
         <span>
@@ -108,21 +108,21 @@
           <span class="request-values" id="freight">0,00</span>
         </span>
 
-        <br />
+        
         <div class="line"></div>
         <p>Total</p>
         <span>
           R$
           <span class="totalValue request-values"> 0.00</span>
         </span>
-        <br />
+        
         <div class="button-links button-payment">
           <button type="submit">Ir para o pagamento</button>
         </div>
       </form>
       <div>
         <div class="button-links">
-          <br />
+          
           <a href="/home"><button>Voltar para loja</button></a>
         </div>
       </div>
