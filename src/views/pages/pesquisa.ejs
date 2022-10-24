@@ -1,46 +1,5 @@
-    <head>
-    <!-- CSS  -->
-    <link rel="stylesheet" href="assets/css/home.css">
-</head>
-<body>
-        <main>
         <h1 class="page-title"> Resultados da pesquisa </h1>
      
-        <div class="search-box">
-        <div class="filters">
-
-        <span>Filtrar:</span>
-        <select class="button-filters">
-            <option class="button-filters">Disponibilidades</option>
-            <option></option>
-       </select>
-        <select class="button-filters">
-            <option>Tamanho</option>
-            <option></option>
-        </select>
-        <select class="button-filters">
-            <option >Cor</option>
-            <option></option>
-        </select>
-       <select class="button-filters">
-            <option >Preço</option>
-            <option></option>
-        </select>
-        <select class="button-filters">
-            <option>Tipo de produto</option>
-            <option></option>
-        </select>
-    </div>
-       <div class="orderby">
-        <span>Organizar por:</span>
-            <select class="button-filters">
-                <option>Relevância</option>
-                <option>Relevância</option>
-                <option>Relevância</option>
-            </select>
-        <span id="result-search">35 Resultados</span>
-        </div>
-    </div>
     <% if(products.length > 0){%>
     <section class="products-container">
             <% products.forEach(el => { %>

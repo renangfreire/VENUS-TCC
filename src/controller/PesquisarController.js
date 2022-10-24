@@ -21,7 +21,7 @@ module.exports = {
            if(products){
             return res.render('index', {
                 page: 'pesquisa',
-                styles: ['pesquisa'],
+                styles: ['pesquisa', 'home'],
                 libs: ['pesquisar'],
                 username: req.user_name,
                 products,

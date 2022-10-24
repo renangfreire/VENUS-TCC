@@ -21,6 +21,8 @@ main .ad-container img{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 3.3rem;
+
+    padding-top: 5rem;
 }
 .products-container .product-box{
     width: 32rem;
