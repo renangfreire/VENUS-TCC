@@ -59,7 +59,7 @@
         </div>
 
         <label for="phone">Telefone</label>
-        <input type="text" name="phone" id="phone" placeholder="(11) 99999-9999" value="<%-`(${userData.tel.split('-')[0]}) ${userData.tel.split('-')[1]}-${userData.tel.split('-')[2]}` %>"/>
+        <input type="text" name="tel" id="phone" placeholder="(11) 99999-9999" value="<% if(typeof userData.tel != 'object'){%><%-`(${userData.tel.split('-')[0]}) ${userData.tel.split('-')[1]}-${userData.tel.split('-')[2]}` %><% }%>"/>
         <div class="save-button">
           <button class="btn">Salvar</button>
         </div>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="address-container">
-      <h2>Endereço</h2>
+      <h2>Endereço/s</h2>
       <% userData.address.forEach(el => { %>
 
         <div class="address-box active">

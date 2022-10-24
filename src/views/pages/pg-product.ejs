@@ -2,6 +2,18 @@
   <section class="container-product">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
+        <% if(productJson.images.length > 1) {%> 
+          <% productJson.images.forEach(el => { %>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+              <img
+              src="/assets/images/products/<%= el %>.png"
+              alt="Blusa"
+            />
+          </div>
+        </div>
+        <% }) %>
+        <% } else {%>
         <div class="swiper-slide">
           <div class="swiper-zoom-container">
             <img
@@ -26,14 +38,7 @@
             />
           </div>
         </div>
-        <div class="swiper-slide">
-          <div class="swiper-zoom-container">
-            <img
-              src="/assets/images/products/<%= productJson.images[0] %>.png"
-              alt="Blusa"
-            />
-          </div>
-        </div>
+        <% } %>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>

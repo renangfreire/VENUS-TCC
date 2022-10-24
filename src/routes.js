@@ -17,6 +17,7 @@ const HomeController = require('./controller/HomeController')
 const FinalizarPedidoController = require('./controller/FinalizarPedidoController')
 const PesquisarController = require("./controller/PesquisarController")
 const GetUserDataController = require('./controller/GetUserDataController')
+const UpdateUserDataController = require('./controller/UpdateUserDataController') 
 
 // MIDDLEWARE
 const ensureAuthenticate = require('./middlewares/ensureAuthenticated')
@@ -115,6 +116,8 @@ router.post(
 router.post('/new-address', ensureAuthenticate, NewAddressController.handle)
 
 router.post('/criarPedido', OrderController.handle)
+
+router.post('/dados', UpdateUserDataController.handle)
 
 router.post('/new-category')
 
